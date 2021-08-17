@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>开元棋牌</title>
+    <link rel="stylesheet" href="./css/style1.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+<!--    <script src="./js/rem.js"></script>-->
+<!--    <link rel="stylesheet" href="./css/style2.css">-->
+
+  </head>
+
+  <body>
+    <div class="container mw">
+      <div class="mw top">
+        <img src="img/top-bg.png" alt="" class="top-bg">
+        <div>
+          <img src="img/top-btn.png" alt="" class="top-btn" id="download" onclick="downApp()">
+        </div>
+      </div>
+      <!-- 轮播图 -->
+      <div class="swiper-container-wrapper">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <!--          <div class="swiper-slide"> <img class="banner-bg" src="img/carousel-1.png" alt=""></div>-->
+            <!--          <div class="swiper-slide"> <img class="banner-bg" src="img/carousel-2.png" alt=""></div>-->
+            <div class="swiper-slide"><img class="banner-bg" src="img/carousel-3.png" alt=""></div>
+            <div class="swiper-slide"><img class="banner-bg" src="img/carousel-4.png" alt=""></div>
+            <div class="swiper-slide"><img class="banner-bg" src="img/carousel-5.png" alt=""></div>
+            <!--          <div class="swiper-slide"> <img class="banner-bg" src="img/carousel-6.png" alt=""></div>-->
+          </div>
+        </div>
+      </div>
+      <div class="main" style="position:relative;overflow: hidden;">
+       <!-- <div class="section1">
+          <div class="logo"></div>
+          <div class="titles">
+            <p class="title">开元棋牌</p>
+            <p>品牌信誉-首选开元棋牌，最具公信力的博彩公司及更高质量的游戏平台；打造在线博彩第一品牌</p>
+            <p class="rates"><span class="hot"></span>&nbsp;热度&nbsp;&nbsp;121K+&nbsp;&nbsp;人已下载</p>
+          </div>
+        </div>-->
+<!--        <img src="img/1.png" alt="" class="bgpic">-->
+        <!--<a href="#" class="down" id="download2">
+          <img src="img/btn-down.png" alt="">
+        </a>-->
+        <div id="install">
+          <img src="./img/anzhuang.png" alt="">
+        </div>
+        <div class="btnBox">
+          <div class="left">
+            <a href="javascript:downApp();" class="href">
+              <img src="img/android1.png">
+            </a>
+          </div>
+          <div class="right">
+            <a href="javascript:downApp();" class="href">
+              <img src="img/ios1.png">
+            </a>
+          </div>
+        </div>
+        <div class="sites">
+          <div class="left">
+            <span class="tip"></span>线路检测
+          </div>
+          <div class="right">
+            点击进入就能玩
+          </div>
+        </div>
+        <ul class="webs">
+          <li><span class="times"></span><span class="web"></span><a href="" target="_blank">立即进入</a></li>
+          <li><span class="times"></span><span class="web"></span><a href="" target="_blank">立即进入</a></li>
+          <li><span class="times"></span><span class="web"></span><a href="" target="_blank">立即进入</a></li>
+          <li><span class="times"></span><span class="web"></span><a href="" target="_blank">立即进入</a></li>
+<!--          <li><span class="times"></span><span class="web"></span><a href="" target="_blank">立即进入</a></li>-->
+        </ul>
+      </div>
+      <div style="position: relative;">
+        <img src="img/2.png" alt="" class="bgpic">
+        <p class="desc">全球顶级竞技棋牌中心，<span>10年经典棋牌品牌</span>，2020游戏全新精心打造，<span>与亿万玩家一起玩《开元棋牌》</span>开元棋牌<span>唯一指定官网：2041.app</span>;下载APP<span>注册即送888元</span>！拥有：最全的<span>棋牌游戏、捕鱼游戏、电子游戏、真人视讯</span>；支持支付宝、微信、银行卡充值！
+        </p>
+      </div>
+      <p class="copyright">Copyright © 开元棋牌 版权所有 Reserved</p>
+    </div>
+    <div id="xinren_list">
+      <div class="w750">
+        <a href="javascript:;" id="closeImg"><img src="./img/close.png" alt=""></a>
+        <img src="./img/help.png" alt="">
+      </div>
+    </div>
+  </body>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/swiper.min.js"></script>
+  <script src="https://res.sharetrace.com/sharetrace.min.js"></script>
+  <script type="text/javascript">
+    var ua = window.navigator.userAgent.toLowerCase();
+    if (/iphone/.test(ua) || /ipad/.test(ua)) {
+      $('#install').show()
+    } else if (/android/.test(ua)) {
+      $('#install').hide()
+    } else {
+
+    }
+    $('#install').on('click',function () {
+      $("#xinren_list").attr("style","display:block;");
+    })
+    $("#closeImg").click(function(e){
+      $("#xinren_list").attr("style","display:none;");
+    });
+
+
+    setTimeout(function () {
+      $('.times').eq(0).html(2 + Math.ceil(Math.random() * 2) + 'ms')
+    }, 200)
+    setTimeout(function () {
+      $('.times').eq(1).html(4 + Math.ceil(Math.random() * 2) + 'ms')
+    }, 300)
+    setTimeout(function () {
+      $('.times').eq(2).html(6 + Math.ceil(Math.random() * 2) + 'ms')
+    }, 400)
+    setTimeout(function () {
+      $('.times').eq(3).html(8 + Math.ceil(Math.random() * 2) + 'ms')
+    }, 500)
+    /*setTimeout(function () {
+      $('.times').eq(4).html(10 + Math.ceil(Math.random() * 2) + 'ms')
+    }, 600)*/
+    
+
+
+
+    function GetQueryString (name) {
+      var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
+      var r = window.location.search.substr(1).match(reg)
+      if (r != null) return unescape(r[2])
+      return null
+    }
+
+    b = GetQueryString('agent') || GetQueryString('channelCode');
+    let str=window.location.href;
+    let par = "channelCode="+ b ;
+    ShareTrace.init({
+      appkey: "7a7ae1a024eb887a", // 此值必填
+      param: par,
+    });
+    
+    function downApp (type) {
+      ShareTrace.download();
+    }
+
+
+   
+
+  </script>
+
+  <script type="text/javascript" src="./js/script.js"></script>
+  <script>
+    new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: 1200,
+        stopOnLastSlide: false,
+        disableOnInteraction: true,
+      }
+    })
+    var autourl = new Array()
+    autourl[0] = 'https://k78qp1.com'
+    autourl[1] = 'https://k78qp2.com'
+    autourl[2] = 'https://k78qp3.com'
+    autourl[3] = 'https://k78qp4.com'
+    // autourl[4] = 'https://k78qp5.com'
+
+    document.querySelectorAll('.webs li').forEach(function (item, index) {
+      item.children[2].href = autourl[index] + '/m/#/home?channelCode=' + b
+      item.children[1].innerText = autourl[index]
+    })
+  </script>
+
+</html>

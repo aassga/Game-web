@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>地区IP限制</title>
+</head>
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    p,h1{
+        margin:0;
+        padding:0;
+    }
+    .clearfix:after{
+        content: "";
+        display: block;
+        height: 0;
+        clear:both;
+        visibility: hidden;
+    }
+    .clearfix{
+        *zoom: 1;
+    }
+    .container {
+        width: 100%;
+        height: 100%;
+        background-image: url('./images/ip_pc_bg.png');
+        background-size: cover;
+        position: relative;
+    }
+    .main{
+        width:1280px;
+        height: 752px;
+        position:absolute;
+        top:50%;
+        left:50%;
+        margin-top:-376px;
+        margin-left:-640px;
+    }
+    .main .main-upgrade{
+        float: left;
+    }
+    .main .main-txt{
+        float: left;
+        width:620px;
+        text-align: left;
+        margin-top:30px;
+    }
+    .main-txt h1{
+        font-size:83px;
+        font-weight: bold;
+        color:#33393B;
+    }
+    .main p{
+        font-size:24px;
+        font-weight: bold;
+        color: #000;
+    }
+    .main-txt .ip{
+        margin:42px 0 38px 0;
+        font-weight: 400;
+    }
+    .main-txt .ip span{
+        color:#5181F7;
+    }
+    .main-txt .time{
+        font-size:20px;
+        color: #272723;
+        margin:25px 0 59px 0;
+    }
+    .main-txt .kf{
+        display: block;
+        width: 168px;
+        height: 46px;
+        line-height: 46px;
+        background: #5181F7;
+        border-radius: 10px;
+        font-size: 22px;
+        font-family: Microsoft YaHei;
+        font-weight: 400;
+        color: #FFFFFF;
+        text-align: center;
+        text-decoration:none;
+    }
+</style>
+<script>
+    (function() {
+        var url = window.location.href,
+            obj = {},
+            keyvalue = [],
+            key = '',
+            value = '',
+            parseString = url.substring(url.indexOf('?') + 1, url.length).split('&')
+        for (var i in parseString) {
+            keyvalue = parseString[i].split('=')
+            key = keyvalue[0]
+            value = keyvalue[1] && keyvalue[1].includes('#/') ? keyvalue[1].split('#/')[0] : keyvalue[1]
+            obj[key] = value
+        }
+
+        if (obj.agent) {
+            localStorage.setItem('agent', obj.agent)
+        }
+
+    })()
+
+    function isMobile() {
+        return !!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))
+    }
+
+    if (isMobile() !== false) {
+        window.location.href = './m/index.html'
+    }
+</script>
+
+<body>
+    <div class="container">
+        <main class="main clearfix">
+            <img src="./images/ip_pc_title.png" alt="" class="main-upgrade">
+            <section class="main-txt">
+                <h1>系统维护</h1>
+                <div>
+                    <p class="ip">您的IP来自：<span>189.191.157.26</span>（菲律宾）</p>
+                    <p class="text">您所在的地区被禁止访问我们的平台。给您造成的不 便，敬请谅解。如有任何疑问请联系全年无休的在线客服团队或都发送邮件至cs#qy8cs.vip（请将#号替换成@），我们将竭诚为您服务。</p>
+                    <p class="time">平台维护时间：2020-08-29 10:00到2020-08-29 11:00</p>
+                </div>
+                <a class="kf" href="" target="_blank">联系在线客服</a>
+            </section>
+        </main>
+    </div>
+</body>
+<script>
+
+</script>
+
+</html>

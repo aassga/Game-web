@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>争霸赛-打码获奖名单</title>
+  <link rel="stylesheet" href="./css/public.css">
+  <script src="./../../../lib/js/qs.min.js"></script>
+  <script src="../../../lib/js/crypto-js.min.js"></script>
+  <script src="../../../lib/js/jsencrypt.min.js"></script>
+  <script src="./../../../lib/js/axios.min.js"></script>
+  <script src="./../../../lib/js/cryptoConfig.js"></script>
+  <script src="../js/config.js"></script>
+</head>
+
+<body>
+  <div class="awarded" id="awarded">
+    <div v-cloak>
+      <div class="header-btn">
+        <div class="header-arrow-left">
+          <a :href="'./index_particular.html?stage=' + levelRange">
+            <i class="el-icon-arrow-left"></i>
+          </a>
+        </div>
+        <div class="header-title">
+          <div class="title-name">打码获奖名单</div>
+        </div>
+      </div>
+      <div class="banner-bg">
+        <img src="./images/award-bg.png" alt="">
+      </div>
+      <div class="award-table">
+        <!-- <div class="award-table-img"></div> -->
+        <div class="award-list">
+          <table style="width:100%">
+            <thead class="header-title">
+              <tr>
+                <td>排名</td>
+                <td>用戶名</td>
+                <td>奖金</td>
+              </tr>
+            </thead>
+            <tbody class="body-content">
+              <tr v-for="item in (rewardTable || '').slice(0,10)" :key="item.id">
+                <td>
+                  <img v-if="item.rank === 1" class="rank-img" src="./images/one.png" alt="">
+                  <img v-if="item.rank === 2" class="rank-img" src="./images/two.png" alt="">
+                  <img v-if="item.rank === 3" class="rank-img" src="./images/three.png" alt="">
+                  <span v-if="item.rank > 3">{{item.rank}}</span>
+                </td>
+                <!-- <td>{{`${item.userName.slice(1,-4)}**${item.userName.slice(-2)}`}}</td> -->
+                <td>{{item.userName}}</td>
+                <td>{{item.reward_amount}}元</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="./../../../lib/js/vue.min.js"></script>
+<script src="./../../../lib/js/element-ui.js"></script>
+<script src="./../../../lib/js/vue-router.js"></script>
+<script src="./../../../lib/js/moment.min.js"></script>
+<script src="./../../../lib/js/moment-with-locales.min.js"></script>
+
+
+<script type="text/javascript">
+  axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
+  new Vue({
+    el: '#awarded',
+    data: {
+      rankImg: '',
+      zhengRank: '',
+      rewardTable: [],
+      rewardRank:[],
+      levelRange:"",
+    },
+    mounted() {
+      this.getZhengList()
+    },
+    methods: {
+      getZhengList() {
+        let getUrlString = location.href;
+        let url = new URL(getUrlString);
+        let stage = url.searchParams.get('stage');
+        this.levelRange = stage
+        axios.get(getRewardList, {
+            params: {
+              stage: stage
+            }
+          })
+          .then((res) => {
+            if (!res.data.data) return
+            this.rewardTable = res.data.data;
+            this.rewardTable.sort(function (a,b) {
+              return a.rank - b.rank
+            })
+
+          })
+          .catch((err) => {
+            this.$message({
+              message: err,
+              type: "error",
+            });
+          });
+      },
+    },
+  })
+
+</script>
+
+</html>

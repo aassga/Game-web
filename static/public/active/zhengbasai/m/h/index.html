@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>争霸赛-列表</title>
+  <link rel="stylesheet" href="./css/public.css">
+  <script src="./../../../lib/js/qs.min.js"></script>
+  <script src="../../../lib/js/crypto-js.min.js"></script>
+  <script src="../../../lib/js/jsencrypt.min.js"></script>
+  <script src="./../../../lib/js/axios.min.js"></script>
+  <script src="./../../../lib/js/cryptoConfig.js"></script>
+  <script src="../js/config.js"></script>
+</head>
+
+<body>
+  <div class="activity" id="activity" v-cloak>
+    <header class="header">
+      <a href="index.html" class="btn-back" @click.prevent="goHome">
+        <img src="images/back-btn.png" alt="">
+      </a>
+      <img class="page-title" src="images/page-competition.png" alt="">
+      <a href="./index_myrank.html" class="btn-myrank" @click.prevent="toggleMyrank">
+        <img src="images/myrank.png" alt="">
+      </a>
+    </header>
+    <div id="scrollView" class="container acts">
+      <div v-show="isShowBtnPrev" @click="scrollTo('prev')" class="btn-prev">
+        <img src="images/index-btn-next.png" alt="">
+      </div>
+      <div v-show="isShowBtnNext" @click="scrollTo('next')" class="btn-next">
+        <img src="images/index-btn-next.png" alt="">
+      </div>
+      <ul>
+        <li v-for="item in activityData" :key="item.id">
+          <a :href="'./index_particular.html?stage=' + item.level_range">
+            <img class="status-img" :src="item.zhengStatusImg" alt="">
+            <div class="cover">
+              <img class="img-cover" :src="item.path" alt="" />
+              <img class="img-mask" src="images/cover-title.png" alt="" />
+              <p class="joined-count">
+                <span>可参与：99999人</span>
+                <span v-show="item.status === 'open'">, 已参与：{{item.remark && item.remark.participate || 0}}人</span>
+              </p>
+            </div>
+
+            <section class="text-info">
+              <p>{{item.condition.title}}</p>
+              <p>{{item.start_time.slice(0,16)}} ~ {{item.end_time.slice(5,16)}}</p>
+            </section>
+
+            <!-- <div class="banner-msg">
+              <span>{{ item.remark && item.start_time.slice(0,4) }} {{item.condition.title}}争霸赛．第
+                {{ item.level_range | chineseNumber }} 期</span>
+            </div> -->
+
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- <div class="jump" v-if="true"> -->
+    <div class="jump" v-if="isShowMyrank">
+      <div class="jump-content">
+        <img @click="toggleMyrank" class="btn-close" src="images/jump-close.png" alt="">
+        <iframe src="./index_myrank.html"></iframe>
+    </div>
+  </div>
+</body>
+
+<script src="./../../../lib/js/vue.min.js"></script>
+<script src="./../../../lib/js/element-ui.js"></script>
+<script src="./../../../lib/js/vue-router.js"></script>
+<script src="./../../../lib/js/moment.min.js"></script>
+<script src="./../../../lib/js/moment-with-locales.min.js"></script>
+
+<script type="text/javascript">
+
+  axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
+  
+  new Vue({
+    el: '#activity',
+    data: {
+      activityData: [],
+      condition: [],
+      zhengList: [],
+      endTime: "",
+      startTime: "",
+      zhengStatusBg: "",
+      zhengStatusImg: "",
+      isShowMyrank: false,
+      scrollEdLeft: 0,
+      isShowBtnPrev: false,
+      isShowBtnNext: true,
+
+    },
+    watch: {
+      scrollEdLeft: {
+        handler(){
+          let scrollViewDom = document.getElementById('scrollView')
+          let scrollContainDom = document.querySelector('#scrollView ul')
+          let scrollViewWidth = scrollViewDom.offsetWidth
+          let scrollContainWidth = scrollContainDom.scrollWidth
+          let scrollViewLeft = scrollViewDom.scrollLeft
+          let scrollViewRight = scrollContainWidth - scrollViewLeft
+          this.isShowBtnPrev = scrollViewLeft > 1 ? true : false;
+          this.isShowBtnNext = scrollViewRight < scrollViewWidth ? false : true;
+        }
+      }
+    },
+    mounted() {
+      this.getZhengList();
+      this.listenerScroll();
+    },
+    methods: {
+      scrollTo(go){
+        let scrollViewDom = document.getElementById('scrollView')
+        let move = 500
+        switch (go) {
+          case "prev":
+            scrollViewDom.scrollLeft -= move;
+            break;
+          case "next":
+            scrollViewDom.scrollLeft += move;
+            break;
+        }
+      },
+      listenerScroll() {
+        let scrollViewDom = document.getElementById('scrollView')
+        scrollViewDom.addEventListener('scroll', ()=>{
+          let value1 = scrollViewDom.scrollLeft
+          let value2 = ""
+          let timer = setInterval(() => {
+            value2 = scrollViewDom.scrollLeft
+            if (value1 === value2){
+              clearInterval(timer)
+              this.scrollEdLeft = scrollViewDom.scrollLeft
+              return
+            }
+            value1 = value2
+          }, 200);
+        })
+      },
+      goHome() {
+        goHome();
+      },
+      toggleMyrank() {
+        this.isShowMyrank = !this.isShowMyrank;
+      },
+      getZhengList() {
+        axios.get(getZhengList)
+          .then((res) => {
+            if (res.data !== undefined && res.data.code === 200) {
+              res.data.data === null ? [] : res.data.data
+              this.activityData = res.data.data
+              this.activityData.forEach((res, index) => {
+                let stage = res.level_range
+                res.start_time = moment(res.start_time * 1000).format(
+                  "YYYY-MM-DD HH:mm:ss"
+                );
+                res.end_time = moment(res.end_time * 1000).format(
+                  "YYYY-MM-DD HH:mm:ss"
+                );
+                res.remark = res.remark ? JSON.parse(res.remark) : [];
+                res.path = `./images/img0${(index %4) + 1 || 1}.png`
+
+                res.condition = res.condition ? JSON.parse(res.condition) : [];
+
+                let zhengStatus = res.status
+                switch (zhengStatus) {
+                  case 'open':
+                    res.zhengStatusImg = "./images/is_play.png"
+                    break;
+                  case 'on':
+                    res.zhengStatusBg = 'opacity-white-light'
+                    res.zhengStatusImg = "./images/no_play.png"
+                    break;
+                  case 'stats':
+                    res.zhengStatusBg = 'opacity-white-light'
+                    res.zhengStatusImg = "./images/no_play.png"
+                    break;
+                  case 'end':
+                    res.zhengStatusBg = 'opacity-black-light'
+                    res.zhengStatusImg = "./images/is_end.png"
+                    break;
+                  case 'off':
+                    res.zhengStatusBg = 'opacity-black-light'
+                    res.zhengStatusImg = "./images/is_end.png"
+                    break;
+                  default:
+                    break;
+                }
+              })
+            } else {
+              this.activityData = []
+              this.activityData.level_range = 0
+              this.$message({
+                message: res.data.message,
+                type: "warning",
+              });
+            }
+          })
+          .catch((err) => {
+            this.activityData = []
+            this.activityData.level_range = 0
+          });
+      },
+    },
+    filters: {
+      chineseNumber(num) {
+        const changeNum = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'] // changeNum[0] = "零"
+        const unit = ['', '十', '百']
+        num = parseInt(num)
+        const getWan = (temp) => {
+          const strArr = temp.toString().split('').reverse()
+          let newNum = ''
+          for (var i = 0; i < strArr.length; i++) {
+            newNum = (i == 0 && strArr[i] == 0 ? '' : (i > 0 && strArr[i] == 0 && strArr[i - 1] == 0 ? '' :
+              changeNum[strArr[i]] + (strArr[i] == 0 ? unit[0] : unit[i]))) + newNum
+          }
+          return newNum
+        }
+        const overWan = Math.floor(num / 100)
+        let noWan = num % 100
+        if (noWan.toString().length < 2) noWan = '0' + noWan
+        return overWan ? getWan(overWan) + '百' + getWan(noWan) : getWan(num)
+      }
+    }
+  })
+
+</script>
+
+</html>

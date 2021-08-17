@@ -1,0 +1,117 @@
+<template>
+    <div>
+        <div class="vp-hsyl-style" :class="{'tcgBlur':$store.state.personal.isPersonal}">
+            <!-- 传统彩票 -->
+            <div class="vp-lottery-style" v-if="
+                $route.path.includes('/plays') ||
+                $route.path.includes('/rules') ||
+                $route.path.includes('/trend') ">
+                <vp-lot-header :lotHeadDatas='lotHeadDatas'></vp-lot-header>
+                <router-view class="content-container"></router-view>
+            </div>
+            <!-- 主页 -->
+            <div v-else class="hsyl-cont-wrap">
+                <vp-home-header></vp-home-header>
+                <router-view></router-view>
+                <vp-home-footer></vp-home-footer>
+            </div>
+        </div>
+        <div class="personals-wrap-style">
+            <personals></personals>
+        </div>
+        <attentionModel :parmas="attPar"></attentionModel>
+        <safeModal :stationName="nameSta"></safeModal>
+        <!-- <comModal :poptype='poptype'></comModal> -->
+        <showModal :showtype='showtype'></showModal>
+        <redlope :isRedShow='$store.state.home.isRedLop'></redlope>
+        <kaiJiang></kaiJiang>
+        <qiandao></qiandao>
+        <dialogModal :dialogPar='dialogPar'></dialogModal>
+    </div>
+</template>
+<script>
+import dialogModal from '../public/home/test1Dialog.vue'
+import attentionModel from "../public/home/attentionModel.vue";
+import safeModal from  "../public/home/safeCheck.vue"
+import vpLotHeader from "@/pages/public/tradition/components/header/header";
+import vpHomeHeader from "./home/header";
+import vpHomeFooter from "./home/footer";
+import personals from "../public/personals";
+import store from "@/vuex/store";
+import comModal from "../public/home/caipiaoModal";
+import data from "../public/homeMeans/index.js";
+import showModal from "../public/home/showcommon.vue";
+import redlope from '../public/red-lope/index';
+import kaiJiang from '../public/kai-jiang/index.vue';
+import qiandao from '../public/qiandao/index'
+export default {
+  mixins: [data],
+  data() {
+    return {
+      popups: "",
+      lotHeadDatas: {
+        logoUrl: "/static/fczj/img/home/logo.png",
+        downLoadurl: "/static/fczj/html/download/index.html"
+      },
+      nameSta:"fczj",
+      poptype:"500w",
+      showtype: {
+        topImg: "jhcp", //弹窗头部图片
+        closeImg: "close_1", //弹窗关闭图片
+        textColor: "#CF3A36" //弹窗按钮颜色
+      },
+      dialogPar:{
+        borderTop:"3px solid #8F212B",
+        headBg:'#680915',
+        bandBorder:'1px solid #5A0812',
+        active:'#C1172E',
+        titleColor:'#B10F24',
+        ulBg:'#FCFCFC',
+        ulBg2:'#fff',
+        headColor:'#fff',
+        borderLeft:'3px solid #BC4D57',
+        activeName:'redActive',
+        hoverName:"hoverName4"
+      },
+      attPar:{
+          btnColor:'#E44B48',
+          closeImg: "close_1", //弹窗关闭图片
+          coverImgUrl:"../../../../static/ecp/img/tc.png",
+      },
+    };
+  },
+  methods: {},
+  created() {},
+  components: {
+    vpHomeHeader,
+    vpLotHeader,
+    vpHomeFooter,
+    personals,
+    comModal,
+    showModal,
+    redlope,
+    kaiJiang,
+    qiandao,
+    attentionModel,
+    safeModal,
+    dialogModal
+  },
+  store
+};
+</script>
+
+<style lang="less" scoped>
+.hsyl-cont-wrap {
+  background: #fff;
+}
+</style>
+
+<style lang="less">
+body {
+  overflow-x: hidden;
+
+  .vp-lottery-style {
+    overflow-x: auto;
+  }
+}
+</style>

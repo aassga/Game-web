@@ -1,0 +1,34 @@
+body {
+  .clearfix::before,
+  .clearfix::after,
+  .wrapper::before,
+  .wrapper::after,
+  .row::after,
+  .content::before,
+  .content::after {
+    content: "";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+  }
+  img {
+    border: none;
+  }
+}
+.vnst-cont-wrap {
+  background: #272727;
+}
+.clear:before,
+.clear:after {
+  content: "";
+  display: table;
+}
+
+.clear:after {
+  clear: both;
+}
+
+.clear {
+  *zoom: 1;
+}

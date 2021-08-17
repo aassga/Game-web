@@ -1,0 +1,147 @@
+{
+  "sign": 1587115706,
+  "code": 200,
+  "status": "success",
+  "message": "成功",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "title": "存款4000元红包",
+        "money": "20.00"
+      },
+      {
+        "title": "存款4000元红包",
+        "money": "20.00"
+      },
+      {
+        "title": "存款4000元红包",
+        "money": "20.00"
+      },
+      {
+        "title": "存款4000元红包",
+        "money": "20.00"
+      },
+      {
+        "title": "存款4000元红包",
+        "money": "20.00"
+      },
+      {
+        "title": "存款4000元红包",
+        "money": "20.00"
+      },
+      {
+        "title": "存款4000元红包",
+        "money": "20.00"
+      },
+      {
+        "title": "存款4000元红包",
+        "money": "20.00"
+      },
+      {
+        "title": "存款4000元红包",
+        "money": "20.00"
+      },
+      {
+        "title": "存款4000元红包",
+        "money": "20.00"
+      },
+      {
+        "title": "存款4000元红包",
+        "money": "20.00"
+      },
+      {
+        "title": "存款4000元红包",
+        "money": "20.00"
+      },
+      {
+        "title": "存款4000元红包",
+        "money": "20.00"
+      }
+    ],
+    "first_page_url": "http://www.qm.com/frontend/v1/activityChessTaskInfoJ0015?page=1",
+    "from": 1,
+    "last_page": 2,
+    "last_page_url": "http://www.qm.com/frontend/v1/activityChessTaskInfoJ0015?page=2",
+    "next_page_url": "http://www.qm.com/frontend/v1/activityChessTaskInfoJ0015?page=2",
+    "path": "http://www.qm.com/frontend/v1/activityChessTaskInfoJ0015",
+    "per_page": "2",
+    "prev_page_url": null,
+    "to": 2,
+    "total": 3,
+    "config": [
+      {
+        "id": 406,
+        "depositAmount": 1000,
+        "multiple": 2
+      },
+      {
+        "id": 407,
+        "depositAmount": 4000,
+        "multiple": 2
+      },
+      {
+        "id": 431,
+        "depositAmount": 6000,
+        "multiple": 2
+      },
+      {
+        "id": 407,
+        "depositAmount": 4000,
+        "multiple": 2
+      },
+      {
+        "id": 431,
+        "depositAmount": 6000,
+        "multiple": 2
+      },
+      {
+        "id": 407,
+        "depositAmount": 4000,
+        "multiple": 2
+      },
+      {
+        "id": 431,
+        "depositAmount": 6000,
+        "multiple": 2
+      },
+      {
+        "id": 407,
+        "depositAmount": 4000,
+        "multiple": 2
+      },
+      {
+        "id": 431,
+        "depositAmount": 6000,
+        "multiple": 2
+      },
+      {
+        "id": 407,
+        "depositAmount": 4000,
+        "multiple": 2
+      },
+      {
+        "id": 431,
+        "depositAmount": 6000,
+        "multiple": 2
+      },
+      {
+        "id": 407,
+        "depositAmount": 4000,
+        "multiple": 2
+      },
+      {
+        "id": 431,
+        "depositAmount": 6000,
+        "multiple": 2
+      }
+    ],
+    "userData": {
+      "depositAmount": "222220.00",
+      "levelId": 431,
+      "configDepositAmount": 3000,
+      "remaining": 2,
+      "giftMoney": "0.00"
+    }
+  }
+}

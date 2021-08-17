@@ -1,0 +1,133 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, 
+    maximum-scale=1.0, minimum-scale=1.0"> -->
+  <meta name="viewport"content="width=device-width,  initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="./js/flexible.js"></script>
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/bscroll.min.js"></script>
+  <title>bbinH5</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="bgImg container" id="container">
+
+      <div class="introduceBox">
+        <div class="introduceBoxTop">
+          <p>于北京时间</p>
+        <p><span>2021年/2/8 12：00~2021/2/17 11：59</span></p>
+        <P>玩指定游戏累积注点数，即可抢红包！</P>
+        </div>
+        <div class="middleBox">
+          <div class="betbox">
+            <span>投注人名币</span>
+            <span>投注点数</span>
+          </div>
+          <div class="momeybox">
+            <span style="width:3rem;text-align: center;">1元</span>
+            <span>=</span>
+            <span style="width:3rem;text-align: center;">1点</span>
+          </div>
+        </div>
+       
+      </div>
+      <!-- 活动奖金 -->
+      <div class="bonus">
+        <p>本活动红包为每日限量发送</p>
+        <span> ( 将于每日12：00重置数量)</span>
+        <div class="bonusTable">
+          <table cellpadding="0" cellspacing="0">
+            <td style="font-size: 0.33rem;width: 36%; color:#820000;">等级</td>
+            <td style="font-size: 0.33rem;width: 64%; color:#820000;">每日限量</td>
+            </thead>
+            <tr style="color:#FFEBD0;">
+              <td>LV.1</td>
+              <td>30,0000</td>
+            </tr>
+            <tr style="color:#FFEBD0;">
+              <td>LV.2</td>
+              <td>2,000</td>
+            </tr>
+            <tr style="color:#FFEBD0;">
+              <td>LV.3</td>
+              <td>120</td>
+            </tr>
+            <tr style="color:#FFEBD0;">
+              <td>LV.4</td>
+              <td>10</td>
+            </tr>
+          </table>
+        </div>
+        <div class="bonusTableTow">
+          <table cellpadding="0" cellspacing="0">
+            <td style="font-size: 0.33rem;width: 11%; color:#820000;">等级</td>
+            <td style="font-size: 0.33rem;width: 22%; color:#820000;">所需点数</td>
+            <td style="font-size: 0.33rem;width: 30%; color:#820000;">最高总奖金</td>
+            </thead>
+            <tr style="color:#FDCBA5">
+              <td>LV.1</td>
+              <td>5千</td>
+              <td>￥18</td>
+            </tr>
+            <tr style="color:#FDCBA5;">
+              <td>LV.2</td>
+              <td>10万</td>
+              <td>￥888</td>
+            </tr>
+            <tr style="color:#FDCBA5;">
+              <td>LV.3</td>
+              <td>150万</td>
+              <td>￥18,888</td>
+            </tr>
+            <tr style="color:#FDCBA5">
+              <td>LV.4</td>
+              <td>800万</td>
+              <td>￥188,888</td>
+            </tr>
+          </table>
+      
+
+        </div>
+        <div class="one" style="color:#fff">
+          <p>投注点数为活动期间持续累计,</p>
+          <p>开奖后将依据所需点数进行扣除</p>
+        </div>
+      </div>
+     <div class="empty"></div>
+      <!-- 注意事项 -->
+      <div class="tip">
+        <div class="tipTop">注意事项</div>
+        <div class="tipContent">
+          <P> ◎ 投注点数与红包剩余数量<span>每5分钟更新一次,</span>因网速差异未立即更新，请稍等</P>
+          <p>◎ 开奖过程如遇操作中断，系统将自动为您开奖及派送奖金</p>
+          <p>◎ 开奖完成后，奖金将于一个小时内<span>自动入账，免打码</span>即可申请出款</p>
+          <P>◎ 领奖时间截止后，若剩余投注点数未进行开奖，将视同放弃领奖资格</P>
+          <p>◎ 如遇不可抗因素或游戏问题导致注销注单，该注单将不列入本活动投注点数</p>
+          <p>◎ 如团体或个人使用不当手段或任何无风险投注，将取消获奖资格</p>
+          <p>◎ bbin将保有本活动的执行、修正、解释与终止等权利</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+     <script>
+      let scroll = new BScroll('.wrapper', {
+           click: true,
+           useTransition: false //解决ios13.4以上回弹问题
+       })
+       window.onload=function(){
+         scroll.refresh()
+       }
+     </script>
+
+</body>
+
+</html>

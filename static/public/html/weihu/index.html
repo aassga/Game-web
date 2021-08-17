@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>站点维护</title>
+</head>
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    
+    .container {
+        width: 100%;
+        height: 100%;
+        background-image: url('./images/wh_bg.png');
+        background-size: cover;
+        position: relative;
+    }
+    
+    .main {
+        width: 1567px;
+        margin: 0 auto;
+        display: flex;
+        height: 862px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    .left{
+        width: 852px;
+        /* height: 100%; */
+    }
+    .right img{
+        margin-left: 40px;
+        margin-top: 30px;
+    }
+    .left .textCon{
+        background-color: #fff;
+        border-radius: 10px;
+        width: 818px;
+        margin: 0 auto;
+        font-size: 24px;
+        padding: 10px 20px;
+    }
+    .left .textCon p:first-child{
+        font-size: 28px;
+    }
+    .left .textCon p{
+        text-align: left;
+        margin: 0;
+        line-height: 42px;
+    }
+    .service{
+        display: block;
+        position: fixed;
+        right: 0;
+        top: 50px;
+    }
+    .ee{
+        color: #E38000;
+    }
+</style>
+<script>
+    (function() {
+        var url = window.location.href,
+            obj = {},
+            keyvalue = [],
+            key = '',
+            value = '',
+            parseString = url.substring(url.indexOf('?') + 1, url.length).split('&')
+        for (var i in parseString) {
+            keyvalue = parseString[i].split('=')
+            key = keyvalue[0]
+            value = keyvalue[1] && keyvalue[1].includes('#/') ? keyvalue[1].split('#/')[0] : keyvalue[1]
+            obj[key] = value
+        }
+
+        if (obj.agent) {
+            localStorage.setItem('agent', obj.agent)
+        }
+
+    })()
+
+    function isMobile() {
+        return !!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))
+    }
+
+    if (isMobile() !== false) {
+        window.location.href = './m/index.html'
+    }
+</script>
+
+<body>
+    <div class="container">
+        <a class="service" href="" target="_blank"><img src="./images/yd-kefu2.png" alt=""></a>
+        <main class="main">
+            
+            <div class="left">
+                <div style="margin-top: 100px;"><img src="./images/wh_icon.png" alt=""></div>
+                <div class="textCon">
+                    <p>尊敬的客户</p>
+                    <p>您好：为了保证更加流畅的游戏环境。我司正在对网站进行<span class="ee">系统例行维护，维护时间截止于<span class="time"></span></span>如有延迟请随时关注我司公告信息，对于维护期间给您带来不便，敬请谅解。感谢您一如既往对我们的理解和支持。</p>
+                    
+                </div>
+            </div>
+            <div class="right">
+                <img src="./images/pc-wh2.png" alt="">
+            </div>
+            
+        </main>
+    </div>
+</body>
+<script>
+     getConfig()
+     window.setInterval(getConfig,20000)
+     function getConfig(){
+         let xml = new XMLHttpRequest();
+         xml.open("get", location.origin+"/frontend/v1/config", true);
+         xml.send();
+         xml.onreadystatechange = function() {
+             if (xml.readyState == 4 && xml.status == 200) {
+                 let res = JSON.parse(xml.responseText);
+                 if (res.code == 200) {
+                      const {siteConfig} =res.data
+                      if(siteConfig['close']['status']=='on'){
+                        document.querySelector(".time").innerHTML = siteConfig.close.timeEnd
+                        let service=siteConfig.service
+                        if(service){
+                           let ser = service.find(item => item.status === 'on')
+                           document.querySelector('.service').setAttribute('href',ser.url);          
+                        }
+                      }else{
+                         window.location.href='/'   
+                      }
+                 }
+             }
+         }
+     }
+</script>
+
+</html>

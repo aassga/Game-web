@@ -1,0 +1,166 @@
+.activity {
+  text-align: center;
+}
+
+.activity .header-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em;
+  border-bottom: 1px solid #ececec;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.activity .header-btn .header-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.activity .header-btn .header-title div {
+  color: #494949;
+}
+
+.activity .header-btn .header-title .title-name {
+  width: 49vw;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.activity .header-btn .header-title a {
+  text-decoration: none;
+}
+
+.activity .header-btn .header-title a .my-rank {
+  font-weight: 600;
+  font-size: 15px;
+  padding: 0 0 0 2.8em;
+}
+
+.activity .header-btn .header-title .active {
+  font-size: 20px;
+  font-weight: 600;
+  color: #494949;
+}
+
+.activity .banner {
+  background-color: #e8e8e8;
+  padding: 5px 0;
+}
+
+.activity .banner ul li {
+  padding: 0.6em 1em;
+}
+
+.activity .banner ul li a {
+  text-decoration: none;
+}
+
+.activity .banner ul li .activity-img {
+  width: 93vw;
+  height: 24vh;
+}
+
+.activity .banner ul li .status-img {
+  position: absolute;
+  right: 1.5em;
+  margin-top: -3px;
+  height: 1.8em;
+  z-index: 2;
+}
+
+.activity .banner ul li .banner-people-msg {
+  width: 93vw;
+  height: 24vh;
+  position: absolute;
+  display: inline;
+}
+
+.activity .banner ul li .banner-people-msg .banner-cloth {
+  width: 93vw;
+  height: 24vh;
+  border-radius: 10px;
+}
+
+.activity .banner ul li .banner-people-msg .opacity-black-light {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.activity .banner ul li .banner-people-msg .opacity-white-light {
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 1;
+  position: absolute;
+}
+
+.activity .banner ul li .banner-people-msg .banner-bottom {
+  width: 93vw;
+  height: 2em;
+  line-height: 2em;
+  position: absolute;
+  bottom: -1px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 10px 10px;
+}
+
+.activity .banner ul li .banner-people-msg .banner-bottom .play-msg {
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.activity .banner ul li .banner-msg {
+  text-align: left;
+}
+
+.activity .banner ul li .banner-msg span {
+  display: block;
+  letter-spacing: 0.5px;
+}
+
+.activity .banner ul li .banner-msg span:nth-child(1) {
+  color: #222323;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.activity .banner ul li .banner-msg span:nth-child(2) {
+  color: #8d8d8d;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 9px;
+}
+
+@media screen and (orientation: landscape) {
+  .activity .banner ul li {
+    padding: 1rem 5%;
+  }
+  .activity .banner ul li .activity-img {
+    width: 90vw;
+    height: 63vh;
+  }
+  .activity .banner ul li .banner-people-msg {
+    width: 90vw;
+    height: 63vh;
+  }
+  .activity .banner ul li .banner-people-msg .banner-cloth {
+    width: 90vw;
+    height: 63vh;
+  }
+  .activity .banner ul li .banner-people-msg .banner-bottom {
+    width: 90vw;
+    height: 2rem;
+  }
+}
+/*# sourceMappingURL=activity.css.map */

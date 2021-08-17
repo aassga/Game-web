@@ -1,0 +1,225 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="renderer" content="webkit">
+  <link rel="stylesheet" href="../../../../../public/active/lib/css/common.css">
+  <link rel="stylesheet" href="../../../../../public/active/lib/css/animate.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="./js/flexible.js"></script>
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="../../../../../public/active/lib/js/layer/layer.js"></script>
+  <script src="js/bscroll.min.js"></script>
+  <title>新年砸金蛋</title>
+</head>
+
+<body>
+<div class="wrapper">
+  <div class="bgImg container" id="container">
+
+    <div class="box1">
+      <div class="headerImg"></div>
+    </div>
+    <div class="box">
+      <div class="box2">
+        <div class="box2-left">
+          <img src="./images/time.png" alt="">
+          <span>2021年2月10日至2021年2月28日</span>
+        </div>
+
+        <div class="box2-right">
+          <img src="./images/obj.png" alt="">
+          <span class="rightP"><span class="siteName"></span>新老会员</span>
+        </div>
+      </div>
+      <div class="box-content">
+        <img class="box-content-img" src="./images/content.png">
+
+        <div class="box-content-p">
+          凡是在活动时间内，前一日的有效投注达到5000+即可获得一次砸蛋的机会，投注额越高砸蛋获取彩金的金额越大！财神对您笑，财源滚滚数钞票！好运相伴不会少，幸福吉祥把你抱。
+        </div>
+        <div class="box-content-tip">
+          <p id="contentBox"><span id="account"></span><span><span id="accountMoney"></span></span><span
+            id="accountP"></span></p>
+        </div>
+        <div class="box-content-eag">
+          <img class="eagT" onMouseOver="showImg1()" onMouseOut="hideImg()" src="./images/teag.png">
+          <img class="eagY" onMouseOver="showImg2()" onMouseOut="hideImg()" src="./images/yeag.png">
+          <img class="eagJ" onMouseOver="showImg3()" onMouseOut="hideImg()" src="./images/jeag.png">
+          <img class="eagC" onMouseOver="showImg4()" onMouseOut="hideImg()" src="./images/ceag.png"/>
+
+          <div class="hammerBoxT">
+            <img class="hammerT" id="hammerT" src="./images/cz.png" alt="">
+          </div>
+          <div class="hammerBoxY">
+            <img class="hammerY" id="hammerY" src="./images/cz.png" alt="">
+          </div>
+          <div class="hammerBoxJ">
+            <img class="hammerJ" id="hammerJ" src="./images/cz.png" alt="">
+          </div>
+          <div class="hammerBox">
+            <img class="hammer" id="hammer" src="./images/cz.png" alt="">
+          </div>
+
+        </div>
+      </div>
+      <div class="box-content-bg-box">
+        <table cellpadding="0" cellspacing="0">
+          <thead style="color:#FFFF68;">
+          <td style="font-size: 0.23rem;width: 26%;"><span>铜蛋</span></br><span style="font-size: 0.15rem;color:#fff">（达到5000有效投注额）</span>
+          </td>
+          <td style="font-size: 0.23rem;width: 24%"><span>银蛋</span></br><span style="font-size: 0.15rem;color:#fff">（达到200000有效投注额）</span>
+          </td>
+          <td style="font-size: 0.23rem;width: 24%"><span>金蛋</span></br><span style="font-size: 0.15rem;color:#fff">（达到1000000有效投注额）</span>
+          </td>
+          <td style="font-size: 0.23rem;width: 26%"><span>彩蛋</span></br><span style="font-size: 0.15rem;color:#fff">（达到3000000有效投注额）</span>
+          </td>
+          </thead>
+          <tr>
+            <td>最低18元</td>
+            <td>最低388元</td>
+            <td>最低1888元</td>
+            <td>最低3888元</td>
+          </tr>
+          <tr>
+            <td>最高388元</td>
+            <td>最高1888元</td>
+            <td>最高3888元</td>
+            <td>最高8888元</td>
+          </tr>
+        </table>
+      </div>
+      <div class="box4">
+        <img class='ruleImg' src="./images/rule.png">
+        <div class="rules">
+          <p>所得奖金需要一倍流水可进行提款。</p>
+          <p>每位玩家、每户、每一地址、每一电子邮箱、每一电话、相同的支付方式及IP地址等只能一个账号享有优惠。</p>
+          <p>若会员有重复申请或注册多账号行为，公司保留取消或收回优惠彩金及盈利的权力。</p>
+          <p><span class="siteName"></span>所有优惠活动为真实玩家而设，任何团队或个人以不诚实的方式套取红利的行为，公司有权保留冻结、取消改团队或个人账户及账户余额的权力。
+          </p>
+          <p><span class="siteName"></span>将保留对活动的最终解释权，且在任何情况下可随时更改，停止，取消该优惠活动的权力。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div id="tc_tip" class="tc_tip">
+  <p class="txt2"></p>
+  <span class="closeBtn" onclick="layer.closeAll()"></span>
+</div>
+<div class="form" id="form">
+  <div class="formP">
+    <p>手气不错，恭喜抢到</p>
+    <span class="giveMoney" id="giveMoney"></span>元!
+  </div>
+  <div class="close" id="close" onclick="layer.closeAll()"></div>
+</div>
+<script src="../js/siteName.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript">
+  let scroll = new BScroll('.wrapper', {
+    click: true,
+    useTransition: false //解决ios13.4以上回弹问题
+  })
+
+</script>
+<script>
+  var token = localStorage.getItem('token')
+  $().ready(function () {
+    setTimeout(() => {
+      getData()
+    }, 2000)
+  })
+
+  function getData () {
+    $.ajax({
+      url: url + 'activityApply?class=C0001&handle=0',
+      type: 'get',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: token
+      },
+      dataType: 'json',
+      success: function (res) {
+        if (res && res.code == 200) {
+          var amount = document.getElementById('accountMoney')
+          $('#contentBox').html(res.data)
+          $('#account').css('color', '#FFE17E')
+          $('#accountMoney').css('color', '#FFE17E')
+          $('#accountP').css('color', '#fff')
+          if (amount == 0 || amount < 5000) {
+            $('#accountP').text('没有达到要求!')
+          } else if (amount >= 5000 && amount < 20000) {
+            $('#accountP').text('可以敲铜蛋！')
+          } else if (amount >= 20000 && amount < 1000000) {
+            $('#accountP').text('可以敲银蛋！')
+          } else if (amount >= 1000000 && amount < 3000000) {
+            $('#accountP').text('可以敲金蛋！')
+          } else if (amount > 3000000 || amount == 3000000) {
+            $('#accountP').text('可以敲彩蛋！')
+          }
+        } else {
+          let link = site[0].h5link ? site[0].h5link : location.origin
+          let str = `<span style="color:#fff">请您登录会员账号!</span><a href=${link} style='color:#FFE17E;text-decoration: none;margin-left:0.08rem'>点击登录<a/>`
+          $('#contentBox').html(str)
+        }
+      }
+    })
+  }
+
+  function showImg1 () //显示图片函数，鼠标移到链接触发
+  {
+    // console.log(11)
+    document.getElementById('hammerT').style.display = 'block'
+    document.getElementById('hammerT').style.left = '10px'
+    document.getElementById('hammerT').style.top = '5px'
+    // $(".hammerT").css('transform', 'rotate(-15deg)');
+    // document.getElementById("hammerT").style.animation = "hammer 1.5s ease 9999";
+
+  }
+
+  function showImg2 () //显示图片函数，鼠标移到链接触发
+  {
+    document.getElementById('hammerY').style.display = 'block'
+    document.getElementById('hammerY').style.left = '10px'
+    document.getElementById('hammerY').style.top = '10px'
+    // $(".hammerY").css('transform', 'rotate(-15deg)');
+    // document.getElementById("hammerY").style.animation = "hammer 1.5s ease 9999";
+  }
+
+  function showImg3 () //显示图片函数，鼠标移到链接触发
+  {
+    document.getElementById('hammerJ').style.display = 'block'
+    document.getElementById('hammerJ').style.left = '10px'
+    document.getElementById('hammerJ').style.top = '10px'
+    // $(".hammerJ").css('transform', 'rotate(-15deg)');
+    // document.getElementById("hammerJ").style.animation = "hammer 1.5s ease 9999";
+  }
+
+  function showImg4 () //隐藏图片函数，鼠标离开链接触发
+  {
+    document.getElementById('hammer').style.display = 'block'
+    document.getElementById('hammer').style.left = '5px'
+    document.getElementById('hammer').style.top = '10px'
+    document.getElementById('hammer').style.top = '10px'
+    // $(".hammer").css('transform', 'rotate(-15deg)');
+    // document.getElementById("hammer").style.animation = "hammer 1.5s ease 9999";
+  }
+
+  function hideImg () {
+    document.getElementById('hammer').style.display = 'none'
+    document.getElementById('hammerT').style.display = 'none'
+    document.getElementById('hammerY').style.display = 'none'
+    document.getElementById('hammerJ').style.display = 'none'
+  }
+
+</script>
+</body>
+
+</html>

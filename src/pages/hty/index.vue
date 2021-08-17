@@ -1,0 +1,128 @@
+<template>
+  <div>
+    <!-- <hongbaoyu :theme="'theme2'" v-show="$route.path=='/home'"></hongbaoyu> 2021-07-21 移除紅包雨 -->
+    <div class="vp-vnst-style" :class="{'tcgBlur':$store.state.personal.isPersonal}">
+      <!-- 传统彩票 -->
+      <div class="vp-lottery-style"
+           v-if=" $route.path.includes('/plays')|| $route.path.includes('/rules')|| $route.path.includes('/trend') ">
+        <vp-lot-header :lotHeadDatas='lotHeadDatas'></vp-lot-header>
+        <router-view class="content-container"></router-view>
+      </div>
+      <!-- 主页 -->
+      <div v-else class="vnst-cont-wrap">
+        <vp-home-header></vp-home-header>
+        <vp-aside></vp-aside>
+        <!-- <sideBottom></sideBottom> -->
+        <router-view></router-view>
+        <vp-home-footer></vp-home-footer>
+        <usdtActive></usdtActive>
+      </div>
+    </div>
+    <div class="personals-wrap-style">
+      <personals></personals>
+    </div>
+    <attentionModel :parmas="attPar"></attentionModel>
+    <safeModal :stationName="poptype"></safeModal>
+    <dialogModal :dialogPar='dialogPar'></dialogModal>
+    <!-- <comModal :poptype='poptype'></comModal> -->
+    <showModal :showtype='showtype'></showModal>
+    <alertResiter></alertResiter>
+    <redlope :isRedShow='$store.state.home.isRedLop'></redlope>
+     <kaiJiang></kaiJiang>
+     <qiandao></qiandao>
+     <bindPhone></bindPhone>
+     <bindbank></bindbank>
+  </div>
+</template>
+<script>
+  import dialogModal from '../public/home/test1Dialog.vue'
+  import attentionModel from "../public/home/attentionModel.vue";
+  import safeModal from  "../public/home/safeCheck.vue"
+  import vpLotHeader from '@/pages/public/tradition/components/header/header'
+  import vpHomeHeader from './home/header'
+  import vpAside from './home/Aside'
+  import vpHomeFooter from './home/footer'
+  import personals from '../public/personals'
+  import comModal from '../public/home/newcommon'
+  import store from '@/vuex/store'
+  import data from '../public/homeMeans/index.js'
+  import showModal from '../public/home/showcommon.vue'
+  import sideBottom from "../public/activity/sideBottom.vue";
+  import alertResiter from './home/alertRegiste.vue';
+  import redlope from '../public/red-lope/index';
+  import kaiJiang from '../public/kai-jiang/index.vue';
+  import qiandao from "../public/qiandao/index";
+  import hongbaoyu from "../public/hongbaoyu/index";
+  import usdtActive from "../public/activity/usdt.vue";
+  import bindPhone from "../public/home/bindPhone";
+import bindbank from "../public/home/bindbankcar.vue";
+  export default {
+    mixins: [data],
+    data () {
+      return {
+        lotHeadDatas: {
+          logoUrl: '/static/hty/img/logo.png',
+          downLoadurl: '/static/hty/html/download/index.html'
+        },
+        dialogPar:{
+          borderTop:"3px solid #3D3F44",
+          headBg:'#0F0F0F',
+          bandBorder:'1px solid #3E4148',
+          active:'#63666D',
+          titleColor:'#484A51',
+          ulBg:'#FCFCFC',
+          ulBg2:'#fff',
+          headColor:'#fff',
+          borderLeft:'3px solid #484A51',
+          activeName:'darkActive',
+          hoverName:"hoverName3"
+        },
+        poptype: 'hty',
+        showtype: {
+          topImg: 'jsyl',//弹窗头部图片
+          closeImg: 'close_1',//弹窗关闭图片
+          textColor: '#9B7E44',//弹窗按钮颜色
+        },
+        attPar:{
+          btnColor:'#1F1F1F',
+          closeImg: "close_1", //弹窗关闭图片
+          coverImgUrl:"../../../../static/hty/img/tc.png",
+        },
+      }
+    },
+    methods: {},
+    created () {},
+    components: {
+      vpHomeHeader,
+      vpLotHeader,
+      vpAside,
+      vpHomeFooter,
+      personals,
+      comModal,
+      showModal,
+      sideBottom,
+      alertResiter,
+      redlope,
+      kaiJiang,
+      qiandao,
+      attentionModel,
+      safeModal,
+      dialogModal,
+      hongbaoyu,
+      usdtActive,
+      bindPhone,
+      bindbank
+    },
+    store
+  }
+</script>
+
+<style lang="less">
+  body {
+    overflow-x: hidden;
+
+    .vp-lottery-style {
+      overflow-x: auto;
+    }
+  }
+</style>

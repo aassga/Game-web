@@ -1,0 +1,118 @@
+html {
+  overflow: hidden;
+  height: 100vh;
+  font-size: 16px;
+}
+
+body {
+  background: url("../images/bg.png") #231A19 top center/contain fixed;
+  min-height: 100vh;
+}
+
+body header.header {
+  background: url("../images/header-bg.png") top center/100% 100%;
+  width: 100vw;
+  color: #fff;
+  position: relative;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body header.header .btn-back {
+  display: inline-block;
+}
+
+body header.header .btn-back img {
+  height: 3.5em;
+  margin-bottom: -5px;
+}
+
+body header.header .btn-myrank {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 1em;
+}
+
+body header.header .btn-myrank img {
+  height: 1.4em;
+}
+
+body header.header .page-title {
+  height: 1.94444em;
+}
+
+body .container-col2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 2vw 10px;
+  margin-bottom: 1em;
+  height: calc(100vh - 5em);
+}
+
+body .container-col2 .menu {
+  width: 30vw;
+  max-width: 10em;
+  display: block;
+  padding: 10px 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+body .container-col2 .menu a {
+  cursor: pointer;
+  display: block;
+  padding: 1.2em 0;
+  font-size: 1em;
+  text-decoration: none;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffdda8), to(#e1a250));
+  background: linear-gradient(to bottom, #ffdda8, #e1a250);
+  background: -webkit-linear-gradient(to bottom, #ffdda8, #e1a250);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+body .container-col2 .menu a:first-child {
+  margin-top: -10px;
+}
+
+body .container-col2 .menu a:last-child {
+  margin-bottom: -10px;
+}
+
+body .container-col2 .menu a.active {
+  color: #221a18;
+  text-shadow: 0em 0.1em 0.01em #FFF;
+  background: url("../images/menu-active.png") center center/cover;
+}
+
+body .container-col2 .menu, body .container-col2 .page {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+body .container-col2 .gap {
+  display: inline-block;
+  width: 2vw;
+}
+
+body .container-col2 .page {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 1em 1em 1.2em;
+  position: relative;
+  overflow-y: scroll;
+}
+
+.el-message {
+  max-width: 90%;
+}
+/*# sourceMappingURL=layout.css.map */

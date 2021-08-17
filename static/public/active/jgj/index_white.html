@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="renderer" content="webkit">
+    <!--    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>-->
+    <!--    <script src="//unpkg.com/view-design/dist/iview.min.js"></script>-->
+    <link rel="stylesheet" href="../lib/css/common.css">
+    <link rel="stylesheet" href="../lib/css/animate.css">
+    <link rel="stylesheet" href="../lib/css/iview.css">
+    <link rel="stylesheet" href="css/style_white.css">
+    <script src="../lib/js/crypto-js.min.js"></script>
+    <script src="../lib/js/jsencrypt.min.js"></script>
+    <script src="../lib/js/vue.min.js"></script>
+    <script src="../lib/js/iview.min.js"></script>
+    <script src="../lib/js/axios.min.js"></script>
+    <script src="../lib/js/qs.min.js"></script>
+    <script>
+      if (/AppleWebKit.*Mobile/i.test(navigator.userAgent)
+        || /Android/i.test(navigator.userAgent)
+        || /BlackBerry/i.test(navigator.userAgent)
+        || /IEMobile/i.test(navigator.userAgent)
+        || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+        window.location.href = 'm/'
+      }
+    </script>
+    <title>金管家</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div v-cloak>
+        <div class="header">
+          <div class="nav w60">
+            <a href="javascript:void (0)" class="bgImg logo" id="logo" :style="{backgroundImage: bgImg.logo}"></a>
+            <div style="">
+              <a href="/" target="_blank" rel="noopener noreferrer">官方首页</a>
+              <a :href="links.register" target="_blank" rel="noopener noreferrer">注册会员</a>
+              <a href="javascript:void (0)" @click="comeSoon()">余额宝</a>
+              <a :href="links.download" target="_blank" rel="noopener noreferrer">手机APP下载</a>
+              <a :href="links.service" target="_blank" rel="noopener noreferrer" class="kf">在线客服</a>
+            </div>
+          </div>
+        </div>
+        <div class="bgImg banner"></div>
+        <div class="main">
+          <div class="demo-affix" style="">
+            <div class="icons w60" style="">
+              <a ref="content_detail" href="#content_detail" class="bgImg" :class="{icon1:icons.icon1}"></a>
+              <a ref="content_rule" href="#content_rule" class="bgImg" :class="{icon2:icons.icon2}"></a>
+              <a href="javascript:void (0)" class="bgImg" :class="{icon3:icons.icon3}" @click="changeType(3)"></a>
+            </div>
+          </div>
+
+<!--          <span id="content_detail" style="position: relative;top: -3.6vw;"></span>-->
+          <div id="content_detail" class="content_detail w60">
+            <div class="bgImg title title_detail"></div>
+            <p>金管家理财模式，革新钜惠给玩家创造真实利益，在{{siteConfig.siteName}}的每一笔有效投注将永久累积，累积到一定标准即可升级，每升级一级即可获得相对应的等级礼金并且尊享周/月俸禄；<span style="color:#ff0000;">账号价值=永久收益=终生有效=金钱</span>
+            </p>
+<!--            <ul class="type">
+              <li v-for="(item,index) in listData.names" :key="index" :style="{width: 100/listData.names.length +'%'}" :class="{activeType:activeType === index}" @click="changeAtype(index)">{{item}}</li>
+            </ul>-->
+            <i-table class="table1" border :columns="item.column" :data="item.data" disabled-hover v-for="(item,index) in listData.datas" :key="index" v-show="activeType === index"></i-table>
+          </div>
+<!--          <span id="content_rule" style="position: relative;top: -3.6vw;"></span>-->
+          <div id="content_rule" class="content_rule w60" style="">
+            <div class="bgImg title title_rule1"></div>
+            <div class="section1" v-if="listData.rules[activeType].weekInfoIsShow">
+              <p><span><span class="num">①</span> 如何领取礼金？</span><br>
+                答：会员有效投注达到一定的等级门槛系统将在30分钟之内实时更新您的等级状态并且派送晋级礼金。例：会员直接从等级2升级到等级5，跨越3个等级，即可获得升级礼金：{{listData.rules[activeType].levelGiftMoney.level_3}} (等级3) + {{listData.rules[activeType].levelGiftMoney.level_4}} (等级4) + {{listData.rules[activeType].levelGiftMoney.level_5}} (等级5) = {{totalGiftMoney}}元。
+              </p>
+              <p><span><span class="num">②</span> 如何领取周俸禄？</span><br>
+                答：当周总存款大于周俸禄{{listData.rules[activeType].weekAmount.betTotal}}倍。例：会员当周等级为10级周俸禄{{listData.rules[activeType].weekAmount.level_10}}元，那么当周最低需达到：周俸禄{{listData.rules[activeType].weekAmount.level_10}}元X{{listData.rules[activeType].weekAmount.betTotal}}倍总打码={{betTotalWeek}}打码量（存款/打码两者需同达到）当周达到当周领取，下周达到下周领取不累积。
+              </p>
+              <p><span><span class="num">③</span> 如何领取月俸禄？</span><br>
+                答：当月总存款大于月俸禄{{listData.rules[activeType].monthAmount.betTotal}}倍。例：会员当月等级为10级月俸禄{{listData.rules[activeType].monthAmount.level_10}}元，那么当月最低需达到：月俸禄{{listData.rules[activeType].monthAmount.level_10}}元X{{listData.rules[activeType].monthAmount.betTotal}}倍总打码={{betTotalMonth}}打码量（存款/打码两者需同达到）当月达到当月领取，下月达到下月领取不累积。
+              </p>
+              <p><span><span class="num">④</span> 如何查询等级？</span><br>
+                答：每隔30分钟系统将会自动更新您的等级，请点击按钮查询等级或咨询在线客服。
+              </p>
+              <p><span><span class="num">⑤</span> 所得礼金/奖励怎么才能提款？</span><br>
+                答：会员所得礼金/周俸禄/月俸禄/奖励一倍打码方可提款。
+              </p>
+            </div>
+            <div class="section1" v-else>
+              <p><span><span class="num">①</span> 如何领取礼金？</span><br>
+                答：会员有效投注达到一定的等级门槛系统将在30分钟之内实时更新您的等级状态并且派送晋级礼金。例：会员直接从等级2升级到等级5，跨越3个等级，即可获得升级礼金：{{listData.rules[activeType].levelGiftMoney.level_3}} (等级3) + {{listData.rules[activeType].levelGiftMoney.level_4}} (等级4) + {{listData.rules[activeType].levelGiftMoney.level_5}} (等级5) = {{totalGiftMoney}}元。
+              </p>
+              <p><span><span class="num">②</span> 如何领取月俸禄？</span><br>
+                答：当月总存款大于月俸禄{{listData.rules[activeType].monthAmount.betTotal}}倍。例：会员当月等级为10级月俸禄{{listData.rules[activeType].monthAmount.level_10}}元，那么当月最低需达到：月俸禄{{listData.rules[activeType].monthAmount.level_10}}元X{{listData.rules[activeType].monthAmount.betTotal}}倍总打码={{betTotalMonth}}打码量（存款/打码两者需同达到）当月达到当月领取，下月达到下月领取不累积。
+              </p>
+              <p><span><span class="num">③</span> 如何查询等级？</span><br>
+                答：每隔30分钟系统将会自动更新您的等级，请点击按钮查询等级或咨询在线客服。
+              </p>
+              <p><span><span class="num">④</span> 所得礼金/奖励怎么才能提款？</span><br>
+                答：会员所得礼金/月俸禄/奖励一倍打码方可提款。
+              </p>
+            </div>
+            <div class="bgImg title title_rule2"></div>
+            <div class="section2">
+              <p>所有优惠以人民币(CNY)为结算金额，以北京时间为计时区间。</p>
+              <p>存在优惠黑名单的套利会员将不能参与此优惠活动。</p>
+              <p>{{siteConfig.siteName}}的所有优惠特为玩家而设，如发现任何团体或个人，以不诚实方式套取红利或任何威胁、滥用公司优惠等行为，公司保留冻结、取消该团体或个人账户及账户结余的权利并且拉入优惠黑名单将不能参与所有优惠活动。</p>
+              <p>每位玩家、每一住址、每一电子邮箱地址、每一电话号码、相同支付方式(相同借记卡/信用卡/银行账户)及IP地址只能享有一次优惠；若会员有重复申请帐号行为，公司保留取消或收回会员优惠彩金的权利。</p>
+              <p>{{siteConfig.siteName}}保留对活动的最终解释权，以及在无通知的情况下修改、终止活动的权利，适用于所有优惠。</p>
+            </div>
+          </div>
+
+
+        </div>
+        <back-top :height="window.innerHeight"></back-top>
+
+        <!--弹窗-->
+        <Modal
+          v-model="modal1"
+          class-name="vertical-center-modal modal1"
+          width="660"
+          :footer-hide=footerHide
+          :mask-closable="false">
+          <div slot="header">{{title}}</div>
+          <div slot="close">
+            <span class="close bgImg"></span>
+          </div>
+          <div style="text-align:center">
+            <i-table class="showT" border :columns="columns" :data="data1" disabled-hover v-if="showT"></i-table>
+            <p v-else>{{message}}</p>
+          </div>
+          <div slot="footer">
+            <span class="button bgImg" @click="closeModal"></span>
+          </div>
+        </Modal>
+        <Modal
+          v-model="modal2"
+          class-name="vertical-center-modal modal2"
+          width="566"
+          footer-hide
+          :mask-closable="false">
+          <div slot="header"></div>
+          <div slot="close">
+            <span class="close bgImg"></span>
+          </div>
+          <div>
+            <img src="./images/yue.png" alt="">
+          </div>
+        </Modal>
+      </div>
+    </div>
+
+    <script src="../lib/js/siteConfig.js"></script>
+    <script>
+    </script>
+    <script>
+      let vm = new Vue({
+        el: '#container',
+        data: {
+          inits: {
+            isClick: false,
+            ver: localStorage.getItem('Public_User') ? localStorage.getItem('Public_User') : 'v1',
+            url: '',
+            token: localStorage.getItem('token')
+          },
+          sites: sites,
+          siteConfig: {
+            siteInt: '',
+            siteId: 0,
+            siteName: ''
+          },
+          links: {
+            register: '/#/home?register=1',
+            download: '',
+            service: ''
+          },
+          status: false,
+          scrollTop: 0,
+          icons: {
+            icon1: true,
+            icon2: false,
+            icon3: false
+          },
+          bgImg: {
+            logo: '',
+            detail: 'images/icon_detail_1.png',
+            rule: 'images/icon_rule_1.png',
+            serch: 'images/icon_serch_1.png'
+          },
+          listData: {
+            names: [],
+            datas: [
+              {
+                column: [
+                  {
+                    title: '彩票门槛奖励',
+                    key: 'cp',
+                    align: 'center',
+                    children: [
+                      {
+                        title: '等级',
+                        key: 'level',
+                        align: 'center'
+                      },
+                      {
+                        title: '累计打码',
+                        key: 'amount',
+                        align: 'center'
+                      },
+                      {
+                        title: '礼金',
+                        key: 'levelMoney',
+                        align: 'center'
+                      },
+                      {
+                        title: '周俸禄',
+                        key: 'week',
+                        align: 'center'
+                      },
+                      {
+                        title: '月俸禄',
+                        key: 'month',
+                        align: 'center'
+                      },
+                    ]
+                  },
+                  {
+                    title: '领取周俸禄条件',
+                    key: 'age',
+                    align: 'center',
+                    children: [
+                      /*{
+                        title: '当周存款',
+                        key: 'name',
+                        align: 'center'
+                      },*/
+                      {
+                        title: '当周打码',
+                        key: 'name',
+                        align: 'center'
+                      },
+                     /*{
+                        title: '存款次数',
+                        key: 'name',
+                        align: 'center'
+                      },*/
+                      {
+                        title: '周俸禄',
+                        key: 'name',
+                        align: 'center'
+                      },
+                      {
+                        title: '月俸禄',
+                        key: 'name',
+                        align: 'center'
+                      },
+                    ]
+                  },
+                  {
+                    title: '领取月俸禄条件',
+                    key: 'address',
+                    align: 'center',
+                    children: [
+                      /*{
+                        title: '当月存款',
+                        key: 'name',
+                        align: 'center'
+                      },*/
+                      {
+                        title: '当月打码',
+                        key: 'name',
+                        align: 'center'
+                      },
+                      /*{
+                        title: '存款次数',
+                        key: 'name',
+                        align: 'center'
+                      },*/
+                      {
+                        title: '周俸禄',
+                        key: 'name',
+                        align: 'center'
+                      },
+                      {
+                        title: '月俸禄',
+                        key: 'name',
+                        align: 'center'
+                      },
+                    ]
+                  }
+                ],
+                data: []
+              }
+            ],
+            rules: [
+              {
+                levelGiftMoney: {
+                  level_3: 0,
+                  level_4: 0,
+                  level_5: 0
+                },
+                weekInfoIsShow: true,
+                weekAmount: {
+                  payTotal: 0,
+                  betTotal: 0,
+                  level_10: 0
+                },
+                monthAmount: {
+                  payTotal: 0,
+                  betTotal: 0,
+                  level_10: 0
+                }
+
+              }
+            ]
+          },
+          activeType: 0,
+          modal1: false,
+          footerHide: false,
+          modal2: false,
+          title: '',
+          message: '',
+          showT: false,
+          columns: [
+            {
+              title: '金管家类型',
+              key: 'typeName',
+              align: 'center'
+            },
+            {
+              title: '等级',
+              key: 'level',
+              align: 'center'
+            },
+            {
+              title: '礼金',
+              key: 'levelMoney',
+              align: 'center'
+            },
+            {
+              title: '周俸禄',
+              key: 'weekMoney',
+              align: 'center'
+            },
+            {
+              title: '月俸禄',
+              key: 'monthMoney',
+              align: 'center'
+            },
+            {
+              title: '升级还需打码',
+              key: 'nextLevelBet',
+              align: 'center'
+            }
+          ],
+          data1: []
+        },
+        methods: {
+          getDatas ({ url, type, data, store, callback }) {
+            if (localStorage[store]) {
+              if (typeof callback === 'function') callback(JSON.parse(localStorage[store]))
+            }
+            axios({
+              method: type,
+              url: url,
+              data: data,
+            }).then(res => {
+              localStorage[store] = JSON.stringify(res)
+              if (typeof callback === 'function') callback(res)
+            })
+          },
+          async getSiteConfig () {
+            await axios({
+              method: 'get',
+              url: '/frontend/v1/config',
+            }).then(res => {
+              console.log(this.siteConfig);
+              this.siteConfig.siteId = res.data.siteId
+              // 客服
+              this.links.service = res.data.siteConfig.service.find(item => item.status === 'on') ? res.data.siteConfig.service.find(item => item.status === 'on').url : window.location.origin
+              let site = this.sites.filter(item => {
+                return item.siteId === this.siteConfig.siteId
+              })
+              if (site.length !== 0) {
+                this.siteConfig.siteInt = site[0].siteInt
+                this.siteConfig.siteName = site[0].siteName
+              } else {
+                this.siteConfig.siteInt = 'test'
+                this.siteConfig.siteName = '测试站'
+              }
+              // 客服链接
+              this.links.download = '/static/' + this.siteConfig.siteInt + '/html/download/index.html'
+              // logo图片
+              this.bgImg.logo = 'url(./images/logo_' + this.siteConfig.siteInt + '.png)'
+            })
+              .catch(function (error) {
+                console.log(error)
+              })
+          },
+          closeModal () {
+            this.modal1 = false
+          },
+          comeSoon () {
+          /*  this.showT = false
+            this.title = '提 示 信 息'
+            this.message = '敬请期待'*/
+            this.modal2 = true
+
+          },
+          changeType (type) {
+            if (type === 1) {
+              this.icons.icon1 = true
+              this.icons.icon2 = false
+              this.icons.icon3 = false
+            } else if (type === 2) {
+              this.icons.icon1 = false
+              this.icons.icon2 = true
+              this.icons.icon3 = false
+            } else if (type === 3) {
+              if (this.inits.isClick) {
+                return
+              }
+              this.inits.isClick = true
+              axios({
+                url: this.inits.url + 'jinguanjiaQuery',
+                method: 'post'
+              }).then(res => {
+                // console.log(res)
+                if (res && res.code === 200) {
+                  this.showT = true
+                  this.data1 = []
+                  res.data.map((item, index) => {
+                    this.data1.push(
+                      {
+                        typeName: item.typeName,
+                        level: item.level,
+                        levelMoney: item.levelMoney,
+                        weekMoney: item.weekMoney,
+                        monthMoney: item.monthMoney,
+                        nextLevelBet: item.nextLevelBet,
+                        cellClassName: {
+                          typeName: item.typeName.includes('彩票') ? 'cp' : item.typeName.includes('电子') ? 'dz' : item.typeName.includes('棋牌') ? 'qp' : item.typeName.includes('视讯') ? 'sx' : item.typeName.includes('捕鱼') ? 'by' : item.typeName.includes('体育') ? 'ty' : 'other'
+                        }
+                      }
+                    )
+                  })
+                  this.title = '金管家等级查询'
+                  this.modal1 = true
+                  this.inits.isClick = false
+                } else {
+                  this.footerHide = true
+                  this.showT = false
+                  this.title = '提示信息'
+                  this.message = res.message
+                  this.modal1 = true
+                  this.inits.isClick = false
+                }
+
+              })
+            }
+          },
+          //根据贴顶与否设置锚点
+          getStatus (status) {
+            this.status = status
+            if (status) {
+              // this.scrollTop = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop
+              this.$refs['content_detail'].setAttribute('href', '#content_detail')
+              this.$refs['content_rule'].setAttribute('href', '#content_rule')
+            } else {
+              this.$refs['content_detail'].setAttribute('href', 'javascript:void (0)')
+              this.$refs['content_rule'].setAttribute('href', 'javascript:void (0)')
+            }
+          },
+          changeAtype (index) {
+            this.activeType = index
+          }
+        },
+        created: function () {
+          this.inits.url = '/frontend/' + this.inits.ver + '/'
+          this.getSiteConfig()
+          this.getDatas({
+            url: this.inits.url + 'jinguanjiaRuleList',
+            // url: 'lisst.json',
+            type: 'post',
+            // type: 'get',
+            store: 'active/jinguanjiaRuleList',
+            callback: res => {
+              if (res && res.code === 200) {
+                /*金管家种类个数*/
+                this.listData.names = []
+                this.listData.datas = []
+                res.data && res.data.map((item, index) => {
+                  this.listData.names.push(item.class_name)
+                  this.listData.datas[index] = { column: [], data: [] }
+                  this.listData.rules[index] = {
+                    levelGiftMoney: {},
+                    weekInfoIsShow: false,
+                    weekAmount: {},
+                    monthAmount: {}
+                  }
+
+                  if (item.weekInfoIsShow) {
+                    if (item.list[0].weekAmountInfo.payCount === 0 && item.list[0].monthAmountInfo.payCount !== 0) {
+                      this.listData.datas[index].column = [
+                        {
+                          title: item.class_name + '门槛奖励',
+                          align: 'center',
+                          children: [
+                            {
+                              title: '等级',
+                              key: 'level',
+                              align: 'center'
+                            },
+                            {
+                              title: '累计打码',
+                              key: 'betAmount',
+                              align: 'center'
+                            },
+                            {
+                              title: '礼金',
+                              key: 'levelGiftMoney',
+                              align: 'center'
+                            },
+                            {
+                              title: '周俸禄',
+                              key: 'weekMoney',
+                              align: 'center'
+                            },
+                            {
+                              title: '月俸禄',
+                              key: 'monthMoney',
+                              align: 'center'
+                            }
+                          ]
+                        },
+                        {
+                          title: '领取周俸禄条件',
+                          align: 'center',
+                          children: [
+                            /*{
+                              title: '当周存款',
+                              key: 'w_payTotal',
+                              align: 'center'
+                            },*/
+                            {
+                              title: '当周打码',
+                              key: 'w_betTotal',
+                              align: 'center'
+                            }
+                          ]
+                        },
+                        {
+                          title: '领取月俸禄条件',
+                          align: 'center',
+                          children: [
+                            /*{
+                              title: '当月存款',
+                              key: 'm_payTotal',
+                              align: 'center'
+                            },*/
+                            {
+                              title: '当月打码',
+                              key: 'm_betTotal',
+                              align: 'center'
+                            }/*,
+                            {
+                              title: '存款次数',
+                              key: 'm_payCount',
+                              align: 'center'
+                            }*/
+                          ]
+                        }
+                      ]
+                    } else if (item.list[0].weekAmountInfo.payCount !== 0 && item.list[0].monthAmountInfo.payCount === 0) {
+                      this.listData.datas[index].column = [
+                        {
+                          title: item.class_name + '门槛奖励',
+                          align: 'center',
+                          children: [
+                            {
+                              title: '等级',
+                              key: 'level',
+                              align: 'center'
+                            },
+                            {
+                              title: '累计打码',
+                              key: 'betAmount',
+                              align: 'center'
+                            },
+                            {
+                              title: '礼金',
+                              key: 'levelGiftMoney',
+                              align: 'center'
+                            },
+                            {
+                              title: '周俸禄',
+                              key: 'weekMoney',
+                              align: 'center'
+                            },
+                            {
+                              title: '月俸禄',
+                              key: 'monthMoney',
+                              align: 'center'
+                            }
+                          ]
+                        },
+                        {
+                          title: '领取周俸禄条件',
+                          align: 'center',
+                          children: [
+                            /*{
+                              title: '当周存款',
+                              key: 'w_payTotal',
+                              align: 'center'
+                            },*/
+                            {
+                              title: '当周打码',
+                              key: 'w_betTotal',
+                              align: 'center'
+                            }/*,
+                            {
+                              title: '存款次数',
+                              key: 'w_payCount',
+                              align: 'center'
+                            }*/
+                          ]
+                        },
+                        {
+                          title: '领取月俸禄条件',
+                          align: 'center',
+                          children: [
+                            /*{
+                              title: '当月存款',
+                              key: 'm_payTotal',
+                              align: 'center'
+                            },*/
+                            {
+                              title: '当月打码',
+                              key: 'm_betTotal',
+                              align: 'center'
+                            }
+                          ]
+                        }
+                      ]
+                    } else if (item.list[0].weekAmountInfo.payCount === 0 && item.list[0].monthAmountInfo.payCount === 0) {
+                      this.listData.datas[index].column = [
+                        {
+                          title: item.class_name + '门槛奖励',
+                          align: 'center',
+                          children: [
+                            {
+                              title: '等级',
+                              key: 'level',
+                              align: 'center'
+                            },
+                            {
+                              title: '累计打码',
+                              key: 'betAmount',
+                              align: 'center'
+                            },
+                            {
+                              title: '礼金',
+                              key: 'levelGiftMoney',
+                              align: 'center'
+                            },
+                            {
+                              title: '周俸禄',
+                              key: 'weekMoney',
+                              align: 'center'
+                            },
+                            {
+                              title: '月俸禄',
+                              key: 'monthMoney',
+                              align: 'center'
+                            }
+                          ]
+                        },
+                        {
+                          title: '领取周俸禄条件',
+                          align: 'center',
+                          children: [
+                            /*{
+                              title: '当周存款',
+                              key: 'w_payTotal',
+                              align: 'center'
+                            },*/
+                            {
+                              title: '当周打码',
+                              key: 'w_betTotal',
+                              align: 'center'
+                            }
+                          ]
+                        },
+                        {
+                          title: '领取月俸禄条件',
+                          align: 'center',
+                          children: [
+                            /*{
+                              title: '当月存款',
+                              key: 'm_payTotal',
+                              align: 'center'
+                            },*/
+                            {
+                              title: '当月打码',
+                              key: 'm_betTotal',
+                              align: 'center'
+                            }
+                          ]
+                        }
+                      ]
+                    } else {
+                      this.listData.datas[index].column = [
+                        {
+                          title: item.class_name + '门槛奖励',
+                          align: 'center',
+                          children: [
+                            {
+                              title: '等级',
+                              key: 'level',
+                              align: 'center'
+                            },
+                            {
+                              title: '累计打码',
+                              key: 'betAmount',
+                              align: 'center'
+                            },
+                            {
+                              title: '礼金',
+                              key: 'levelGiftMoney',
+                              align: 'center'
+                            },
+                            {
+                              title: '周俸禄',
+                              key: 'weekMoney',
+                              align: 'center'
+                            },
+                            {
+                              title: '月俸禄',
+                              key: 'monthMoney',
+                              align: 'center'
+                            }
+                          ]
+                        },
+                        {
+                          title: '领取周俸禄条件',
+                          align: 'center',
+                          children: [
+                            /*{
+                              title: '当周存款',
+                              key: 'w_payTotal',
+                              align: 'center'
+                            },*/
+                            {
+                              title: '当周打码',
+                              key: 'w_betTotal',
+                              align: 'center'
+                            }/*,
+                            {
+                              title: '存款次数',
+                              key: 'w_payCount',
+                              align: 'center'
+                            }*/
+                          ]
+                        },
+                        {
+                          title: '领取月俸禄条件',
+                          align: 'center',
+                          children: [
+                            /*{
+                              title: '当月存款',
+                              key: 'm_payTotal',
+                              align: 'center'
+                            },*/
+                            {
+                              title: '当月打码',
+                              key: 'm_betTotal',
+                              align: 'center'
+                            }/*,
+                            {
+                              title: '存款次数',
+                              key: 'm_payCount',
+                              align: 'center'
+                            }*/
+                          ]
+                        }
+                      ]
+                    }
+                    item.list.map((item2, index2) => {
+                      this.listData.datas[index].data.push(
+                        {
+                          level: item2.level + '级',
+                          betAmount: item2.betAmount,
+                          levelGiftMoney: item2.levelGiftMoney,
+                          weekMoney: item2.weekMoney,
+                          monthMoney: item2.monthAmount,
+                          w_payTotal: '周俸禄X' + item2.weekAmountInfo.payTotal,
+                          w_betTotal: '周俸禄X' + item2.weekAmountInfo.betTotal,
+                          w_payCount: item2.weekAmountInfo.payCount,
+                          m_payTotal: '月俸禄X' + item2.monthAmountInfo.payTotal,
+                          m_betTotal: '月俸禄X' + item2.monthAmountInfo.betTotal,
+                          m_payCount: item2.monthAmountInfo.payCount
+                        }
+                      )
+                    })
+                    this.listData.rules[index] = {
+                      levelGiftMoney: {
+                        level_3: item.list[2].levelGiftMoney,
+                        level_4: item.list[3].levelGiftMoney,
+                        level_5: item.list[4].levelGiftMoney
+                      },
+                      weekInfoIsShow: item.weekInfoIsShow,
+                      weekAmount: {
+                        payTotal: item.list[0].weekAmountInfo.payTotal,
+                        betTotal: item.list[0].weekAmountInfo.betTotal,
+                        level_10: item.list[9].weekMoney
+                      },
+                      monthAmount: {
+                        payTotal: item.list[0].monthAmountInfo.payTotal,
+                        betTotal: item.list[0].monthAmountInfo.betTotal,
+                        level_10: item.list[9].monthAmount
+                      }
+                    }
+                  } else {
+                    if (item.list[0].monthAmountInfo.payCount === 0) {
+                      this.listData.datas[index].column = [
+                        {
+                          title: item.class_name + '门槛奖励',
+                          align: 'center',
+                          children: [
+                            {
+                              title: '等级',
+                              key: 'level',
+                              align: 'center'
+                            },
+                            {
+                              title: '累计打码',
+                              key: 'betAmount',
+                              align: 'center'
+                            },
+                            {
+                              title: '礼金',
+                              key: 'levelGiftMoney',
+                              align: 'center'
+                            },
+                            {
+                              title: '月俸禄',
+                              key: 'monthMoney',
+                              align: 'center'
+                            }
+                          ]
+                        },
+                        {
+                          title: '领取月俸禄条件',
+                          align: 'center',
+                          children: [
+                            /*{
+                              title: '当月存款',
+                              key: 'm_payTotal',
+                              align: 'center'
+                            },*/
+                            {
+                              title: '当月打码',
+                              key: 'm_betTotal',
+                              align: 'center'
+                            }
+                          ]
+                        }
+                      ]
+                    } else {
+                      this.listData.datas[index].column = [
+                        {
+                          title: item.class_name + '门槛奖励',
+                          align: 'center',
+                          children: [
+                            {
+                              title: '等级',
+                              key: 'level',
+                              align: 'center'
+                            },
+                            {
+                              title: '累计打码',
+                              key: 'betAmount',
+                              align: 'center'
+                            },
+                            {
+                              title: '礼金',
+                              key: 'levelGiftMoney',
+                              align: 'center'
+                            },
+                            {
+                              title: '月俸禄',
+                              key: 'monthMoney',
+                              align: 'center'
+                            }
+                          ]
+                        },
+                        {
+                          title: '领取月俸禄条件',
+                          align: 'center',
+                          children: [
+                            /*{
+                              title: '当月存款',
+                              key: 'm_payTotal',
+                              align: 'center'
+                            },*/
+                            {
+                              title: '当月打码',
+                              key: 'm_betTotal',
+                              align: 'center'
+                            }/*,
+                            {
+                              title: '存款次数',
+                              key: 'm_payCount',
+                              align: 'center'
+                            }*/
+                          ]
+                        }
+                      ]
+                    }
+                    item.list.map((item2, index2) => {
+                      this.listData.datas[index].data.push(
+                        {
+                          level: item2.level + '级',
+                          betAmount: item2.betAmount,
+                          levelGiftMoney: item2.levelGiftMoney,
+                          weekMoney: item2.weekMoney,
+                          monthMoney: item2.monthAmount,
+                          m_payTotal: '月俸禄X' + item2.monthAmountInfo.payTotal,
+                          m_betTotal: '月俸禄X' + item2.monthAmountInfo.betTotal,
+                          m_payCount: item2.monthAmountInfo.payCount
+                        }
+                      )
+                    })
+                    this.listData.rules[index] = {
+                      levelGiftMoney: {
+                        level_3: item.list[2].levelGiftMoney,
+                        level_4: item.list[3].levelGiftMoney,
+                        level_5: item.list[4].levelGiftMoney
+                      },
+                      weekInfoIsShow: item.weekInfoIsShow,
+                      monthAmount: {
+                        payTotal: item.list[0].monthAmountInfo.payTotal,
+                        betTotal: item.list[0].monthAmountInfo.betTotal,
+                        level_10: item.list[9].monthAmount
+                      }
+                    }
+                  }
+                })
+                this.changeAtype(1)
+                let that = this
+                setTimeout(function() {
+                  that.changeAtype(0)
+                }, 50);
+              }
+
+            }
+          })
+        },
+        computed: {
+          totalGiftMoney () {
+            return Number(this.listData.rules[this.activeType].levelGiftMoney.level_3) + Number(this.listData.rules[this.activeType].levelGiftMoney.level_4) + Number(this.listData.rules[this.activeType].levelGiftMoney.level_5)
+          },
+          payTotalWeek () {
+            return Number(this.listData.rules[this.activeType].weekAmount.level_10) * Number(this.listData.rules[this.activeType].weekAmount.payTotal)
+          },
+          betTotalWeek () {
+            // return this.payTotalWeek * Number(this.listData.rules[this.activeType].weekAmount.betTotal)
+            return Number(this.listData.rules[this.activeType].weekAmount.level_10) * Number(this.listData.rules[this.activeType].weekAmount.betTotal)
+          },
+          payTotalMonth () {
+            return Number(this.listData.rules[this.activeType].monthAmount.level_10) * Number(this.listData.rules[this.activeType].monthAmount.payTotal)
+          },
+          betTotalMonth () {
+            // return this.payTotalMonth * Number(this.listData.rules[this.activeType].monthAmount.betTotal)
+            return Number(this.listData.rules[this.activeType].monthAmount.level_10) * Number(this.listData.rules[this.activeType].monthAmount.betTotal)
+          }
+
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>争霸赛-赛事详情</title>
+  <link rel="stylesheet" href="./css/public.css">
+  <script src="./../../../lib/js/qs.min.js"></script>
+  <script src="../../../lib/js/crypto-js.min.js"></script>
+  <script src="../../../lib/js/jsencrypt.min.js"></script>
+  <script src="./../../../lib/js/axios.min.js"></script>
+  <script src="./../../../lib/js/cryptoConfig.js"></script>
+  <script src="../js/config.js"></script>
+</head>
+
+<body>
+  <div class="details" id="details">
+    <div v-cloak>
+      <div class="header-btn">
+        <div class="header-arrow-left">
+          <a href="./index.html">
+            <i class="el-icon-arrow-left"></i>
+          </a>
+        </div>
+        <div class="header-title">
+          <div class="title-name">赛事详情</div>
+        </div>
+      </div>
+      <div v-show="pageNone">
+        <div class="details-top-msg">
+          <div class="banner-bg">
+            <img class="status-img" :src="zhengStatusImg" alt="">
+          </div>
+          <div class="activity-msg">
+            <div class="start-btn">
+              <template v-if="this.status === 'open'">
+                <img alt="" @click="clickEntryHandler()" :src="this.btn.img" />
+                <p style="font-size: 0.85rem; color:#EAEAEA; margin-top: 0.5rem;">{{this.btn["txt"]}}</p>
+              </template>
+              <a v-if="this.status === 'end' || this.status === 'off'" :href="'./index_awarded.html?stage='+ levelRange">
+                <img src="./images/show_list.png" alt="" />
+              </a>
+              <!-- <img class="hr-border" src="./images/hr-border.png" alt="" /> -->
+            </div>
+            <div class="banner-msg">
+              <!-- <span>{{ this.gameYear }} {{this.title}}争霸赛．第
+                {{ this.levelRange | chineseNumber }} 期</span> -->
+              <span>{{this.title}}</span>
+            </div>
+            <span class="activity-time">活动时间：{{ this.startTime }} ~ {{ this.endTime }}
+            </span>
+          </div>
+        </div>
+        <div class="details-msg">
+          <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane label="比赛规则" name="rule" class="msg_rule">
+              <table class="rule-info">
+                <tr>
+                  <td class="rule-title">参赛资格</td>
+                  <td class="rule-content">
+                    每周一至周六期间在 {{this.gamesName}} 累积有效打码满 {{this.betAmount}} 以上的会员
+                  </td>
+                </tr>
+                <tr>
+                  <td class="rule-title">参赛方式</td>
+                  <td class="rule-content">
+                    点击【争霸赛】进入【进行中的争霸赛详情页】点击【开始比赛】即视为参赛成功！
+                  </td>
+                </tr>
+                <tr>
+                  <td class="rule-title">初始金额</td>
+                  <td class="rule-content">初始金额2000元（免费赠送）</td>
+                </tr>
+                <tr>
+                  <td class="rule-title">单一可获最高奖金</td>
+                  <td class="rule-content">{{this.rewardAmount}} 元</td>
+                </tr>
+                <tr>
+                  <td class="rule-title">取款要求</td>
+                  <td class="rule-content">无需打码，即可出款</td>
+                </tr>
+              </table>
+              <div class="details-caption">
+                注：争霸赛活动结束后，将根据会员账号{{this.gamesName}}的打码金额进行争霸赛排名,
+                澳门太阳城为每一位客户提供最安全、最公平的博彩游戏，以及全方位的服务，确保游戏结果公平、公正、公开！
+              </div>
+              <img class="hr-border" src="./images/hr-border.png" alt="" />
+              <div class="details-rule-msg">
+                <div class="title-img"><span>赌神 争霸赛规则</span></div>
+                <ul>
+                  <li>
+                    1.赌神争霸赛开始后，所有参赛者都将得到一个统一金额的【赌神争霸赛<span class="point">初始资金</span>】，
+                    <span class="point">此资金不可提款</span>。
+                  </li>
+                  <!-- <li>
+                    2.赌神争霸赛<span class="point">初始资金将从会员账号扣除，扣除后此资金会自动翻10倍用于参赛，</span>
+                    如初始资金为 {{this.iniAmount}} ，则翻10倍后为<span> {{this.iniAmount * 10 || 0}} </span> 
+                    用于参赛。比赛结束后剩余参赛资金不可转回账号余额
+                  </li> -->
+                  <li>
+                    2.赌神争霸赛<span class="point">比赛资金仅供{{this.gamesName}}娱乐使用</span>，
+                    作为最后排名的一个参考数据，不可提款。<span class="point">不可用于其它任何游戏。</span>
+                  </li>
+                  <li>
+                    3.赌神争霸赛排名有限，打码越多排名越前，赌神争霸赛奖金越高！
+                  </li>
+                  <li>
+                    4.争霸赛结束后<span class="point">系统自动派送</span>争霸赛奖金给获奖会员！
+                  </li>
+                </ul>
+              </div>
+              <div class="details-rule-msg rule-bonus">
+                <div class="title-img"><span>活动详情</span></div>
+                <ul>
+                  <li>
+                    活动对象：<span class="point">凡是每周一至每周六期间</span>在{{this.gamesName}}
+                    <span class="point">累计有效打码满{{this.betAmount}}及以上</span>的会员，
+                    即可参与每周日 {{this.gameStartTime}} - {{this.gameEndTime}} 的赌神争霸赛，
+                    初始金额2000元，巅峰对决，王者争霸，大奖等您来拿！
+                  </li>
+                </ul>
+                <div class="heading">赌神争霸赛每周日开赛</div>
+                <el-table :data="rewardTable" style="width: 100%" class="details-table" :span-method="objectSpanMethod">
+                  <el-table-column prop="rankTable" :formatter="rankData" label="排名" align="center">
+                  </el-table-column>
+                  <el-table-column prop="rewardTable" :formatter="rewardData" label="獎金" align="center">
+                  </el-table-column>
+                  <el-table-column prop="limit" :formatter="limitData" label="打碼限制" align="center">
+                  </el-table-column>
+                  <el-table-column prop="time" :formatter="timeData" label="派送時間" align="center">
+                  </el-table-column>
+                </el-table>
+                <ul>
+                  <li>
+                    <span class="point">例：</span>A会员在2020年2月3号至2月8号(星期一至星期六)期间累计有效打码满 {{this.betAmount}} 以上，
+                    即可在2020年2月9号(星期日)当天 {{this.gameStartTime}} 至 {{this.gameEndTime}} 参与赌神争霸赛,
+                    <span class="point">状元独得奖金 {{this.rewardAmount}} 元</span>，赌神争霸赛奖金无需打码即可提款！
+                  </li>
+                  <li>
+                    <span class="point">温馨提醒：</span>系统统计排名需要一定的时间请您耐心等候，奖金将在排名出来后30分钟内自动派送到会员账号余额中。
+                  </li>
+                </ul>
+              </div>
+              <div class="details-rule-msg">
+                <div class="title-img"><span>活动细则</span></div>
+                <ul>
+                  <li>
+                    1、所获得争霸赛彩金无需打码，即可出款。 时间按照北京时间进行计算。
+                  </li>
+                  <li>
+                    2、会员打码量由系统自动统计，若有任何异议，以澳门太阳城派送结果为准。
+                  </li>
+                  <li>
+                    3、澳门太阳城的所有优惠均为玩家而设，如发现任何团体或个人，以不诚实方式套取红利或任何威胁，滥用公司优惠等行为公司保留冻结，取消该团体或个人账户结余的权利。
+                  </li>
+                  <li>
+                    4、若会员对活动有争议时，为确保双方利益，杜绝身份盗用行为，太阳城集团有权要求会员向我们提供充足有效文件，用以确认是否享有该优惠的资质。
+                  </li>
+                  <li>
+                    5、澳门太阳城保留对活动最终解释权； 以及在无通知的情况下修改，终止活动的权利，适用于所有优惠。
+                  </li>
+                </ul>
+              </div>
+            </el-tab-pane>
+            <el-tab-pane label="打码排名奖金" name="bonus">
+              <div class="table-bonus">
+                <el-table :data="rewardTable" style="width: 100% ;margin-bottom: 5em;">
+                  <el-table-column prop="rankTable" :formatter="rankData" label="排名" align="center">
+                  </el-table-column>
+                  <el-table-column prop="rewardTable" :formatter="rewardData" label="奖金" align="center">
+                  </el-table-column>
+                </el-table>
+              </div>
+            </el-tab-pane>
+          </el-tabs>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="./../../../lib/js/vue.min.js"></script>
+<script src="./../../../lib/js/element-ui.js"></script>
+<script src="./../../../lib/js/vue-router.js"></script>
+<script src="./../../../lib/js/moment.min.js"></script>
+<script src="./../../../lib/js/moment-with-locales.min.js"></script>
+
+
+<script type="text/javascript">
+  new Vue({
+    el: '#details',
+    data: {
+      zhengList: [],
+      rewardTable: [],
+      activeName: "rule",
+      zhengStatusImg: "",
+      games: {},
+      isLogined: false,
+      gamesName: '游戏',
+      zhengParticipate: 0,
+      zhengEntryBtn: {
+        0: {                            // 0=尚未參加遊戲
+          img: "./images/btn_start.png",
+          txt: "（点击后视为参赛成功只可娱乐争霸赛指定游戏）"
+        },
+        1: {                            // 1=處於爭霸賽帳號
+          img: "./images/btn_exit.png",
+          txt: "（如需娱乐其它游戏,请退出争霸赛账号）"
+        },
+        2: {                            // 2=處於一般帳號
+          img: "./images/btn_enter.png",
+          txt: "（进入后只可娱乐争霸赛指定游戏）"
+        }
+      },
+      btn: {                            
+          img: "./images/btn_start.png",
+          txt: "（点击后视为参赛成功只可娱乐争霸赛指定游戏）"
+      },
+      // gameYear:"",
+      status: "",
+      startTime:"",
+      endTime:"",
+      levelRange:"",
+      title:"",
+      statsStart:"",
+      statsEnd:"",
+      betAmount:"",
+      iniAmount:"",
+      rewardAmount:"",
+      pageNone:true,
+      isInitNativeToken: false,
+    },
+    watch: {
+      zhengParticipate: {
+        handler: function(newV, oldV){
+          this.btn = this.zhengEntryBtn[this.zhengParticipate] || this.zhengEntryBtn[0]
+        },
+        immediate: true
+      },
+    },
+    mounted() {
+      this.getZhengList();
+      this.initGetZhengParticipateStatus();
+    },
+    methods: {
+      getZhengList() {
+        let getUrlString = location.href;
+        let url = new URL(getUrlString);
+        let stage = url.searchParams.get('stage');
+        axios.get(getZhengbasaiRow, {
+          params: {
+            stage: stage
+          }
+        })
+        .then((res) => {
+          if (res.data !== undefined && res.data.code === 200) {
+            this.pageNone = true
+            this.zhengListDataHandle(res.data.data)
+          } 
+          else {
+            this.pageNone = false
+            alert(res.data.message.substr(1).substring(-1,0));
+          }
+        })
+        .catch((err) => {
+          this.pageNone = false
+        }
+        );
+      },
+      zhengListDataHandle(zhengList){
+        this.zhengList = zhengList;
+        this.condition = JSON.parse(zhengList.condition)
+
+        this.games = zhengList.json.games
+        if (this.games) {
+          let gamesName = []
+          let games = this.games
+          let gameAll = 0;
+          let gameType = {
+            lottery: "彩票游戏",
+            slot: "电子游艺",
+            sport: '体育赛事',
+            chess: "棋牌游戏",
+            live_casino: "真人视讯",
+            getfish: "捕鱼游戏"
+          }
+          for (let key of Object.keys(games)){
+            if (games[key].length == 1 && games[key][0].code === 'all') {
+              gamesName.unshift(gameType[key])
+              gameAll ++
+            } else {
+              gamesName.push(...games[key].map(game => game.name ))
+            }
+          }
+          this.gamesName = gameAll == 6 ? '所有类型' : gamesName.join('/')
+        }
+
+        // this.gameYear = moment(zhengList.start_time*1000).format("YYYY-MM-DD HH:mm:ss").slice(0, 4)
+        this.gameStartTime = moment(zhengList.start_time*1000).format("YYYY-MM-DD HH:mm:ss").slice(11, 16)
+        this.gameEndTime = moment(zhengList.end_time*1000).format("YYYY-MM-DD HH:mm:ss").slice(11, 16)
+
+        this.startTime = moment(zhengList.start_time*1000).format("YYYY-MM-DD HH:mm:ss")
+        this.endTime = moment(zhengList.end_time*1000).format("YYYY-MM-DD HH:mm:ss")
+        this.statsStart = moment(this.condition.stats_start*1000).format("YYYY-MM-DD HH:mm:ss");
+        this.statsEnd = moment(this.condition.stats_end*1000).format("YYYY-MM-DD HH:mm:ss");
+
+        this.levelRange = zhengList.level_range
+        this.title = this.condition.title
+        this.betAmount = this.condition.bet_amount
+        this.iniAmount = this.condition.ini_amount
+        this.status = zhengList.status
+
+        let newArr = this.condition.rewards;
+        this.newArrData = newArr.sort(function (a, b) {
+          return b.reward_amount - a.reward_amount;
+        });
+        this.rewardAmount = this.newArrData[0].reward_amount;
+        let rankArr = this.condition.rewards
+        this.rankArrData = rankArr.sort(function (a, b) {
+          return a.rank_start -b.rank_start ;
+        });
+        this.rewardTable = this.rankArrData
+
+        let zhengStatusImgs = {
+          open: "./images/is_play.png",
+          on:   "./images/no_play.png",
+          end:  "./images/is_end.png",
+          off:  "./images/is_end.png"
+        }
+        this.zhengStatusImg = zhengStatusImgs[this.status]
+      },
+      initGetZhengParticipateStatus(){
+        axios.get(getZhengParticipateStatus, {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+        })
+        .then((res) => {
+          if (res.data !== undefined && res.data.code === 200) {
+            this.zhengParticipate = res.data.data.joined
+          }
+        })
+      },
+      getZhengParticipateStatus(){
+        axios.get(getZhengParticipateStatus, {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+        })
+        .then((res) => {
+          if (res.data !== undefined && res.data.code === 200) {
+            this.zhengParticipate = res.data.data.joined
+          } else{
+            this.isLogined = false
+            this.$message({
+              message: res.data.message,
+              type: "warning",
+            });
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        });
+      },
+      
+      clickEntryHandler(){
+        this.getZhengParticipateStatus();
+        if (this.zhengParticipate == 1) {   // 處於爭霸賽帳號
+          this.getZhengEscape();
+          return
+        } else {
+          this.playGame();
+        }
+      },
+      playGame() {
+        axios.post(playGame, {}, {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+        })
+        .then((res) => {
+          if (res.data !== undefined && res.data.code === 200) {
+            let newToken = res.data.data.token;
+            localStorage.setItem('token', newToken)
+            this.$message({
+              message: res.data.data.message,
+              type: "success",
+            });
+            this.getZhengParticipateStatus();
+            localStorage.setItem('zhengJoinStage', res.data.data.stage)
+            localStorage.setItem('zhengJoinStageEndTime', res.data.data.endTime)
+            this.resetGameList()
+            setTimeout(() => {
+              this.goHome();
+            }, 700);
+          } 
+          else {
+            this.$message({
+                message: res.data.message,
+                type: "warning",
+              });
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        }
+        );
+      },
+      getZhengEscape(){
+        axios.post(getZhengEscape, {}, {
+          headers: {
+            Authorization: localStorage.getItem('token')
+          }
+        })
+        .then((res) => {
+          if (res.data !== undefined && res.data.code === 200) {
+            let newToken = res.data.data.token
+            localStorage.setItem('token', newToken)
+            this.getZhengParticipateStatus();
+            this.$message({
+              message: res.data.data.message,
+              type: "success",
+            });
+            resetGameListZhengJoin()
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        });
+      },
+      resetGameList(){
+        let key = ""
+        for(var i = 0; i < localStorage.length; i++ ){
+            key = localStorage.key(i)
+            if (key.indexOf("gameSortV4") != -1 || key.indexOf(`main/gameSort/`) != -1) {
+              localStorage.removeItem(key)
+            }
+        }
+      },
+      goHome() {
+        window.location = "http://"+window.location.hostname+"/m"
+      },
+      handleClick(tab, event) {},
+      objectSpanMethod({
+        row,
+        column,
+        rowIndex,
+        columnIndex
+      }) {
+        if (columnIndex === 2 || columnIndex === 3) {
+          if (rowIndex % 3 === 0 && rowIndex % 4 === 0) {
+            return {
+              rowspan: 10,
+              colspan: 1,
+            };
+          } else {
+            return {
+              rowspan: 0,
+              colspan: 0,
+            };
+          }
+        }
+      },
+      rankData(row, column) {
+        return '第 ' + row.rank_start + (row.rank_end === null || row.rank_end === 0 ? '' : '~' + row.rank_end) +
+          ' 名'
+      },
+      rewardData(row, column) {
+        return row.reward_amount + ' 元'
+      },
+      limitData(row, column) {
+        return '无需打码即可提款'
+      },
+      timeData(row, column) {
+        return '争霸赛结束后系统自动派送'
+      }
+    },
+    filters: {
+      chineseNumber(num) {
+        const changeNum = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'] // changeNum[0] = "零"
+        const unit = ['', '十', '百']
+        num = parseInt(num)
+        const getWan = (temp) => {
+          const strArr = temp.toString().split('').reverse()
+          let newNum = ''
+          for (var i = 0; i < strArr.length; i++) {
+            newNum = (i == 0 && strArr[i] == 0 ? '' : (i > 0 && strArr[i] == 0 && strArr[i - 1] == 0 ? '' :
+              changeNum[strArr[i]] + (strArr[i] == 0 ? unit[0] : unit[i]))) + newNum
+          }
+          return newNum
+        }
+        const overWan = Math.floor(num / 100)
+        let noWan = num % 100
+        if (noWan.toString().length < 2) noWan = '0' + noWan
+        return overWan ? getWan(overWan) + '百' + getWan(noWan) : getWan(num)
+      }
+    }
+  })
+
+</script>
+
+</html>

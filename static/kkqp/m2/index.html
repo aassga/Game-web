@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- saved from url=(0019)https://372255.com/ -->
+<html data-dpr="1" style="font-size: 37.5px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>开元棋牌</title>
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="./css/style.css">
+<script src="./js/hm.js"></script><script src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/flexible.js"></script>
+<script src="./js/sharetrace.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="./js/dafaqp.js"></script>
+<script src="https://res.sharetrace.com/sharetrace.min.js"></script>
+</head>
+<body style="font-size: 12px;">
+<div>
+<div id="container">
+	
+	<div id="mian"> 
+	<div class="top">
+		<img src="./images/img01.jpg" alt="">
+			<img src="./images/img02.jpg" alt=""> 
+		<div class="down"> 
+		<a href="javascript:;" onclick="DownSoft();" class="iosBtn"><img src="./images/ios.gif" alt=""></a> 
+		<a href="javascript:;" onclick="DownSoft();" class="andBtn"><img src="./images/and.gif" alt=""></a> 
+		</div>
+		</div>
+		<div class="jcBtn iosBtn"><a href="javascript:void(0)"><img src="./images/jcbtn.png" alt=""></a></div>
+	
+			<div class="top"><img src="./images/img03.jpg" alt=""> </div>	
+
+		<div class="btmDown"><a href="javascript:;" onclick="DownSoft();"><img src="./images/img04.jpg" alt=""></a></div>				
+</div>
+
+</div>
+
+
+     <div class="jcBox">
+<div class="closeBtn"><a href="javascript:void(0)"><img src="./images/jc_close.jpg" alt=""></a></div>
+<img src="./images/xinren.png" alt="">
+<div class="closeBtn"><a href="javascript:void(0)"><img src="./images/jc_close.jpg" alt=""></a></div>
+</div> 
+<div id="cs" style="width:17.9vw;height:24vw;">
+		<img src="./images/cs2.png" alt=""  usemap="#Map">
+		<map name="Map">
+		  <area shape="rect" coords="0,3,128,200" href="" target="_blank" class="service1">
+		  <area shape="rect" coords="3,201,133,248" href="" target="_blank" class="service2">
+		</map>
+</div>
+</div>
+<script>
+	function find(str,cha,num){
+		var x=str.indexOf(cha);
+		for(var i=0;i<num;i++){
+				x=str.indexOf(cha,x+1);
+		}
+		return x;
+	}
+	function GetQueryString (name) {
+		var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
+		var r = window.location.search.substr(1).match(reg)
+		if (r != null) return unescape(r[2])
+		return null
+	}
+	b = GetQueryString('agent') || GetQueryString('channelCode');
+	console.log(b);
+	let str=window.location.href;
+	let par1 = "channelCode="+ b +"&channelDomain="+str.substring(0,find(str,'/',2))
+	let par2 = "channelDomain="+str.substring(0,find(str,'/',2))
+
+	// if (b == null) {
+	// 	url = window.location.href
+	// 	a = url + '?'+par2
+	// 	window.location.href = a
+	// }else{
+	// 	url = window.location.href
+	// 	a = url + '?'+par1
+	// 	window.location.href = a
+	// }
+	// 初始化
+	ShareTrace.init({
+		appkey: "c88dc9e36289715c", // 此值必填
+		param: b ? par1 : par2,
+		success: function() {
+				console.log("init success...")
+		},
+		error: function(msg) {
+				console.log(msg)
+		}
+	});	
+	function get_down(type) {
+		if(isWeixin) {
+			return false;
+		}
+		if(type == 1) {
+			ShareTrace.download();
+		} else {
+			ShareTrace.download();
+		}
+	}
+	function DownSoft(){
+		ShareTrace.download();
+	}
+//ios退出引导
+// function setHistory(){
+// 	history.pushState(null, null, document.URL);
+// 		setTimeout(function() {
+// 			window.addEventListener('popstate', function () {
+// 				$(".out-mask").show();
+// 				history.pushState(null, null, document.URL);
+// 			});
+// 		}, 0);
+// }
+// $('.out-close').click(function(){
+// 	$(".out-mask").hide();
+// })
+// setHistory(); 
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+    var isApple=!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    if(isAndroid){
+        $('#container').removeClass('iosBody');
+        $('#container').addClass('andBody');
+        $('.iosBtn').hide();
+        $('.andBtn').show();
+        $('.iosBox').hide();
+        $('.andBox').show();
+    }else if(isApple){		
+       $('#container').addClass('iosBody');
+        $('#container').removeClass('andBody');
+      $('.andBtn').hide();
+        $('.iosBtn').show();
+      	$('.andBox').hide();
+        $('.iosBox').show();
+    }else{
+        alert('请在手机端打开网页')
+    };
+$(function(){
+	$('.jcBtn a').click(function(){
+		$('.jcBox').show();
+		$('#container').hide();	
+		return false;	
+	});
+	$('.closeBtn a').click(function(){
+		$('.jcBox').hide();
+		$('#container').show();		
+		return false;	
+	});	
+	$('.andBody .top,.andBody .top2,.andBody .btmDown,.game-down').click(function(){
+		DownSoft();
+	});
+	$('.iosBody .top,.iosBody .top2,.iosBody .btmDown,.game-down').click(function(){
+		DownSoft();
+		
+	})
+})		
+// 获取客服链接
+        $.ajax({
+				url: location.origin+"/frontend/v1/config",
+				type: 'get',
+				success: function (data) {
+					const {siteConfig} =data.data
+					let service=siteConfig.service
+					if(service){
+					   let ser = service.find(item => item.status === 'on')
+					   document.querySelector('.service1').setAttribute('href',ser.url);   
+					   document.querySelector('.service2').setAttribute('href',ser.url);       
+					}else{
+					   document.querySelector('.service1').setAttribute('href','javascript:void(0)');   
+					   document.querySelector('.service2').setAttribute('href','javascript:void(0)');    
+					}
+				},
+				error:function(){
+					document.querySelector('.service1').setAttribute('href','javascript:void(0)');   
+					document.querySelector('.service2').setAttribute('href','javascript:void(0)');   
+				}
+			})
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?56e190c252f9a4e578b2bc65a3de6432";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+</body></html>

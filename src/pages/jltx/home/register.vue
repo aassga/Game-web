@@ -1,0 +1,802 @@
+<template>
+    <div>
+        <div class="banner">
+            <!-- <banView :headerImg="headerImg" :picBox='300'></banView> -->
+        </div>
+        <div class="register">
+        
+            <div class="content" >
+                <div :class="['clearfloat',showForm == 2 ?'clearfloat1':code_show ==false?'clearfloat2': '']" >
+                    <!-- <div class="titleTab">
+                        <span>{{title}}</span>
+                        <!-- <span @click="tabIndex = 1" :class="{clicked:tabIndex==1}">登录</span>
+                        <span @click="tabIndex = 2" :class="{clicked:tabIndex==2}">注册</span> -->
+                    <!-- </div> --> 
+                    <div style="clear:both"></div>
+                    <div class="right fr regin" v-if="showForm == 2">
+                        <div class="titleTab">
+                            <span>{{title}}</span>
+                        </div>
+                        <div class="register-wrap">
+                            <div class="list-box">
+                                <div class="text-context">
+                                    <div class="title">会员帐号 ：</div>
+                                    <div class="input-cont">
+                                        <i class="iconfont yonghu"></i>
+                                        <input autocomplete="off" @keydown="pulicError=''" v-on:keyup.enter="registerTest"
+                                            placeholder="帐号6-10位数字或字母" type="text" v-model="userName" @blur="registerCode" maxlength="10">
+                                    </div>
+                                </div>
+
+                                <div class="text-context">
+                                    <div class="title">登入密码 ：</div>
+                                    <div class="input-cont">
+                                        <i class="iconfont mima"></i>
+                                        <input autocomplete="off" ref="pwd1" @keyup="clearNull1" @keydown="pulicError=''" v-on:keyup.enter="registerTest"
+                                            placeholder="密码8-20位数字或字母" type="password" v-model="password" maxlength="20">
+                                        <i :class="showEye1?'openEyes':'closeEyes'" @click="changeEyes(1)"></i>
+                                    </div>
+                                </div>
+
+                                <div class="text-context">
+                                    <div class="title">重复密码 ：</div>
+                                    <div class="input-cont">
+                                        <i class="iconfont mima"></i>
+                                        <input autocomplete="off" ref="pwd2" @keyup="clearNull1" @keydown="pulicError=''" v-on:keyup.enter="registerTest" placeholder="请重复密码"
+                                            type="password" v-model="password_confirmation" maxlength="20">
+                                        <i :class="showEye2?'openEyes':'closeEyes'" @click="changeEyes(2)"></i>
+                                    </div>
+                                </div>
+
+                                <!-- 手机号 微信等信息 -->
+                                <div :key='index' v-for="(item,index) in register">
+                                    <div v-if="JSON.stringify(item) !== '{}'" class="text-context">
+                                        <div class="title">{{item.name}} ：</div>
+                                        <div class="input-cont">
+                                            <i class="iconfont" :class="item.divclass"></i>
+                                            <input @keydown="pulicError=''" v-on:keyup.enter="registerTest" :placeholder="item.placeholder"
+                                                type="text" v-model="item.value" :maxlength="item.maxlength">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 短信验证码 -->
+                                <div class="smsContainer" v-if="isShowSms">
+                                    <!-- <i class="iconfont yanzhengma"></i> -->
+                                    <sms-input :qygj="theName" :smsCodeWrapper="smsCodeWrapper" :curLabel="curLabel" :star="star"
+                                        :inputBox="inputBox" :msgVerifyBox="msgVerifyBox" :btnStyle="btnStyle" :beforeSend="beforeSend"
+                                        :reSend="reSend" :msgTip="msgTip" @my-event="getMsgCode" v-model="smsCode" :isShowSms="isShowSms"
+                                        :hasSendMsg="hasSendMsg" :countDownTime="countDownTime" :paddingBottom2="paddingBottom2">
+                                    </sms-input>
+                                </div>
+
+                                <!-- 正常验证码 -->
+                                <div v-if="!isShowSms&&!isShowTnCode" class="text-context">
+                                    <div class="title" >验证码 ：</div>
+                                    <div class="input-cont input-cont1">
+                                        <i class="iconfont yanzhengma"></i>
+                                        <input autocomplete="off" @keydown="pulicError=''" v-on:keyup.enter="registerTest" placeholder="请输入验证码"
+                                            type="text" v-model="code" maxlength="4">
+                                        <span class="yzm_reg">
+                                            <img class="checkLoginCodeImage" :src="codeImg" @click="registerCode">
+                                        </span>
+                                        <span class="yam" @click="registerCode">换一张</span>
+                                    </div>
+                                </div>
+
+                                <div class="text-context"  v-if='iscode'>
+                                    <div class="title">邀请码 ：</div>
+                                    <div class="input-cont">
+                                        <i class="iconfont yaoqingma"></i>
+                                        <input autocomplete="off" @keydown="pulicError=''" v-on:keyup.enter="registerTest" placeholder="邀请码"
+                                            type="text" v-model="intacode" :readonly="incodeReadonly" id="incode" maxlength="6">
+                                    </div>
+                                </div>
+
+                                <div class="err" v-if="pulicError">
+                                    <i class="iconfont icon-baojing"></i>
+                                    <span ref="pulicError">{{pulicError}}</span>
+                                </div>
+
+                                <div @click="registerTest" class="submit">注册</div>
+                                <!-- <div class="treaty">已有帐号？<span @click="changeTab(1)">点击登录</span></div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right fr login" v-if="showForm == 1">
+                        <div class="titleTab">
+                            <span>{{title}}</span>
+                        </div>
+                        <div class="register-wrap">
+                            <div class="list-box">
+                                <div class="text-context">
+                                    <div class="title">帐号：</div>
+                                    <div class="input-cont">
+                                        <i class="iconfont1"></i>
+                                        <input autocomplete="off" @keydown="pulicError=''" v-on:keyup.enter="login"
+                                            placeholder="请输入5-20位数字或字母" type="text" v-model="passKey.userName" @blur="getCode" maxlength="20">
+                                    </div>
+                                </div>
+
+                                <div class="text-context">
+                                    <div class="title">密码：</div>
+                                    <div class="input-cont">
+                                        <i class="iconfont2"></i>
+                                        <input autocomplete="off" ref="pwd3" @keyup="clearNull2" @keydown="pulicError=''" v-on:keyup.enter="login"
+                                            placeholder="请输入8-20位数字或字母" type="password" v-model="passKey.password" maxlength="20">
+                                        <i :class="showEye3?'openEyes':'closeEyes'" @click="changeEyes(3)"></i>
+                                    </div>
+                                </div>
+                                <div class="text-context code" v-if="code_show">
+                                     <i class="iconfont3"></i>
+                                    <div class="title">验证码：</div>
+                                    <input autocomplete="off" maxlength="4" type="text" placeholder="验证码" v-model="passKey.code" v-on:keyup.enter="login">
+                                    <span :style="{backgroundImage: 'url(' + codeImg + ')', backgroundSize:'100% 100%'}" @click="getCode"></span>
+                                </div>
+                                
+                                
+                                <div class="err" v-if="pulicError">
+                                    <i class="iconfont icon-baojing"></i>
+                                    <span ref="pulicError">{{pulicError}}</span>
+                                </div>
+                                <div class="text-context2">
+                                    <div @click="login" class="submit">登录</div>
+                                </div>
+                                <div style="clear:both"></div>
+                                <div class="text-context1">
+                                    <!-- <div class="remenberPwd">
+                                        <input type="checkbox" id="inputId">
+                                        <label for="inputId"></label>记住密码
+                                    </div> -->
+                                    <div class="forgetPwd" @click="$forget()">忘记密码?</div>
+                                    <div class="toRegisiter" @click="changeTab(2)">立即注册</div>
+                                </div>
+                                <!-- <div class="treaty">完成即视为同意已满18岁，且同意各项开户条约。</div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div ref="service" class="service" @mousedown="move" style="position:absolute; width:102px;" >
+                <span @click="getUrl" class="serPic" @mousedown="move"></span>
+            </div> -->
+            <new-modal :newmodal="newmodal"></new-modal>
+            <safeModal :stationName="nameSta"></safeModal>
+        </div>
+    </div>
+</template>
+
+<script>
+import store from '@/vuex/store';
+import data1 from '../../public/user/register_copy';
+import data2 from "../../public/user/login"
+import smsInput from '../../public/home/smsInput';
+import newModal from '../../public/home/newmodal.vue'
+import safeModal from  "../../public/home/safeCheck.vue"
+import banView from "../../public/game_new/banView.vue";
+export default {
+    mixins: [data1,data2],
+    data() {
+        return {
+            title:"欢迎注册",
+            defaultPwd:"",
+            defaultPwd2:"",
+            showEye1:false,
+            showEye2:false,
+            showEye3:false,
+            showForm:2,
+            theName:'jltx',
+            rate:23,
+            lastTime:0,
+            firstTime:0,
+            positionX:0,
+            positionY:0,
+            isClick:false,
+            url:"",
+            headerImg: "/static/jltx/img/banner/zc.jpg",
+            screenWidth: document.body.clientWidth,
+            nameSta:"jltx",
+            newmodal:{
+                title:"来自澳门永利皇宫的消息",
+                bgcolor:{
+                    background: 'linear-gradient(to right, rgb(241, 211, 94), rgb(172, 130, 27))'
+                }
+            },
+            codeImg: '/static/jltx/img/new_games/re.png',
+            // smsInputBox: {
+            //     marginTop: '15px'
+            // },
+            codeImg: '/static/jltx/img/new_games/log.png',
+            tabIndex:1,
+            rememberPassword:false,
+            paddingBottom2:'20px',
+            smsCodeWrapper: {
+                paddingBottom: '25px',
+                position: 'relative',
+                fontSize: '20px',
+                color: '#333',
+                textAlign: 'center'
+            },
+            curLabel: {
+                width: '99px',
+                height: '44px',
+                lineHeight: '44px',
+                color: '#fff',
+                fontSize: '19px',
+                textAlign: 'right',
+                display: 'inline-block',
+                transform: 'translateX(-51px)'
+            },
+            star: {
+                display: 'none'
+            },
+            inputBox: {
+                width: '205px',
+                height: '44px',
+                lineHeight: '44px',
+                paddingLeft: '10px',
+                color: '#fff',
+                fontSize: '16px',
+                outline: 'none',
+                background:"transparent",
+                transform: 'translateX(-54px)'
+            },
+            msgVerifyBox: {
+                position: 'absolute',
+                top: '0',
+                right: '0',
+                display: 'flex',
+                justifyContent: 'flex-start',
+                width: '108px'
+            },
+            btnStyle: {
+                display: 'inline-block',
+                width: '108px',
+                height: '44px',
+                lineHeight: '44px',
+                textAlign: 'center',
+                fontSize: '19px',
+                boxSizing: 'border-box',
+                borderRadius: '5px',
+                // transform: 'translateY('+10/23+'vw)'
+            },
+            beforeSend: {
+                color: '#1c1c1c',
+                background:"#FFFD8B"
+            },
+            reSend: {
+                color: '#fff',
+                background: '#ff4545'
+            },
+            msgTip: {
+                margin: '5px 0 16px 88px',
+                color: '#696969',
+                fontSize: '19px'
+            }
+        };
+    },
+    methods: {
+        // 密码框禁止输入空格
+        clearNull1(){
+            this.password_confirmation = this.password_confirmation.replace(/\s+/g,"");
+            this.password = this.password.replace(/\s+/g,"");
+        },
+        clearNull2(){
+            this.passKey.password = this.passKey.password.replace(/\s+/g,"");
+        },
+        changeEyes(type){
+            if (this.showEye1 == true && type == 1) {
+                this.showEye1 = !this.showEye1;
+                this.$refs.pwd1.type = "text"
+            }else if (this.showEye1 == false && type == 1) {
+                this.showEye1 = !this.showEye1;
+                this.$refs.pwd1.type = "password"
+            }else if (this.showEye2 == true && type == 2) {
+                this.showEye2 = !this.showEye2;
+                this.$refs.pwd2.type = "text"
+            }else if (this.showEye2 == false && type == 2) {
+                this.showEye2 = !this.showEye2;
+                this.$refs.pwd2.type = "password"
+            }else if (this.showEye3 == true && type == 3) {
+                this.showEye3 = !this.showEye3;
+                this.$refs.pwd3.type = "text"
+            }else if (this.showEye3 == false && type == 3) {
+                this.showEye3 = !this.showEye3;
+                this.$refs.pwd3.type = "password"
+            }
+            
+        },
+        getUrl(){
+            if( (this.lastTime - this.firstTime) < 215){
+                let service = JSON.parse(localStorage.config).service;
+                if (service) {
+                    let ser = service.find(item => item.status === 'on');
+                    if (ser) {
+                        this.url = ser.url;
+                        window.open(ser.url)
+                    }
+                }
+            }
+            
+        },
+        doRememberPassword(){
+            if (rememberPassword) {
+                localStorage.setItem('user', this.passKey)
+            }
+        }
+    },
+    computed:{
+        rightPo(){
+            if (this.screenWidth >= 1920) {
+                return 30 + 'px'
+            }else{
+                return 15 + 'px'
+            }
+        },
+        boxWidth(){
+            if (this.screenWidth >= 1920) {
+                return (this.screenWidth - (this.screenWidth / 2.8)) + 'px'
+            }else{
+                return (this.screenWidth - (this.screenWidth / 4)) + 'px'
+            }
+            
+        },
+        tipDatas () {
+            return this.$store.state.alert.tipModel
+        }
+    },
+    components: {
+        smsInput,
+        newModal,
+        safeModal,
+        banView
+    },
+    mounted(){
+        // let tab = localStorage.showForm;
+        // if(tab){
+        //     this.showForm = tab;
+        // }
+        if(localStorage.user){
+            let user = JSON.parse(localStorage.user);
+            this.passKey = {
+                userName:user.userName,
+                password:user.password
+            }
+        }
+        const that = this
+        window.onresize = () => {
+            that.$refs.service.style.right = 30+'px';
+            return (() => {
+                window.screenWidth = document.body.clientWidth
+                that.screenWidth = window.screenWidth
+            })()
+        }
+       
+    },
+    created() {
+        this.$store.commit('home/isImgortg',JSON.parse(localStorage.config).VerificationCode.pc[0])
+    },
+    watch:{
+        screenWidth (val) {
+            this.screenWidth = val
+        },
+        // showForm(val){
+        //     localStorage.setItem('showForm',val);
+        //     if(val == 1){
+        //         this.title = "欢迎登录"
+        //     }else{
+        //         this.title = "欢迎注册"
+        //     }
+            
+        // },
+        
+    },
+    destroyed(){
+        localStorage.removeItem('showForm')
+    },
+    store
+};
+</script>
+
+<style lang="less" scoped>
+@default-w:23;
+.convert(@px, @width: @default-w) {
+  @var: round(unit(@px / @width),2);
+  @rem: ~'@{var}vw';
+}
+ .banner{
+      max-width: 1920px;
+      height: 300px;
+      margin: 0 auto;
+      background: url('/static/jltx/img/banner/zc.jpg') center top/ cover no-repeat;
+   }
+.register {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-size:cover;
+    font-weight:500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0!important;
+    background: #0A0A0A;
+    background-size: cover;
+    .banner {
+        position: relative;
+        opacity: 1;
+        img {
+        width: 100%;
+        margin: 0 auto;
+        cursor: pointer;
+        }
+    }
+    .box_bg {
+        background: #272727;
+        background-size:100% auto;
+        padding-top: 20px; 
+    }
+    .clearfloat1{
+        position: relative;
+        top: 135px!important;
+        right: 85px;
+    }
+    .clearfloat2{
+        position: relative;
+        top: 105px!important;
+        right: 85px;
+    }
+    .clearfloat{
+        width: 100%;
+        position: relative;
+        top: 120px;
+        right: 85px;
+        
+        .regin{
+            margin-top: -35px;
+            .text-context {
+                margin-bottom:20px!important;
+            }
+            .list-box {
+                >div{
+                    // float: right;
+                    clear: both;
+                }
+            }
+        }
+        .login{
+            .input-cont{
+                width: 404px!important;
+                height: 44px!important;
+                line-height: 44px!important;
+            }
+            .text-context{
+                margin-bottom:45px!important;
+                .title {
+                  display: none!important;
+                } 
+                
+                input{
+                    padding-left: 65px!important;
+                    height: 44px!important;
+                    line-height: 44px!important;
+                }
+                input::-webkit-input-placeholder {
+                    font-size: 16px;
+                    color: #A3A3A3;
+                }
+                .iconfont1 {
+                  width: 20px;
+                  height: 22px;
+                  background: url("/static/jltx/img/acc.png");
+                  background-repeat: no-repeat;
+                  background-size: 100% 100%;
+                  position: absolute;
+                  left: 15px;
+                  top: 6px;
+                  background-size: cover;
+                }
+                .iconfont2 {
+                  width: 20px;
+                  height: 24px;
+                  background: url("/static/jltx/img/pwd.png");
+                  background-repeat: no-repeat;
+                  background-size: 100% 100%;
+                  position: absolute;
+                  left: 15px;
+                  top: 6px;
+                  background-size: cover;
+                }
+                .iconfont3 {
+                  width: 22px;
+                  height: 26px;
+                  background: url('/static/jltx/img/yanzhengma.png') no-repeat;
+                  background-size: 100% 100%;
+                  position: absolute;
+                  left: 14px;
+                  top: 5px;
+                  background-size: cover;
+                }
+                
+            }
+            .text-context1{
+                margin-bottom:23px!important;
+            }
+            .code {
+                position: relative;
+                margin-bottom: 25px!important;
+                input {
+                    width: 230px;
+                    height: 44px;
+                    line-height: 44px;
+                    outline: none;
+                    border: none;
+                    color: #fff;
+                    background: transparent;
+                    border-bottom: 1px solid transparent;
+                    border-image: linear-gradient(to bottom,transparent 50%, #C9C9C9 50%) 0 0 100%/1px 0;
+                }
+                input::-webkit-input-placeholder {
+                    font-size: 16px;
+                    color: #A3A3A3;
+                }
+                span {
+                    display: inline-block;
+                    cursor: pointer;
+                    width: 80px;
+                    height: 44px;
+                    position: absolute;
+                    border-bottom-right-radius: 5px;
+                    border-top-right-radius: 5px;
+                }
+            }
+        }
+    }
+    .service{
+        // position: absolute;
+        top: 160px;
+        right:30px;
+        // width: 102px;
+
+        span{
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            line-height: 35px;
+            color: #264E70;
+            font-size: 28px;
+            cursor: pointer;
+            &:first-child{
+                width: 114px;
+                height: 114px;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+    .content {
+        width: 1200px;
+        height: 686px;
+        margin: 20px 0 40px 0;
+        // position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%,-50%);
+        background: url('/static/jltx/img/form_bg.png');
+        background-repeat: no-repeat;
+        background-size:100% 100% ;
+        // margin-top: 41px;
+        .titleTab{
+            width:404px;
+            display: flex;
+            float: right;
+            margin-bottom: 15px;
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(0deg, #D5AB57 0%, #FFFD8B 100%);
+            .clicked{
+                color:#721922 ;
+                font-size: 36px;
+                border-bottom: 2px solid #721922;
+            }
+            span{
+                display: block;
+                width: 100%;
+                height: 50px;
+                line-height: 40px];
+                text-align: center;
+                color: transparent;
+                background:linear-gradient(0deg, #D5AB57 0%, #FFFD8B 100%);
+                -webkit-background-clip: text;
+                font-size: 28px;
+                cursor: pointer;
+                position: relative;
+                top: 1px;
+                &:first-child{
+                    margin-right: 25px;
+                }
+            }
+        } 
+        .register-wrap {
+            .list-box {
+                .text-context {
+                    margin-bottom:30px;
+                    box-sizing: border-box;
+                    .title {
+                        display: inline-block;
+                        text-align: right;
+                        min-width: 108px;
+                        font-size: 19px;
+                        line-height: 40px;
+                        color: #fff;
+                    }
+                    .openEyes{
+                      width: 18px;
+                      height: 13px;
+                      display: inline-block;
+                      background: url('/static/jltx/img/eye1.png') no-repeat;
+                      background-size: 100% 100%;
+                      position: absolute;
+                      top: 16px;
+                      right: 15px;
+                      cursor: pointer;
+                    }
+                    .closeEyes{
+                      width: 18px;
+                      height: 13px;
+                      display: inline-block;
+                      background: url('/static/jltx/img/eye2.png') no-repeat;
+                      background-size: 100% 100%;
+                      position: absolute;
+                      top: 16px;
+                      right: 15px;
+                      cursor: pointer;
+                    }
+                    .input-cont {
+                        position: relative;
+                        display: inline-block;
+                        height: 38px;
+                        width: 315px;
+                        background: transparent;
+
+                        
+                        input {
+                            position: relative;
+                            width: 100%;
+                            height: 38px;
+                            line-height: 38px;
+                            padding-left: 10px;
+                            color: #fff;
+                            background: transparent;
+                            border: none;
+                            border-bottom: 1px solid transparent;
+                            border-image: linear-gradient(to bottom,transparent 50%, #C9C9C9 50%) 0 0 100%/1px 0;
+                            outline: 0;
+                        }
+                        input::-webkit-input-placeholder {
+                            font-size: 16px;
+                            color: #A3A3A3;
+                        }
+                        input:-internal-autofill-previewed,
+                        input:-internal-autofill-selected {
+                            -webkit-text-fill-color: #8A8A8A;
+                            transition: background-color 5000s ease-out 0.5s;
+                        }
+                    }
+                    .input-cont1 {
+                        width: 137px;
+                    }
+                    .yzm_reg {
+                        position: absolute;
+                        top: -5px;
+                        right: -113px;
+                        cursor: pointer;
+
+                        img {
+                            height: 44px;
+                            width: 100px;
+                            border-radius: 20px;
+                        }
+                    }
+                    .yam {
+                        position: absolute;
+                        top: 10px;
+                        right: -176px;
+                        color: #E1C266;
+                        cursor: pointer;
+                    }
+                }
+                .text-context1{
+                    display: flex;
+                    flex-wrap: nowrap;
+                    margin-bottom: 15px;
+                    div{
+                        width: 50%;
+                        height: 50px;
+                        text-align: left;
+                        line-height: 85px;
+                        color: #FFFFFF;
+                        font-size: 18px;
+                        cursor: pointer;
+                        &:last-child{
+                            text-align: right;
+                            color: #E0C165;
+                        }
+                    }
+                }
+                .treaty{
+                    font-size: 18px;
+                    height: 50px;
+                    line-height: 60px;
+                    width: 100%;
+                    color: #fff;
+                    text-align: center;
+
+                  span{
+                    color: #E0C165;
+                    cursor: pointer;
+                  }
+                }
+                .err {
+                    width: 180px;
+                    margin: 0 auto;
+                    height: 30px;
+                    line-height: 30px;
+                    color: #fff;
+                    font-size: 14px;
+                    border: 1px solid #666666;
+                    box-shadow: 0 0 6px #3a3a3a;
+                    // background: #fdffef;
+                    border-radius: 3px;
+                    // padding: 0 14px;
+                    margin-bottom: 20px;
+
+                    i {
+                        padding-left: 5px;
+                        font-size: 15px;
+                    }
+                }
+                .forget {
+                    font-size: 16px;
+                    color: #666;
+                    zoom: 1;
+                    overflow: hidden;
+                    padding-bottom: 26px;
+
+                    span {
+                        &:first-child {
+                            float: left;
+
+                            label {
+                                text-decoration: underline;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                
+                .submit {
+                    width:404px;
+                    height:60px;
+                    background:url('/static/jltx/img/btn_bg.png')no-repeat;
+                    background-size: 100% 100%;
+                    border-radius:30px;
+                    line-height: 60px;
+                    border: none;
+                    box-shadow: none;
+                    text-align: center;
+                    font-size: 24px;
+                    color: #000;
+                    transition: all 0.2s;
+                    cursor: pointer;
+                    float: right;
+                }
+            }
+        }
+    }
+}
+.smsContainer {
+    position: relative;
+    width: 100%;
+}
+</style>

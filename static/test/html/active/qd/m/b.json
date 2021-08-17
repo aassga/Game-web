@@ -1,0 +1,19 @@
+{
+  "sign": 1570084955,
+  "code": 200,
+  "status": "success",
+  "message": "今日您已完成签到！",
+  "data": {
+    "checkIn": true,
+    "continuousDays": 1,
+    "continuousDayList": {
+      "day1": "alreadyChekIn",
+      "day2": "noChekIn",
+      "day3": "noChekIn",
+      "day4": "noChekIn",
+      "day5": "noChekIn",
+      "day6": "noChekIn",
+      "day7": "noChekIn"
+    }
+  }
+}

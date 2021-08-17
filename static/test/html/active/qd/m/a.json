@@ -1,0 +1,19 @@
+{
+  "sign": 1570084955,
+  "code": 200,
+  "status": "success",
+  "message": "成功",
+  "data": {
+    "continuousDays": 0,
+    "continuousDayList": {
+      "day1": "noChekIn",
+      "day2": "noChekIn",
+      "day3": "noChekIn",
+      "day4": "alreadyChekIn",
+      "day5": "noChekIn",
+      "day6": "noChekIn",
+      "day7": "noChekIn"
+    },
+    "todayIsCheckIn": false
+  }
+}

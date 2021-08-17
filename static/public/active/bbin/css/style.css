@@ -1,0 +1,170 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Microsoft YaHei", Arial, Verdana, SimSun, SimHei, STHeiti, Helvetica, sans-serif !important;
+}
+img {
+  vertical-align: middle;
+}
+ul, li, ol { margin: 0; padding: 0; list-style: none; }
+/* 清除浮动 */
+  /* 单伪元素标签法 */
+.clearfix1:after {
+  content: '';
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+  display: block;
+  clear: both;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 3px;
+}
+[v-cloak] {
+  display: none;
+}
+html {
+  overflow-x: hidden;
+  min-width: 1200px;
+  position: relative;
+}
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "PingFang SC", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  background-size: 100% 100%;
+  position: relative;
+  color: #E3E3E3;
+  font-size: 22px;
+  overflow-x: hidden;
+}
+.bgImg {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 2561px;
+  background-image: url(../images/bg.png);
+  overflow: hidden;
+}
+.container .content {
+  width: 1200px;
+  height: 100%;
+  margin: auto;
+}
+.container .content .introduceBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 273px;
+  font-weight: 500;
+  font-size: 26px;
+}
+.container .content .introduceBox p {
+  line-height: 40px;
+  color: #fff;
+}
+.container .content .introduceBox p span {
+  color: #FEE4A7;
+  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.55);
+}
+.container .content .introduceBox .betbox {
+  display: flex;
+  color: #D72F37;
+  width: 300px;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 91px;
+  font-size: 26px;
+  font-weight: bold;
+}
+.container .content .introduceBox .momeybox {
+  display: flex;
+  width: 300px;
+  font-weight: bold;
+  color: #D72F37;
+  padding-top: 24px;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 40px;
+}
+.container .content .bonus {
+  display: flex;
+  margin-top: 240px;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.container .content .bonus p {
+  color: #fff;
+  text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.55);
+}
+.container .content .bonus p span {
+  color: #FEE4A7;
+}
+.container .content .bonus .bonusTable {
+  background-image: url(../images/bonus.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 788px;
+}
+.container .content .bonus .bonusTable table {
+  margin-top: 38px;
+  width: 91%;
+}
+.container .content .bonus .bonusTable tr {
+  height: 44px;
+  line-height: 44px;
+}
+.container .content .bonus span {
+  color: #ffff;
+  font-size: 18px;
+  margin-top: 113px;
+  text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.55);
+}
+.container .content .statusBox {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 28px;
+}
+.container .content .statusBox span {
+  color: #FEE4A7;
+}
+.container .content .tip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 650px;
+}
+.container .content .tip .tipTop {
+  font-size: 30px;
+  font-weight: bold;
+  color: #FDFFFD;
+}
+.container .content .tip .tipContent {
+  margin-top: 10px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 18px;
+  font-weight: 400;
+}
+.container .content .tip .tipContent span {
+  color: #FDF001;
+}

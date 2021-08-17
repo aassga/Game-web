@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/layer/layer.js"></script>
+  <script>
+    if (/AppleWebKit.*Mobile/i.test(navigator.userAgent)
+      || /Android/i.test(navigator.userAgent)
+      || /BlackBerry/i.test(navigator.userAgent)
+      || /IEMobile/i.test(navigator.userAgent)
+      || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+      window.location.href = 'm/'
+    }
+  </script>
+  <title>余额奖赏</title>
+</head>
+<body>
+<div class="container">
+  <div class="main">
+    <div class="title title1"></div>
+    <p>余额奖赏，利不可当，亿元现金迎接老会员回归，会员在指定的活动周期内达到指定的活动门槛即可获得相应的金额</p>
+    <table class="flower">
+      <tbody>
+        <tr class="firstRow">
+          <td>未登入天数</td>
+          <td>帐号余额</td>
+          <td>激活门槛</td>
+          <td>回归彩金</td>
+        </tr>
+        <tr>
+          <td rowspan="3">15天+</td>
+          <td>500元+</td>
+          <td rowspan="15">帐号余额3倍有效打码
+          <td>28元</td>
+        </tr>
+        <tr>
+          <td>5000元+</td>
+          <td>58元</td>
+        </tr>
+        <tr>
+          <td>10000元+</td>
+          <td>188元</td>
+        </tr>
+        <tr>
+          <td rowspan="3">30天+</td>
+          <td>500元+</td>
+          <td>38元</td>
+        </tr>
+        <tr>
+          <td>5000元+</td>
+          <td>88元</td>
+        </tr>
+        <tr>
+          <td>10000元+</td>
+          <td>288元</td>
+        </tr>
+        <tr>
+          <td rowspan="3">90天+</td>
+          <td>500元+</td>
+          <td>58元</td>
+        </tr>
+        <tr>
+          <td>5000元+</td>
+          <td>188元</td>
+        </tr>
+        <tr>
+          <td>10000元+</td>
+          <td>588元</td>
+        </tr>
+        <tr>
+          <td rowspan="3">180天+</td>
+          <td>500元+</td>
+          <td>88元</td>
+        </tr>
+        <tr>
+          <td>5000元+</td>
+          <td>288元</td>
+        </tr>
+        <tr>
+          <td>10000元+</td>
+          <td>888元</td>
+        </tr>
+        <tr>
+          <td rowspan="3">360天+</td>
+          <td>500元+</td>
+          <td>188元</td>
+        </tr>
+        <tr>
+          <td>5000元+</td>
+          <td>388元</td>
+        </tr>
+        <tr>
+          <td>10000元+</td>
+          <td>1888元</td>
+        </tr>
+      </tbody>
+    </table>
+   <!-- <span id="apply"></span>-->
+    <div class="txt">
+      <p><span class="tip">范例：</span>会员历史未登入15天，连续15天未打码或存款过，帐号余额10000元，当天登入打码是帐号余额3倍即可获得188元回归彩金（当天登入未打码将不参与次活动）</p>
+      <p><span class="tip">范例：</span>会员历史未登入90天，连续90天未打码或存款过，帐号余额5000元，当天登入打码是帐号余额3倍即可获得188元回归彩金（当天登入未打码将不参与次活动）</p>
+    </div>
+    <div class="title title2"></div>
+    <div class="txt">
+      <p><span class="tip">领取方式：</span><br>
+        达到条件的会员请联系24小时在线客服申请
+      </p>
+    </div>
+    <div class="title title3"></div>
+    <div class="txt rule">
+      <p>所获得奖金1倍流水方可提款</p>
+      <p>如您忘记会员账号/密码，请您联系7×24小时在线客服协助您取回您的账号信息</p>
+      <p>会员未登入天数，有效打码均由系统自动统计，若有任何异议，以<span class="siteName"></span>查询为准</p>
+      <p>系统将自动判定套利会员，在系统优惠黑名单的用户将不能参与此优惠</p>
+      <p><span class="siteName"></span>保留对活动的最终解释权；以及在无通知的情况下修改、终止活动的权利；适用于所有优惠</p>
+    </div>
+  </div>
+  <p class="copyright">版权为<span class="siteName"></span> 所有 © 2020</p>
+</div>
+
+
+<!--弹窗-->
+
+<div id="tc_tip">
+  <p class="txt2"></p>
+  <span class="closeBtn" onclick="layer.closeAll()"></span>
+</div>
+<div id="tc_award">
+  <p class="txt1">会员账号：<span id="account"></span></p>
+  <p class="txt2">恭喜您获得：<span id="money"></span> 元</p>
+  <span class="closeBtn" onclick="layer.closeAll()"></span>
+</div>
+
+<script src="../lib/js/siteName.js"></script>
+<script type="text/javascript">
+</script>
+<!--<script src="js/main.js"></script>-->
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="../../lib/js/swiper/swiper.min.css">
+    <link rel="stylesheet" href="../../lib/css/common.css">
+    <link rel="stylesheet" href="../../lib/css/animate.css">
+    <script src="../../lib/js/jquery-1.11.3.min.js"></script>
+    <script src="../../lib/js/bscroll.min.js"></script>
+    <script src="../../lib/js/layer/layer.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>周六红包</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="bgImg container" id="container">
+        <div class="header">
+          <span class="back" onclick="window.history.back();"></span>
+          周六红包
+        </div>
+        <div class="bgImg section1">
+          <div class="bgImg content_box">
+            <p class="text">获得红包的条件</p>
+            <p class="txt1">￥<span class="money">0</span></p>
+            <p class="tishi tishi1">满<span class="money_full">100</span>元即可领取红包，仅差<span class="money_left">100</span>元</p>
+            <p class="tishi tishi2">已满<span class="money_full">100</span>元，有<span style="color:#E44047;">1</span>次领取红包机会</p>
+            <div class="process">
+              <div id="progress"></div>
+            </div>
+            <p class="ps"><span>☆当日红包已领取☆</span></p>
+            <span class="bgImg button button1" id="button"></span>
+            <span class="bgImg button button2"></span>
+            <p class="time">活动周期：每周六00:00-23:59</p>
+          </div>
+        </div>
+        <div class="bgImg section2">
+          <div class="top">
+            <span class="active title1">红包记录</span>
+            <span class="title2">赚钱攻略</span>
+          </div>
+          <div class="box box1">
+            <div class="content1">
+              <span class="bgImg"></span>
+              <span class="t1">暂无数据</span>
+            </div>
+            <div class="content2 wrapper1">
+              <table class="table table1">
+                <tbody class="tbody1">
+                  <!--<tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 188000.65</td>
+                  </tr>
+                  <tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 10.65</td>
+                  </tr>
+                  <tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 1000.65</td>
+                  </tr>
+                  <tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 188000.65</td>
+                  </tr>
+                  <tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 188000.65</td>
+                  </tr>
+                  <tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 188000.65</td>
+                  </tr>
+                  <tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 188000.65</td>
+                  </tr>
+                  <tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 188000.65</td>
+                  </tr>
+                  <tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 188000.65</td>
+                  </tr>
+                  <tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 188000.65</td>
+                  </tr>
+                  <tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 188000.65</td>
+                  </tr>
+                  <tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 188000.65</td>
+                  </tr>
+                  <tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 188000.65</td>
+                  </tr>
+                  <tr>
+                    <td>存款300000元红包</td>
+                    <td>+ 18</td>
+                  </tr>-->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="box box2">
+            <div class="content1">
+              <span class="bgImg"></span>
+              <span class="t1">暂无数据</span>
+            </div>
+            <div class="content2 wrapper2">
+              <table class="table table2">
+                <tbody class="tbody2">
+                  <!--<tr>
+                    <td>存款金额</td>
+                    <td>打码量</td>
+                    <td>红包次数</td>
+                  </tr>
+                  <tr>
+                    <td>1900000+</td>
+                    <td>X3</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>100+</td>
+                    <td>X3</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>100+</td>
+                    <td>X3</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>100+</td>
+                    <td>X3</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>100+</td>
+                    <td>X3</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>100+</td>
+                    <td>X3</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>100+</td>
+                    <td>X3</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>100+</td>
+                    <td>X3</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>100+</td>
+                    <td>X3</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>100+</td>
+                    <td>X3</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>990+</td>
+                    <td>X3</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>990+</td>
+                    <td>X3</td>
+                    <td>1</td>
+                  </tr><tr>
+                  <td>990+</td>
+                  <td>X3</td>
+                  <td>1</td>
+                </tr><tr>
+                  <td>990+</td>
+                  <td>X3</td>
+                  <td>1</td>
+                </tr><tr>
+                  <td>111990+</td>
+                  <td>X3</td>
+                  <td>1</td>
+                </tr>-->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="section3">
+          <p class="title">活动规则</p>
+          <div class="txt rule">
+            <p>每周六当天只可领取1次，按照领取时达到的最高等级存款打码进行领取（有效打码按照用户的实际存款乘以倍数进行计算）。</p>
+            <p>领取时间：每周六00:00-23:59,如超过领取红包时间红包次数将清零，视为放弃。</p>
+            <p>所获得的红包1倍打码即可申请提款。</p>
+            <p>存在对打行为系统将会取消红包资格及其它活动。</p>
+            <p>存在优惠黑名单的玩家不能参与此活动。</p>
+            <p>系统统计存款时间为周六00:00-23:59，如有任何异议按照我司查询为准。</p>
+            <p><span class="siteName"></span>保留对活动的最终解释权；以及在无通知的情况下修改、终止活动的权利；适用于所有优惠。</p>
+          </div>
+        </div>
+
+      </div>
+      <!--弹窗-->
+
+      <div id="tc_box1" class="bgImg">
+        <p class="txt1">周六红包，大吉大利</p>
+        <p class="txt2"><span class="siteName"></span>为您发来红包</p>
+        <span id="open" class="open"></span>
+        <span class="closeBtn" onclick="layer.closeAll()"></span>
+      </div>
+      <div id="tc_box2" class="bgImg">
+        <p class="txt1">您只需要打码<span class="money1"></span>元<br>即可领取<span><span class="level"></span>等级</span>奖励<br>每周六只可领取一次哦！
+        </p>
+        <span class="bgImg button1" onclick="layer.closeAll()"></span>
+        <span class="bgImg button2"></span>
+        <span class="closeBtn" onclick="layer.closeAll()"></span>
+      </div>
+      <div id="tc_box3" class="bgImg">
+        <p class="txt1">恭喜获得红包</p>
+        <p class="txt2">￥<span class="money3"></span></p>
+        <span class="bgImg closeBtn" onclick="layer.closeAll()"></span>
+      </div>
+      <div id="tc_box4" class="bgImg">
+        <p class="txt1">此奖金已经领取过了</p>
+        <span class="closeBtn bgImg" onclick="layer.closeAll()"></span>
+      </div>
+
+    </div>
+
+        <script src="../../lib/js/siteName.js"></script>
+
+    <script>
+      let scroll = new BScroll('.wrapper', {
+        click: true,
+        useTransition: false //解决ios13.4以上回弹问题
+      })
+
+      let scroll1 = new BScroll('.wrapper1', {
+        probeType: 1,
+        preventDefault: true,
+        preventDefaultException: true,
+        bounce: false,
+        stopPropagation: true,
+        click: true,
+        useTransition: false //解决ios13.4以上回弹问题
+      })
+
+    </script>
+    <script>
+      $('.section2 .top span').on('click', function () {
+        if (!$(this).hasClass('active')) {
+          $(this).addClass('active').siblings().removeClass('active')
+        } else {}
+      })
+      $('.section2 .top .title1').on('click',function () {
+        $('.box1').show()
+        $('.box2').hide()
+      })
+      $('.section2 .top .title2').on('click',function () {
+        $('.box2').show()
+        $('.box1').hide()
+        var scroll2 = new BScroll('.wrapper2', {
+          probeType: 1,
+          preventDefault: true,
+          preventDefaultException: true,
+          bounce: false,
+          stopPropagation: true,
+          click: true,
+          useTransition: false //解决ios13.4以上回弹问题
+        })
+      })
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

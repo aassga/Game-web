@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" id="html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit">
+  <link rel="stylesheet" href="../lib/css/common.css">
+  <link rel="stylesheet" href="../lib/css/animation.css">
+  <link rel="stylesheet" href="css/style.css"> 
+  <script>
+    if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) ||
+      /Android/i.test(navigator.userAgent) ||
+      /BlackBerry/i.test(navigator.userAgent) ||
+      /IEMobile/i.test(navigator.userAgent) ||
+      (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/
+        .test(navigator.userAgent))) {
+      window.location.href = 'm/'
+    }
+    </script>
+       <title>bbin</title>
+<body >
+  <div class="bgImg container" id="container">
+ 
+      <div class="content">
+        <div class="introduceBox">
+          <p >于北京时间<span>2021年/2/8 12：00~2021/2/17 11：59</span></p>
+          <P>玩指定游戏累积注点数，即可抢红包！</P>
+           <div class="betbox">
+             <span>投注人名币</span>
+             <span>投注点数</span>
+           </div>
+           <div class="momeybox">
+            <div style="width:130px;text-align: center;">1元</div>
+            <div>=</div>
+            <div style="width:104px;text-align: center;">1点</div>
+           </div>
+        </div>
+        <div class="bonus">
+          <p>本活动红包为每日限量发送,<span>将于每日12：00重置数量</span></p>
+          <div class="bonusTable">
+            <table cellpadding="0" cellspacing="0">
+              <thead  style="color:#820000">
+                <td style="font-size: 24px;height: 49px;width: 12%;">等级</td>
+                <td style="font-size: 24px;height: 49px;width: 16%;">所需点数</td>
+                <td style="font-size: 24px;height: 49px;width: 25%;">最高总奖金</td>
+                <td style="font-size: 24px;height: 49px;width: 20%;">每日限量</td>
+              </thead>
+              <tr>
+                <td>LV.1</td>
+                <td>5千</td>
+                <td>￥18</td>
+                <td>30,0000</td>
+              </tr>
+              <tr>
+                <td>LV.2</td>
+                <td>10万</td>
+                <td>￥888</td>
+                <td>2,000</td>
+              </tr>
+              <tr>
+                <td>LV.3</td>
+                <td>150万</td>
+                <td>￥18,888</td>
+                <td>120</td>
+              </tr>
+              <tr>
+                <td>LV.4</td>
+                <td>800万</td>
+                <td>￥188，888</td>
+                <td>10</td>
+              </tr>
+            </table>
+          </div>
+          <span>投注点数为活动期间持续累计，开奖后将依据所需点数进行扣除</span>
+        </div>
+        <div class="statusBox">
+          <p>活动页可即时查看<span>红包剩余数量</span></p>
+          <P>可<span>自由选择点击</span>领取红包</P>
+        </div>
+       <div class="tip">
+         <div class="tipTop">注意事项</div>
+         <div class="tipContent">
+           <P> ◎ 投注点数与红包剩余数量<span>每5分钟更新一次,</span>因网速差异未立即更新，请稍等</P>
+           <p>◎ 开奖过程如遇操作中断，系统将自动为您开奖及派送奖金</p>
+           <p>◎ 开奖完成后，奖金将于一个小时内<span>自动入账，免打码</span>即可申请出款</p>  
+           <P>◎ 领奖时间截止后，若剩余投注点数未进行开奖，将视同放弃领奖资格</P>  
+           <p>◎ 如遇不可抗因素或游戏问题导致注销注单，该注单将不列入本活动投注点数</p>   
+           <p>◎ 如团体或个人使用不当手段或任何无风险投注，将取消获奖资格</p>  
+           <p>◎ bbin将保有本活动的执行、修正、解释与终止等权利</p>         
+         </div>
+       </div>
+  </div>
+  </div>
+</body>
+<script>
+  window.addEventListener("resize",resetrem);
+  function resetrem(){ 
+    var html = document.querySelector("html");//获取到html元素
+    var width = html.getBoundingClientRect().width;//获取屏幕的宽度
+    var s = width / 1920;
+    document.getElementsByClassName('container')[0].style.zoom=s;
+  }
+  resetrem()
+</script>
+</html>

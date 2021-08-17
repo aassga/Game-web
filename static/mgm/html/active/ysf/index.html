@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>支付先看云闪付</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+  <div id="background-img">
+    <div id="slogan"></div>
+    <div id="ad-slogan">
+      <p>
+        <span>官方授权</span>
+        <span>充值秒到账</span>
+        <span>支付有好礼</span>
+<!--        <span>最高可拿<span class="special-font">1888</span>现金</span>-->
+      </p>
+    </div>
+    <div id="logo"></div>
+    <div id="detail">
+      <p>强强携手，返利不停</p>
+      <p>云闪付，中国银联旗下统一移动支付战略产品，快捷、省心、支付成功率高达99%，下载有好礼，支付送不停。</p>
+    </div>
+  </div>
+  <a id="download" href="#qr-code">去下载</a>
+  <div class="line"></div>
+  <div id="activity-detail">
+    <div id="rule">
+      <p class="rule-title">活动要求</p>
+      <div class="rule-detail">
+        <p>2019年8月10日前注册的会员</p>
+      </div>
+      <p class="rule-title">申请方式</p>
+      <div class="rule-detail">
+        <p>联系7*24小时在线客服申请</p>
+      </div>
+      <p class="rule-title">活动详情</p>
+      <div class="rule-detail">
+        <p>要您手机下载云闪付提供截图，并且使用云闪付首次单笔充值100元即可申请88元礼金。</p>
+      </div>
+      <p class="rule-title">活动规则</p>
+      <div class="rule-detail">
+        <p>1.此优惠以人民币（CNY）计算。</p>
+        <p>2.每一个帐号只能申请一次。</p>
+        <p>3.每位玩家、每户、每一地址、每一电子邮箱、每一电话、相同的支付方式及IP地址等只能一个帐号享有优惠。</p>
+        <p>4.若会员有重复申请或注册多帐号行为，公司保留取消或收回优惠彩金及盈利的权利。</p>
+        <p>5.此活动所得彩金的会员只需六倍流水即可申请出款，且可同时与其它优惠活动共享。</p>
+      </div>
+    </div>
+  </div>
+  <div id="qr-code">
+    <div id="left-btn"></div>
+    <div id="qr-code-download">
+      <i class="qr-code-icon-top"></i>
+      <div id="download-desc">
+        <div>扫码下载云闪付官方APP</div>
+        <div>在APP Store或者安卓各大应用市场搜索“云闪付”即可下载</div>
+        <a id="download-now" href="https://youhui.95516.com/hybrid_v3/html/help/download.html?code=62039">立即下载</a>
+        <div id="stand-by">
+          支持系统
+          <div id="iOS"></div>
+          <div id="Android"></div>
+        </div>
+      </div>
+      <div id="mobile">
+        <i class="qr-code-icon-bottom"></i>
+      </div>
+    </div>
+    <div id="right-btn"></div>
+  </div>
+  <div class="line"></div>
+  <div id="download-step">
+    <div class="how-to">
+      <p id="sign-title">如何注册“云闪付”APP？</p>
+      <p>"银联钱包"老用户可使用原银联钱包账号登录。</p>
+      <p>新用户可用手机号完成注册。</p>
+      <p>在填写手机号和验证码后，系统将提示设置登录密码和登录手势，此后登录将可直接使用手势或指纹登录，无需输入密码。</p>
+      <div id="sign-up">
+        <div id="sign-up-view" class="view-large">
+          <div class="view-icon"></div>
+          查看大图
+        </div>
+      </div>
+    </div>
+    <div class="how-to">
+      <p id="bind-title">如何在“云闪付”APP中绑定银行卡？</p>
+      <p>点击首页“立即添加您的银行卡”，录入银行卡号或拍卡识别（点击卡面对准银行卡拍照扫描），即可完成绑卡。</p>
+      <div id="bind">
+        <div id="bind-view" class="view-large">
+          <div class="view-icon"></div>
+          查看大图
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script>
+    var $sign_up = $('#sign-up')
+    var $bind = $('#bind')
+    $sign_up.click(function () {
+      $sign_up.css({'background-image': 'url("./src/sign-up.gif")'})
+      $sign_up.css({'width': '3.75rem', 'height': '6.67rem'})
+      $('#sign-up-view').hide()
+    })
+    $bind.click(function () {
+      $bind.css({'background-image': 'url("./src/bind.gif")'})
+      $bind.css({'width': '3.75rem', 'height': '6.67rem'})
+      $('#bind-view').hide()
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+a {
+	color: #fff;
+	text-decoration: none
+}
+body {
+	font: 14px/1.6 "Microsoft Yahei";
+	color: #ffd195;
+	overflow-x: hidden;
+	max-width: 750px;
+	margin: 0 auto;
+	background-color: #A50001;
+	padding-bottom:80px;
+}
+ul li {
+	list-style: none
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden
+}
+.clearfix {
+*+height:1%;
+}
+* html .clearfix {
+	zoom: 1;
+} /* IE6 */
+*+html .clearfix {
+	zoom: 1;
+} /* IE7 */
+.fL {
+	float: left !important;
+}
+.fR {
+	float: right !important;
+}
+img {
+	vertical-align: top;
+	width: 100%;
+}
+.down {
+	margin: 0 40px;
+}
+@media all and (min-width: 767px) {
+	.down {
+		margin: 0;
+		padding: 0 40px;
+		position: relative;
+		bottom: 0;
+		left: 0;
+	}
+}
+.btmDown {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	left: 0;
+}
+.btmDown .downImg {
+	width: 2.5rem;
+	position: absolute;
+	top: 0.15rem;
+	right: 0.2rem;
+}
+
+.top {
+	position: relative;
+}
+.top>img {
+	display: block;
+}
+
+
+.jcBox {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #000;
+}
+.jcBtn {
+	margin: 0.2rem 2rem 0.5rem;
+}
+.iosBox {
+	padding-top: 0.3rem;
+	background: #120B0C url(../images/bg01.png) no-repeat center -1.2rem;
+	background-size: 100% auto;
+
+}
+.iosBox .btn {
+	width: 6.4rem;
+	margin: 0 auto;
+}
+.inner {
+	padding: 0.5rem 0 0;
+}
+.inner .title {
+	margin-bottom: 0.3rem;
+	overflow: hidden;
+	zoom: 1;
+}
+.inner .title .ttl {
+	width: 6rem;
+	float: left;
+}
+.inner .title .service {
+	float: right;
+	width: 3.2rem;
+}
+.ulList {
+	margin: 0 0.1rem;
+}
+.ulList li {
+	margin-bottom: 0.35rem;
+	overflow: hidden;
+	zoom: 1;
+}
+.ulList li .btn-open {
+	cursor: pointer;
+	width: 2rem;
+	float: right;
+	display: block;
+}
+.ulList li .txt {
+	float: left;
+	font-size: 0.48rem;
+	height: 0.8rem;
+	line-height:  0.8rem;
+	width: 1.8rem;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background: #a70503;
+	border: solid 1px #ff0000;
+	color: #fff;
+	margin-right:.15rem;
+}
+.ulList li .url {
+	float: left;
+	font-size: 0.5rem;
+	height: 0.8rem;
+	line-height:  0.8rem;
+	margin-right:.1rem;
+	width: 5.6rem;
+	font-style: normal;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background: #fff;
+	border: solid 1px #fff;
+	color: #000;
+}
+
+.kf {
+	  position: fixed;
+    right: 2px;
+    top: 45%;
+    display: block;
+    cursor: pointer;
+	width: 2rem;
+	z-index: 1000;
+}
+.kf img {
+	max-width:100%;
+}
+@media all and (min-width: 767px) {
+.btmDown {
+	max-width: 750px;
+	margin: 0 auto;	
+	left: 50%;
+	margin-left: -375px;
+}
+}
+
+.out-mask{
+    display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 50;
+}
+.out-panel{
+    position: absolute;
+	left: 0;
+	right: 0;
+	top: 25%;
+	width: 80%;
+	margin: 0 auto;
+	max-width: 660px;
+	padding: 15px 15px 0;
+}
+.out-panel .out-close{
+    position: absolute;
+    right: 20px;
+    top: -20px;
+    width: 40px;
+}
+.out-panel .out-bg{
+    width: 100%;
+}
+.out-panel .rule-open{
+    position: absolute;
+    display: inline-block;
+    width: 50%;
+	text-align: center;
+    height: 1rem;
+	font-size: 0.35rem;
+	line-height: 1rem;
+    max-height: 30px;
+    bottom: 15%;
+    left: 25%;
+	color: #80787c;
+}
+.out-panel .game-down{
+    position: absolute;
+    display: block;
+    width: 50%;
+    bottom: -40px;
+    left: 25%;
+}
+.out-panel .game-down img{
+	width: 100%;
+}
+
+#cs{position: fixed;right: 2px; top:200px;display: block;cursor: pointer;}

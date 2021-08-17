@@ -1,0 +1,9 @@
+{
+  "sign": 1574643581,
+  "code": 200,
+  "status": "success",
+  "message": "成功",
+  "data": {
+    "gift_money": 1
+  }
+}

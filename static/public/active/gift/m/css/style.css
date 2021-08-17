@@ -1,0 +1,309 @@
+html {
+  background-color: #ffeaf1;
+  overflow-x: hidden;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  overflow-x: hidden;
+}
+.bgImg {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+html,
+body,
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.clearfix {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+.container {
+  width: 100vw;
+  min-height: 154.26vw;
+  position: relative;
+  color: white;
+  font-size: 12px;
+  overflow: hidden;
+  background-image: url("../images/bg.jpg");
+}
+.btns > a {
+  position: absolute;
+  width: 36vw;
+  height: 11.86vw;
+}
+.btns #login {
+  top: 61.6vw;
+  left: 18.26vw;
+  background-image: url(../images/login.png);
+}
+.btns #apply {
+  display: none;
+  top: 61.6vw;
+  left: 1.3vw;
+  background-image: url(../images/apply.png);
+}
+.btns #record {
+  display: none;
+  top: 61.6vw;
+  left: 38.4vw;
+  background-image: url(../images/record.png);
+}
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 76.13vw auto 1vw;
+  width: 94.66vw;
+  height: 30.4vw;
+}
+.icons .icon {
+  width: 20vw;
+  height: 30.4vw;
+
+}
+.icons .icon1 {
+  background-image: url(../images/pic-content.png);
+}
+.icons .icon2 {
+  background-image: url(../images/pic-enter.png);
+}
+.icons .icon3 {
+  background-image: url(../images/pic-time.png);
+}
+.icons .icon4 {
+  background-image: url(../images/pic-rule.png);
+}
+.icons .icon1:hover {
+  background-image: url(../images/pic-content-hover.png);
+}
+.icons .icon2:hover {
+  background-image: url(../images/pic-enter-hover.png);
+}
+.icons .icon3:hover {
+  background-image: url(../images/pic-time-hover.png);
+}
+.icons .icon4:hover {
+  background-image: url(../images/pic-rule-hover.png);
+}
+.content {
+  margin: 0 auto;
+  padding: 5vw;
+  width: 84.66vw;
+  min-height: 31.46vw;
+  background-image: url(../images/content_bg.png);
+}
+.content .con {
+  display: none;
+}
+.con p {
+  line-height: 1.8;
+  display: flex;
+}
+/*弹窗*/
+.tc {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.tc.layui-layer-page .layui-layer-content {
+  overflow: hidden;
+}
+#tc_login {
+  display: none;
+  overflow: hidden;
+  width: 89.06vw;
+  height: 83.86vw;
+  color: #000;
+  background-image: url(../images/tc_login.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.loginBox {
+  margin: 17.6vw 5vw 0;
+}
+.text-account {
+  box-sizing: border-box;
+  margin-bottom: 3vw;
+}
+.input-cont {
+  position: relative;
+  background: transparent;
+  padding-bottom: 2.5vw;
+  border-bottom: 0.26vw solid #e4e4e4;
+}
+.input-cont input {
+  position: relative;
+  box-sizing: border-box;
+  width: 80%;
+  background: transparent;
+  border: none;
+  outline: 0;
+  border-radius: 1vw;
+  color: #171717;
+  margin-left: 8vw;
+  height: 5.3vw;
+  line-height: 5.3vw;
+  font-size: 14px;
+}
+input::-webkit-input-placeholder {
+  color: #bdbdbd;
+}
+input::-moz-input-placeholder {
+  color: #bdbdbd;
+}
+input::-ms-input-placeholder {
+  color: #bdbdbd;
+}
+.input-cont input:-internal-autofill-selected {
+  -webkit-text-fill-color: #bdbdbd;
+  transition: background-color 5000s ease-out .5s!important;
+}
+input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset;}
+.iconfont1 {
+  width: 4.26vw;
+  height: 4.53vw;
+  background-image: url(../images/icon1.png);
+  position: absolute;
+  left: -1vw;
+  top: 0;
+}
+.code_img {
+  display: inline-block;
+}
+.code_img img {
+  width: 22.93vw;
+  height: 9.73vw;
+}
+.iconfont2 {
+  width: 3.86vw;
+  height: 4.93vw;
+  background-image: url(../images/icon2.png);
+  position: absolute;
+  left: -1vw;
+  top: 0;
+}
+.iconfont3 {
+  width: 3.46vw;
+  height: 4vw;
+  background-image: url(../images/icon3.png);
+  position: absolute;
+  left: -1vw;
+  top: 0;
+}
+.loginIn {
+  margin: 5vw auto 0;
+  width: 40.26vw;
+  height: 8.53vw;
+  background-image: url(../images/loginIn.png);
+}
+#tc_tip {
+  display: none;
+  overflow: hidden;
+  width: 90vw;
+  height: 65.33vw;
+  background-image: url(../images/tc_tip.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#tc_tip .txt1 {
+  margin: 24.33vw auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #494a4c;
+  font-size: 6vw;
+}
+#tc_apply {
+  display: none;
+  overflow: hidden;
+  width: 89.09vw;
+  height: 62.53vw;
+  color: #494a4c;
+  font-size: 4vw;
+  background-image: url(../images/tc_apply.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#tc_apply .txt1 {
+  margin: 17.4vw auto 4vw 6.26vw;
+}
+#tc_apply .txt2 {
+  margin-left: 6.26vw;
+  margin-bottom: 3vw;
+}
+#tc_apply .copyCode {
+  margin: 0 auto;
+  width: 23.33vw;
+  height: 6vw;
+  background-image: url(../images/copy1.png);
+}
+#tc_record {
+  display: none;
+  overflow: hidden;
+  width: 89.33vw;
+  height: 79.06vw;
+  color: #494a4c;
+  font-size: 12px;
+  background-image: url(../images/tc_record.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#tc_record .datas {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 19.73vw auto 0;
+  color: #fd5a8a;
+}
+.datas td {
+  height: 10.2vw;
+  font-size: 12px;
+  text-align: center;
+}
+.datas tr td:nth-child(1) {
+  width: 26%;
+}
+.datas tr td:nth-child(2) {
+  width: 27%;
+}
+.datas tr td:nth-child(3) {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.datas tr td:nth-child(3) span:first-child {
+  vertical-align: middle;
+  display: inline-block;
+  width: 60%;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.datas tr td .copyBtn {
+  vertical-align: middle;
+  display: inline-block;
+  width: 8.4vw;
+  height: 4.5vw;
+  background-image: url(../images/copy2.png);
+}
+#tc_login .closeBtn, #tc_tip .closeBtn, #tc_apply .closeBtn, #tc_record .closeBtn {
+  position: absolute;
+  display: block;
+  width: 13.86vw;
+  height: 13.86vw;
+  right: 37.5vw;
+  bottom: 0;
+}
+
+
+

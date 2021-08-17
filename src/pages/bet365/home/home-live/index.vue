@@ -1,0 +1,75 @@
+<template>
+    <div class="live">
+       <div class="liveContainer">
+        <div class="banner">
+            <banView :headerImg="headerImg" :picBox='255' isScale='true'></banView>
+        </div>
+        <banLantern :notice='notice' :siteName="'mgm'"></banLantern>
+        <div class="box_bg">
+            <vpLive :themes='themes' :site="'betsb'"></vpLive>
+        </div>
+       </div>
+    </div>
+</template>
+<script>
+import banLantern from "../../../public/game_new/banLantern";
+import banView from "../../../public/game_new/banView.vue";
+import vpLive from "../../../public/gameSortV4/type_live";
+export default {
+  data() {
+    return {
+      headerImg: "/static/bet365/img/new_games/banner/live.jpg",
+      notice: "/static/bet365/img/home/notice-icon.png",
+      themes: {
+        width: "1000",
+        rightBg: {
+          background: "#383838"
+        },
+        titleColor: {
+          color: "#ffffff"
+        },
+        line: {
+          borderBottom: "2px solid #24c098"
+        },
+        text: {
+          color: "#919191"
+        }
+      },
+      lantern: ""
+    };
+  },
+  methods: {},
+  mounted() {},
+  components: {
+    banView,
+    vpLive,
+    banLantern
+  }
+};
+</script>
+<style lang="less" scoped>
+.demolist {
+  display: inline-block;
+  width: 990px;
+}
+
+.liveContainer {
+  margin: 0 auto;
+  .banner {
+    position: relative;
+    opacity: 1;
+    img {
+      width: 100%;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+  }
+  .box_bg {
+    margin-top: 35px;
+    background: #252525;
+    background-size:100% auto;
+    padding-bottom: 15px;
+  }
+}
+</style>
+

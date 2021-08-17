@@ -1,0 +1,116 @@
+.myrank {
+  background-color: #15100D;
+  padding: 2em 10%;
+}
+
+.myrank .show-msg {
+  text-align: center;
+  padding: 0.5em 0;
+  background-color: #2E2926;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  color: #f1af2b;
+}
+
+.myrank .show-msg .hr-border {
+  height: 2em;
+  border: 0.5px solid #D3A851;
+  border-radius: 10px;
+  margin: 1.5em 0;
+}
+
+.myrank .show-msg .title-img {
+  background: url("../images/title_list.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 9em;
+  height: 3.2em;
+  line-height: 3.3em;
+  margin-bottom: 0.5em;
+}
+
+.myrank .show-msg .title-img span {
+  font-size: 13px;
+  color: #fff;
+}
+
+.myrank .show-msg .hight-bouns {
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  font-size: 1.2em;
+}
+
+.myrank .show-msg .hight-rank .rank-img {
+  height: 1.65em;
+  margin-top: -5px;
+}
+
+.myrank .myrank-list {
+  margin: auto;
+  padding: 1.2em 1.5em  1em;
+}
+
+.myrank .myrank-list .header-title {
+  background-color: #432A14;
+  border-bottom: 1px solid #432A14;
+  color: #FFF;
+  font-size: 0.9em;
+}
+
+.myrank .myrank-list .header-title td {
+  padding: 1em 1.2em;
+}
+
+.myrank .myrank-list .header-title td:nth-child(2) {
+  text-align: center;
+}
+
+.myrank .myrank-list .body-content tr {
+  background-color: #715B48;
+  color: #FFF;
+  border-bottom: 1px solid #432A14;
+  font-size: 0.87em;
+}
+
+.myrank .myrank-list .body-content tr td {
+  padding: 0.7em 1.2em;
+  vertical-align: middle;
+}
+
+.myrank .myrank-list .body-content tr td:nth-child(2) {
+  text-align: center;
+}
+
+.myrank .myrank-list .rank-img {
+  height: 2em;
+}
+
+.myrank .myrank-list .no-data {
+  text-align: center;
+  padding-top: 1.5em;
+}
+
+.myrank .myrank-list .no-data img {
+  height: 7em;
+}
+
+.myrank .myrank-list .no-data p {
+  padding-top: 0.5em;
+  color: #9e9e9e;
+  font-size: 0.8em;
+}
+
+.myrank .no-data-border {
+  width: 1em;
+  border: 1px solid #f1af2b;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  margin: 0.7em auto;
+  border-radius: 110px;
+}
+/*# sourceMappingURL=myrank.css.map */

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>新葡京APP下载页面</title>
+  <meta name="description" content="">
+  <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <!--<link rel="stylesheet" href="css/responsive.css">-->
+  <script rel="script" type="text/javascript">
+    document.documentElement.style.fontSize = (window.document.documentElement.clientWidth / 750) * 100 + 'px'
+  </script>
+  <style>
+    * {
+      font-family: "Microsoft YaHei", Arial, serif;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .page {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+    }
+
+    a:link {
+      text-decoration: none
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    .header {
+      width: 100%;
+      height: 1.88rem;
+      border-bottom: 0.04rem solid #dbdbdb;
+    }
+
+    .clear-fix:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    .logo {
+      width: 1.3rem;
+      height: 1.3rem;
+      margin: 0.3rem;
+      float: left;
+    }
+
+    .header-content {
+      float: left;
+      margin: 0.3rem 0;
+      height: 1.3rem;
+    }
+
+    .title {
+      font-size: 0.36rem;
+      line-height: 0.5rem;
+      color: #666666;
+      margin-bottom: 0.1rem;
+    }
+
+    .btn {
+      color: white;
+      padding: 0.12rem 0.28rem;
+      border-radius: 0.1rem;
+      margin-right: 0.2rem;
+      display: inline-block;
+      float: left;
+      font-size: 0.28rem;
+      background: -webkit-linear-gradient(120deg, #00B2E5, #0072FF);
+      background: -o-linear-gradient(120deg, #00B2E5, #0072FF);
+      background: -moz-linear-gradient(120deg, #00B2E5, #0072FF);
+      background: linear-gradient(120deg, #00B2E5, #0072FF);
+    }
+
+    .body {
+      padding: 0.34rem;
+    }
+
+    .float-left {
+      float: left;
+    }
+
+    .float-right {
+      float: right;
+    }
+
+    .label {
+      font-size: 0.28rem;
+      color: #444444;
+    }
+
+    .value {
+      font-size: 0.28rem;
+      color: #999999;
+    }
+
+    .row {
+      margin-bottom: 0.1rem;
+    }
+
+    .dialog {
+      display: block;
+      width: 71.2%;
+      margin: 16% auto 0 auto;
+    }
+
+    .foot {
+      color: white;
+      background-color: red;
+      font-size: 0.28rem;
+      line-height: 0.9rem;
+      text-align: center;
+      position: absolute;
+      top: calc(100% - 0.9rem);
+      width: 100%;
+    }
+
+    .foot .icon {
+      height: 0.28rem;
+      margin-right: 0.06rem;
+      display: inline-block;
+    }
+
+    .online {
+      position: fixed;
+      right: 0.1rem;
+      top: 64%;
+    }
+
+    .online img {
+      width: 1.48rem;
+    }
+
+  </style>
+
+</head>
+
+<body style="background-color: white">
+<div class="page">
+  <div class="header clear-fix">
+    <img src="images/logo.png" alt="" class="logo">
+    <div class="header-content">
+      <h4 class="title">凤凰彩票，与你共创未来</h4>
+      <div class="clear-fix">
+        <a class="btn link">点击下载</a>
+        <a class="btn" href="/">H5移动端</a>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="clear-fix row">
+      <span class="float-left label">平台</span>
+      <span class="float-right value">iOS/Android</span>
+    </div>
+    <div class="clear-fix row">
+      <span class="float-left label">兼容性</span>
+      <span class="float-right value">iOS10.0以上/Android</span>
+    </div>
+    <img src="images/distribution.png" alt="" class="dialog">
+  </div>
+  <a class="foot" href="images/help.png">
+    <img src="images/a.png" alt="" class="icon">iOS提示未信任解决办法
+  </a>
+  <a class="online" href="https://gzzaxc219.learnsaas.com/chat/chatClient/chatbox.jsp?companyID=603191&configID=41008&jid=4903419047&s=1">
+    <img src="images/online.png" alt=""/>
+  </a>
+</div>
+</body>
+<script>
+  document.addEventListener('touchstart',function (event) {
+    if(event.touches.length>1){
+      event.preventDefault();
+    }
+  });
+  var lastTouchEnd=0;
+  document.addEventListener('touchend',function (event) {
+    var now=(new Date()).getTime();
+    if(now-lastTouchEnd<=300){
+      event.preventDefault();
+    }
+    lastTouchEnd=now;
+  },false);
+  document.addEventListener('gesturestart', function (event) {
+    event.preventDefault();
+  });
+
+  var android_url = 'http://3000016.com/download/fhcp/fhcp.apk'
+  var ios_url = 'itms-services:///?action=download-manifest&amp;url=https://raw.githubusercontent.com/buttCar/kjzb1/master/fhcp.plist'
+  var ua = window.navigator.userAgent.toLowerCase()
+  var url = ''
+  if (/iphone/.test(ua) || /ipad/.test(ua)) {
+    document.querySelectorAll('.link').forEach(item => {
+      item.setAttribute('href', ios_url)
+    })
+  } else if (/android/.test(ua)) {
+    document.querySelectorAll('.link').forEach(item => {
+      item.setAttribute('href', android_url)
+    })
+  } else {
+    console.log('您的移动设备暂不支持此APP，请谅解')
+  }
+</script>
+</html>

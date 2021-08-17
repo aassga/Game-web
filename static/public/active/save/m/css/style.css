@@ -1,0 +1,231 @@
+html {
+  background-color: #070101;
+  overflow-x: hidden;
+  outline: none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+body {
+  overflow-x: hidden;
+}
+html,body,.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  /*box-sizing: border-box;*/
+  background: url("../images/background.jpg") no-repeat;
+  width: 100vw;
+  min-height: 307.46vw;
+  /*padding-bottom: 5vw;*/
+  background-size: 100% 100%;
+  position: relative;
+  color: #ffffff;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.main {
+  position: relative;
+  margin: 53.12vw auto 0;
+  width: 98.26vw;
+  min-height: 220vw;
+  padding-bottom: 1vw;
+  background-image: url(../images/bg_main.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.main > * {
+  margin: 3.7vw auto;
+  width: 94vw;
+}
+.main .title {
+  height: 8vw;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.main .title1 {
+  background-image: url(../images/title1.png);
+}
+
+.main .title3 {
+  background-image: url(../images/title3.png);
+}
+
+#mobile {
+  display: none;
+}
+
+.contents {
+  overflow: hidden;
+
+}
+
+.contents .content {
+  float: left;
+  margin-bottom: 3.08vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 1.6vw;
+  width: 45.46vw;
+  height: 27.33vw;
+  color: #4f2700;
+  background-image: url(../images/bg_content.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.contents .content:nth-child(odd) {
+  margin-right: 3.08vw;
+}
+.contents .content:nth-last-child(1), .contents .content:nth-last-child(2){
+  margin-bottom: 0;
+}
+.contents .content .top .item1 {
+  display: flex;
+  justify-content: space-between;
+}
+.contents .content .top .item1 .money {
+  color: #eea800;
+}
+.contents .content .top .item2 {
+  height: 1.06vw;
+  width: 100%;
+  border-radius: 0.53vw;
+  background-color: #4f2700;
+  margin: 2vw 0;
+}
+.contents .content .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contents .content .bottom .total {
+  font-weight: 700;
+  font-size: 3.5vw;
+}
+.contents .content .bottom .button {
+  width: 17.46vw;
+  height: 5.73vw;
+  background-image: url(../images/button.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+
+
+.txt {
+  line-height: 1.6;
+}
+.txt .tip {
+  color: #ffff00;
+}
+
+.title p {
+  margin: 26vw auto 1vw;
+  width: 54vw;
+  color: #fef2b6;
+  font-size: 12px;
+  text-align: justify;
+  line-height: 2;
+}
+.rule p {
+  position: relative;
+  padding-left: 3.5vw;
+  counter-increment: items;
+}
+.rule p:before {
+  position: absolute;
+  left: 0;
+  content: counter(items) '. ';
+}
+.copyright {
+  margin: 2vw auto;
+  width: 100%;
+  text-align: center;
+  color: #484745;
+}
+/*弹窗*/
+.tc {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.tc.layui-layer-page .layui-layer-content {
+  overflow: hidden;
+}
+
+#tc_tip {
+  display: none;
+  overflow: hidden;
+  width: 79.73vw;
+  height: 38.83vw;
+  color: #ffea00;
+  background-image: url(../images/tc.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#tc_tip .txt1 {
+  margin: 8.4vw auto 3.7vw;
+  font-size: 2vw;
+  text-align: center;
+}
+#tc_tip .txt2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 38.83vw;
+  font-size: 3.5vw;
+}
+#tc_tip .closeBtn, #tc_award .closeBtn {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  width: 7vw;
+  height: 7vw;
+  right: 0.5vw;
+  top: 0.5vw;
+}
+
+#tc_award {
+  display: none;
+  overflow: hidden;
+  width: 79.73vw;
+  height: 38.83vw;
+  color: #ffea00;
+  background-image: url(../images/tc.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#tc_award .txt1 {
+  margin: 10.4vw auto 3.7vw;
+  font-size: 3.5vw;
+  text-align: center;
+}
+#tc_award .txt2 {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+  padding: 2vw 0;
+  font-size: 4vw;
+  background-color: #521500;
+  border: 0.1vw solid #6a2c17;
+  color: #fcdb6a;
+  /*margin-bottom: 2vw;*/
+}
+
+
+
+/*音频*/
+@keyframes rotating {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}

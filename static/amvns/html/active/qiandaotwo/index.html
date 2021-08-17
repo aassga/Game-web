@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>签到</title>
+	<link rel="stylesheet" type="text/css" href="css/checkin.css">
+	<script src="js/jquery-2.0.0.min.js" type="text/javascript"></script>
+	<script src="js/checkin.js" type="text/javascript"></script>
+	<script src="svg/vivus.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="box">
+		<div class="mes">
+			<div class="almes">
+				<img src="img/al.png">
+				<div class="content">
+					<h1></h1>
+					<p></p>
+					<div class="butt">确认</div>
+				</div>
+			</div>
+		</div>
+		<div class="meser">
+			<div class="err">
+				<span></span>
+				<div class="close"><img src="img/close.png"></div>
+			</div>
+		</div>
+		<div class="top">
+			<img src="img/logo.png" alt>
+		</div>
+		<div class="date">
+			<ul>
+				<li>
+					<div class="noday">（未签到）</div>
+					<svg id="svg1" x="0px" y="0px" width="80" height="80" viewBox="0 0 200 200" enable-background="new 0 0 200 200">
+							<circle cx="100" cy="100" r="91"/>
+					</svg>
+					<div class="day">
+						<img src="img/dg.png" alt>
+						<div class="mark"></div>
+					</div>
+					<div class="day_text">星期一</div>
+					<p class="text"><span class="text_p"></span><span class="trangle"></span></p>
+				</li>
+				<div class="bor"></div>
+				<li>
+					<div class="noday">（未签到）</div>
+					<svg id="svg2" x="0px" y="0px" width="80" height="80" viewBox="0 0 200 200" enable-background="new 0 0 200 200">
+						<circle cx="100" cy="100" r="91"/>
+					</svg>
+					<div class="day">
+						<img src="img/dg.png" alt>
+						<div class="mark"></div>
+					</div>
+					<div class="day_text">星期二</div>
+					<p class="text"><span class="text_p"></span><span class="trangle"></span></p>
+				</li>
+				<div class="bor"></div>
+				<li>
+					<div class="noday">（未签到）</div>
+					<svg id="svg3" x="0px" y="0px" width="80" height="80" viewBox="0 0 200 200" enable-background="new 0 0 200 200">
+						<circle cx="100" cy="100" r="91"/>
+					</svg>
+					<div class="day">
+						<img src="img/dg.png" alt>
+						<div class="mark"></div>
+					</div>
+					<div class="day_text">星期三</div>
+					<p class="text"><span class="text_p"></span><span class="trangle"></span></p>
+				</li>
+				<div class="bor"></div>
+				<li>
+					<div class="noday">（未签到）</div>
+					<svg id="svg4" x="0px" y="0px" width="80" height="80" viewBox="0 0 200 200" enable-background="new 0 0 200 200">
+						<circle cx="100" cy="100" r="91"/>
+					</svg>
+					<div class="day">
+						<img src="img/dg.png" alt>
+						<div class="mark"></div>
+					</div>
+					<div class="day_text">星期四</div>
+					<p class="text"><span class="text_p"></span><span class="trangle"></span></p>
+				</li>
+				<div class="bor"></div>
+				<li>
+					<div class="noday">（未签到）</div>
+					<svg id="svg5" x="0px" y="0px" width="80" height="80" viewBox="0 0 200 200" enable-background="new 0 0 200 200">
+						<circle cx="100" cy="100" r="91"/>
+					</svg>
+					<div class="day">
+						<img src="img/dg.png" alt>
+						<div class="mark"></div>
+					</div>
+					<div class="day_text">星期五</div>
+					<p class="text"><span class="text_p"></span><span class="trangle"></span></p>
+				</li>
+				<div class="bor"></div>
+				<li>
+					<div class="noday">（未签到）</div>
+					<svg id="svg6" x="0px" y="0px" width="80" height="80" viewBox="0 0 200 200" enable-background="new 0 0 200 200">
+						<circle cx="100" cy="100" r="91"/>
+					</svg>
+					<div class="day">
+						<img src="img/dg.png" alt>
+						<div class="mark"></div>
+					</div>
+					<div class="day_text">星期六</div>
+					<p class="text"><span class="text_p"></span><span class="trangle"></span></p>
+				</li>
+				<div class="bor"></div>
+				<li>
+					<div class="noday">（未签到）</div>
+					<svg id="svg7" x="0px" y="0px" width="80" height="80" viewBox="0 0 200 200" enable-background="new 0 0 200 200">
+						<circle cx="100" cy="100" r="91"/>
+					</svg>
+					<div class="day">
+						<img src="img/dg.png" alt>
+						<div class="mark"></div>
+					</div>
+					<div class="day_text">星期日</div>
+					<p class="text"><span class="text_p"></span><span class="trangle"></span></p>
+				</li>
+			</ul>
+		</div>
+		<div class="but">立即签到</div>
+		<div class="rule">
+			<p>活动时间：以官网展示为准</p>
+      <p>计算周期：签到统计时间为美东时间（当天中午12点至次日中午11：59：59为一天）</p>
+      <p>活动对象：全体新老会员</p>
+      <p>签到时间：每天中午12:30之后</p>
+			<p>签到条件：当日存款达到大于或等于300元的会员即可参与签到活动</p>
+		</div>
+    <div class="luckbox">
+      <ul id="box">
+        <li class="defaul"><span>7天</span><img src="img/gray.png" alt=""></li>
+        <li class="defaul"><span>15天</span><img src="img/gray.png" alt=""></li>
+        <li class="defaul"><span>23天</span><img src="img/gray.png" alt=""></li>
+        <li class="defaul"><span>30天</span><img src="img/gray.png" alt=""></li>
+      </ul>
+    </div>
+    <div class="calendar">
+      <div class="content">
+        <div class="date-title"></div>
+        <ul class="weekday">
+          <li>星期日</li>
+          <li>星期一</li>
+          <li>星期二</li>
+          <li>星期三</li>
+          <li>星期四</li>
+          <li>星期五</li>
+          <li>星期六</li>
+        </ul>
+        <ul class="days" id="days">
+        </ul>
+      </div>
+    </div>
+    <div class="ifmation">
+			<p>签到内容</p>
+      <p>1. 当日存款达到大于或等于300元的会员即可参与签到活动，每日只可签到一次，即可点亮当日签到图标，并获得相对应签到彩金。累计签到天数越多，即可获得更多的彩金和宝箱。</p>
+      <p>2. 签到活动奖励共计有4个宝箱，每签到满7天、15天、23天、30天，均可获得一个签到累计奖金的领取机会。</p>
+			<p>3. 每个周六日为VIP会员日，在此日VIP会员可以获得签到日期相对应彩金的两倍彩金</p>
+			<p>领取方式： 签到奖励属于系统自动派送，当天签到成功秒赠送至会员帐号 </p>
+		</div>
+    <div class="ifmation">
+      <p>活动规则</p>
+      <p>1. 凡是IP多账号的会员使用彩金盈利都将无法获得提现资格，公司有权扣除其盈利金额。 </p>
+      <p>2. 如发现任何利用活动对冲等恶意套利行为（包含存款充值的会员），网站将扣除所有违规所得,并且有权冻结其账号。 </p>
+      <p>3. 本活动最终解释权和裁决权归网站所有，网站所有保留修改暂停终止该优惠活动等所有权利</p>
+      <p>友情提示：使用手机APP时出现加载失败页面，请关闭APP重新打开加载即可。 <br>②请勿关闭官方APP消息推送通知，避免错过最新平台活动以及中奖通知     </p>
+      <div class="group">
+        <a class="download" href="http://amvns.9161252.com/static/amvns/html/download/index.html" target="_blank">APP下载</a>
+        <a class="download" href="https://aviso.sodla.com/chat/chatClient/chatbox.jsp?companyID=365044528&configID=195&jid=7823920049&s=1" target="_blank">在线客服</a>
+<!--        <a class="download" href="https://wpa.qq.com/msgrd?v=3&uin=1303766666&site=oicqzone.com&menu=yes" target="_blank">QQ客服</a>-->
+      </div>
+    </div>
+		<div class="bottom">Copyright ©GALAXY 金星国际 Reserved</div>
+	</div>
+	<script>
+	</script>
+</body>
+</html>

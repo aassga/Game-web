@@ -1,0 +1,244 @@
+::-webkit-scrollbar {
+  width: 0.4vw;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 0.2vw;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  background: url("../images/background.jpg") no-repeat;
+  width: 100%;
+  height: 160.78vw;
+  background-size: 100% 100%;
+  position: relative;
+  color: #ffffff;
+  font-size: 1.2vw;
+  overflow-x: hidden;
+}
+.bgImg {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+@keyframes heart_beat {
+  0% {
+    transform: scale(.95)
+  }
+  50% {
+    transform: scale(1.05)
+  }
+  100% {
+    transform: scale(.95)
+  }
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.header {
+  position: absolute;
+  top: 12vw;
+  right: 15.5vw;
+  width: 36.4vw;
+  height: 18.85vw;
+  background-image: url(../images/header.png);
+}
+.boss1 {
+  position: absolute;
+  top: 30.5vw;
+  right: 36.5vw;
+  width: 19.42vw;
+  height: 8.59vw;
+  background-image: url(../images/boss1.png);
+  animation: heart_beat .8s infinite linear;
+}
+.boss2 {
+  position: absolute;
+  top: 30.5vw;
+  right: 14.5vw;
+  width: 19.42vw;
+  height: 8.59vw;
+  background-image: url(../images/boss2.png);
+  animation: heart_beat .8s infinite linear;
+}
+#apply {
+  position: absolute;
+  top: 48.7vw;
+  right: 36.46vw;
+  width: 27.08vw;
+  height: 6.04vw;
+  background-image: url(../images/apply.png);
+  animation: heart_beat .8s infinite linear;
+  cursor: pointer;
+}
+.main {
+  position: relative;
+  margin: 55.4vw auto 0;
+  width: 58.5vw;
+  padding: 0 2vw;
+  /*height: 70.52vw;*/
+  /*background-image: url(../images/bg_main.png);*/
+  /*background-size: 100% 100%;*/
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.main > * {
+  margin: 2vw auto;
+  color: #4d5757;
+}
+.main .title {
+  width: 22.79vw;
+  height: 5.15vw;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.main .title1 {
+  background-image: url(../images/title1.png);
+}
+.main .title2 {
+  background-image: url(../images/title2.png);
+}
+.main .title3 {
+  background-image: url(../images/title3.png);
+}
+.main .title4 {
+  background-image: url(../images/title4.png);
+}
+ .table {
+   width: 50vw;
+   border-collapse: collapse;
+   border-spacing: 0;
+   background: #d9ebe8;
+   color: #50746d;
+ }
+.table td {
+  text-align: center;
+  border: 0.05vw solid #b4d1cc;
+  padding: 0.8vw 0;
+}
+.table tr:first-child {
+  color: #e4971d;
+}
+
+.txt {
+  line-height: 2;
+  text-align: justify;
+}
+.txt .tip {
+  color: #e4b156;
+}
+
+.title p {
+  margin: 26vw auto 1vw;
+  width: 54vw;
+  color: #fef2b6;
+  font-size: 1.05vw;
+  text-align: justify;
+  line-height: 2;
+}
+
+.rule p {
+  position: relative;
+  padding-left: 1.5vw;
+  counter-increment: items;
+}
+.rule p:before {
+  position: absolute;
+  left: 0;
+  content: counter(items) '. ';
+}
+.copyright {
+  margin-top: 2vw;
+  width: 100%;
+  text-align: center;
+  color: #484745;
+}
+/*弹窗*/
+.tc {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.tc.layui-layer-page .layui-layer-content {
+  overflow: hidden;
+}
+
+#tc_tip {
+  position: relative;
+  display: none;
+  overflow: hidden;
+  width: 33.95vw;
+  height: 17.34vw;
+  color: #000000;
+  background-image: url(../images/tc_tip.png);
+}
+#tc_tip .txt1 {
+  margin: 8.4vw auto 3.7vw;
+  font-size: 2vw;
+  text-align: center;
+}
+#tc_tip .txt2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 4%;
+  width: 82%;
+  height: 13.5vw;
+  font-size: 1.3vw;
+}
+#tc_tip .closeBtn, #tc_award .closeBtn {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  width: 3vw;
+  height: 3vw;
+  right: 0;
+  top: 0;
+}
+
+#tc_award {
+  position: relative;
+  display: none;
+  overflow: hidden;
+  width: 24.89vw;
+  height: 32.91vw;
+  color: #ffea00;
+  background-image: url(../images/tc_award.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+#tc_award .txt2 {
+  position: absolute;
+  left: 3%;
+  top: 22vw;
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+  font-size: 2vw;
+  color: #fee5bb;
+}
+#tc_award .txt2 #money {
+  font-size: 4vw;
+}
+
+
+/*音频*/
+@keyframes rotating {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}

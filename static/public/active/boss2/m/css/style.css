@@ -1,0 +1,235 @@
+html {
+  background-color: #d1eeec;
+  overflow-x: hidden;
+  outline: none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+body {
+  overflow-x: hidden;
+}
+@keyframes heart_beat {
+  0% {
+    transform: scale(.95)
+  }
+  50% {
+    transform: scale(1.05)
+  }
+  100% {
+    transform: scale(.95)
+  }
+}
+.bgImg {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+html,body,.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  /*box-sizing: border-box;*/
+  background-image: url("../images/background.jpg");
+  width: 100vw;
+  min-height: 404vw;
+  /*padding-bottom: 5vw;*/
+  position: relative;
+  color: #ffffff;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.header {
+  position: absolute;
+  top: 26vw;
+  right: 0;
+  width: 58vw;
+  height: 30.4vw;
+  background-image: url(../images/header.png);
+}
+.boss1 {
+  position: absolute;
+  top: 77.5vw;
+  left: 2.1vw;
+  width: 46.33vw;
+  height:20.43vw;
+  background-image: url(../images/boss1.png);
+  animation: heart_beat .8s infinite linear;
+}
+.boss2 {
+  position: absolute;
+  top: 77.5vw;
+  right: 2.1vw;
+  width: 46.33vw;
+  height:20.43vw;
+  background-image: url(../images/boss2.png);
+  animation: heart_beat .8s infinite linear;
+}
+#apply {
+  position: absolute;
+  top: 109.7vw;
+  right: 15.33vw;
+  width: 69.33vw;
+  height: 15.46vw;
+  background-image: url(../images/apply.png);
+  animation: heart_beat .8s infinite linear;
+}
+
+.main {
+  position: relative;
+  margin: 130vw auto 0;
+  width: 98vw;
+  min-height: 220vw;
+  padding-bottom: 1vw;
+  /*background-image: url(../images/bg_main.png);*/
+
+  overflow: hidden;
+}
+.main > * {
+  margin: 3.7vw auto;
+  color: #4d5757;
+}
+.main .title {
+  width: 58.13vw;
+  height: 13.2vw;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.main .title1 {
+  background-image: url(../images/title1.png);
+}
+.main .title2 {
+  background-image: url(../images/title2.png);
+}
+.main .title3 {
+  background-image: url(../images/title3.png);
+}
+.main .title4 {
+  background-image: url(../images/title4.png);
+}
+
+.table {
+  width: 96vw;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background: #d9ebe8;
+  color: #50746d;
+}
+.table td {
+  text-align: center;
+  border: 1px solid #b4d1cc;
+  padding: 1.5vw 0;
+}
+.table tr:first-child {
+  color: #e4971d;
+}
+
+.txt {
+  line-height: 1.7;
+  text-align: justify;
+}
+.txt .tip {
+  color: #e4b156;
+}
+
+.title p {
+  margin: 26vw auto 1vw;
+  width: 54vw;
+  color: #fef2b6;
+  font-size: 12px;
+  text-align: justify;
+  line-height: 2;
+}
+.rule p {
+  position: relative;
+  padding-left: 3.5vw;
+  counter-increment: items;
+}
+.rule p:before {
+  position: absolute;
+  left: 0;
+  content: counter(items) '. ';
+}
+.copyright {
+  margin: 2vw auto;
+  width: 100%;
+  text-align: center;
+  color: #484745;
+}
+/*弹窗*/
+.tc {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.tc.layui-layer-page .layui-layer-content {
+  overflow: hidden;
+}
+
+#tc_tip {
+  display: none;
+  overflow: hidden;
+  width: 86.93vw;
+  height: 44.4vw;
+  color: #000000;
+  background-image: url(../images/tc_tip.png);
+}
+#tc_tip .txt1 {
+  margin: 8.4vw auto 3.7vw;
+  font-size: 2vw;
+  text-align: center;
+}
+#tc_tip .txt2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding: 0 5%;
+  height: 34.83vw;
+  font-size: 3.5vw;
+}
+#tc_tip .closeBtn, #tc_award .closeBtn {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  width: 7vw;
+  height: 7vw;
+  right: 0.5vw;
+  top: 0.5vw;
+}
+
+#tc_award {
+  display: none;
+  overflow: hidden;
+  width: 63.73vw;
+  height: 84.26vw;
+  color: #ffea00;
+  background-image: url(../images/tc_award.png);
+}
+#tc_award .txt2 {
+  position: absolute;
+  left: 3%;
+  top: 56vw;
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+  font-size: 4vw;
+  color: #fee5bb;
+}
+#tc_award .txt2 #money {
+  font-size: 7vw;
+}
+
+
+/*音频*/
+@keyframes rotating {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}

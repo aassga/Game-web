@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="../../lib/css/common.css">
+    <link rel="stylesheet" href="../../lib/css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="../../lib/js/jquery-1.11.3.min.js"></script>
+    <script src="../../lib/js/layer/layer.js"></script>
+    <script src="../../lib/js/bscroll.min.js"></script>
+    <title>存款加赠</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container bgImg">
+        <div class="bgImg header animated fadeInDown"></div>
+        <a href="/static/public/active/boss1/m/index.html" class="bgImg boss1"></a>
+        <a href="/static/public/active/boss2/m/index.html" class="bgImg boss2"></a>
+        <span id="apply" class="bgImg"></span>
+        <div class="main">
+          <div class="title title1"></div>
+          <p class="txt">全体新老会员北京时间5月1日<span class="tip">当天累计存款金额是前一日累计存款金额的2倍+并且完成派送当日存款3倍打码量，即可获得前一日累计存款金额的10%彩金</span>，活动前一天存越多彩金越丰厚，赠送金额无上限。立即加入<span class="siteName"></span>，尊享超值回馈礼金，尚未注册/存款的亲们强烈建议您注册/存款，超多优惠等着您！</p>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>活动时间</td>
+                <td>领取时间</td>
+                <td>彩金10%计算方式</td>
+              </tr>
+              <tr>
+                <td>北京时间3号</td>
+                <td rowspan="7">活动当日16:00开放领取，<br>领取时间截止为当日<br>23:59:59逾期视为放弃</td>
+                <td rowspan="7">只计算派送前一日<br>累计存款10%<br>活动当天存款<br>不计算在内</td>
+              </tr>
+              <tr>
+                <td>北京时间8号</td>
+              </tr>
+              <tr>
+                <td>北京时间13号</td>
+              </tr>
+              <tr>
+                <td>北京时间18号</td>
+              </tr>
+              <tr>
+                <td>北京时间23号</td>
+              </tr>
+              <tr>
+                <td>北京时间27号</td>
+              </tr>
+              <tr>
+                <td>北京时间29号</td>
+              </tr>
+            </tbody>
+
+          </table>
+          <div class="title title2"></div>
+          <p class="txt" style="text-align:center;">
+            <span class="tip">活动时间当日累计存款金额是前一日累计存款金额的2倍+并且完成派送当日存款3倍打码量，即可获得前一日累计存款金额的10%彩金</span>
+          </p>
+          <div class="title title3"></div>
+          <p class="txt" style="text-align:center;">活动更新时间为北京时间3号，<span class="tip">会员于北京时间2日累计存款10000元，该会员在3号累计存款20000元且完成3倍有效打码60000元，即可获得2号累计存款金额10000X10%=1000元</span></p>
+          <div class="title title4"></div>
+          <div class="txt rule">
+            <p>所获得奖金一倍流水可直接提款</p>
+            <p>此优惠彩票打码量均不计算在内</p>
+            <p>系统将于派送当日下午16:00开启领取，届时请会员及时登录会员帐号领取，如有遗漏，请咨询客服处理</p>
+            <p>如您忘记会员账号/密码，请您联系7×24小时在线客服协助您取回您的账号信息</p>
+            <p>如发现会员同一个IP下注册多个账号进行投注，出现对打、对赌、软件投注、无风险投注等公司有权拒绝赠送其彩金并将账号冻结处理，保证其他正常玩家的利益</p>
+            <p>此活动针对<span class="siteName"></span>真实玩家而设立，存款优惠黑名单的会员不能参与此优惠，请规范投注系统将会自动取消优惠黑名单</p>
+            <p><span class="siteName"></span>保留对活动的最终解释权；以及在无通知的情况下修改、终止活动的权利；适用于所有优惠</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--弹窗-->
+
+    <div id="tc_tip" class="bgImg">
+      <p class="txt2"></p>
+      <span class="closeBtn" onclick="layer.closeAll()"></span>
+    </div>
+    <div id="tc_award" class="bgImg">
+      <p class="txt2"><span id="money"></span>元</p>
+      <span class="closeBtn" onclick="layer.closeAll()"></span>
+    </div>
+
+    <script src="../../lib/js/siteName.js"></script>
+    <script type="text/javascript">
+      let scroll = new BScroll('.wrapper', {
+        click: true
+      })
+    </script>
+    <script src="js/main.js"></script>
+
+  </body>
+</html>

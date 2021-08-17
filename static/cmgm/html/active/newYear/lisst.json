@@ -1,0 +1,789 @@
+{
+  "sign": 1589906902,
+  "code": 200,
+  "status": "success",
+  "message": "成功",
+  "data": [
+    {
+      "id": 297,
+      "class_name": "彩票",
+      "weekInfoIsShow": true,
+      "list": [
+        {
+          "level": "1",
+          "betAmount": "1万+",
+          "levelGiftMoney": "1",
+          "weekMoney": "1",
+          "monthAmount": "1",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 6,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 6,
+            "betTotal": 10,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "2",
+          "betAmount": "2万+",
+          "levelGiftMoney": "2",
+          "weekMoney": "2",
+          "monthAmount": "2",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "3",
+          "betAmount": "3万+",
+          "levelGiftMoney": "3",
+          "weekMoney": "3",
+          "monthAmount": "3",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "4",
+          "betAmount": "4万+",
+          "levelGiftMoney": "4",
+          "weekMoney": "4",
+          "monthAmount": "4",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "5",
+          "betAmount": "5万+",
+          "levelGiftMoney": "5",
+          "weekMoney": "5",
+          "monthAmount": "5",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "6",
+          "betAmount": "6万+",
+          "levelGiftMoney": "6",
+          "weekMoney": "6",
+          "monthAmount": "6",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "7",
+          "betAmount": "7万+",
+          "levelGiftMoney": "7",
+          "weekMoney": "7",
+          "monthAmount": "7",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "8",
+          "betAmount": "8万+",
+          "levelGiftMoney": "8",
+          "weekMoney": "8",
+          "monthAmount": "8",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "9",
+          "betAmount": "9万+",
+          "levelGiftMoney": "9",
+          "weekMoney": "9",
+          "monthAmount": "9",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "10",
+          "betAmount": "10万+",
+          "levelGiftMoney": "10",
+          "weekMoney": "10",
+          "monthAmount": "10",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "11",
+          "betAmount": "33万+",
+          "levelGiftMoney": "11",
+          "weekMoney": "11",
+          "monthAmount": "11",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "12",
+          "betAmount": "100万+",
+          "levelGiftMoney": "12",
+          "weekMoney": "12",
+          "monthAmount": "12",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "13",
+          "betAmount": "300万+",
+          "levelGiftMoney": "13",
+          "weekMoney": "13",
+          "monthAmount": "13",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "14",
+          "betAmount": "800万+",
+          "levelGiftMoney": "14",
+          "weekMoney": "14",
+          "monthAmount": "14",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "15",
+          "betAmount": "1000万+",
+          "levelGiftMoney": "15",
+          "weekMoney": "15",
+          "monthAmount": "15",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 298,
+      "class_name": "电子/视讯",
+      "weekInfoIsShow": false,
+      "list": [
+        {
+          "level": "1",
+          "betAmount": "1万+",
+          "levelGiftMoney": "1",
+          "weekMoney": "1",
+          "monthAmount": "1",
+          "monthAmountInfo": {
+            "payTotal": 6,
+            "betTotal": 16,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "2",
+          "betAmount": "2万+",
+          "levelGiftMoney": "2",
+          "weekMoney": "2",
+          "monthAmount": "2",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "3",
+          "betAmount": "3万+",
+          "levelGiftMoney": "30",
+          "weekMoney": "3",
+          "monthAmount": "3",
+          "weekAmountInfo": {
+            "payTotal": 6,
+            "betTotal": 6,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 7,
+            "betTotal": 7,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "4",
+          "betAmount": "4万+",
+          "levelGiftMoney": "40",
+          "weekMoney": "4",
+          "monthAmount": "4",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "5",
+          "betAmount": "5万+",
+          "levelGiftMoney": "50",
+          "weekMoney": "5",
+          "monthAmount": "5",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "6",
+          "betAmount": "6万+",
+          "levelGiftMoney": "6",
+          "weekMoney": "6",
+          "monthAmount": "6",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "7",
+          "betAmount": "7万+",
+          "levelGiftMoney": "7",
+          "weekMoney": "7",
+          "monthAmount": "7",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "8",
+          "betAmount": "8万+",
+          "levelGiftMoney": "8",
+          "weekMoney": "8",
+          "monthAmount": "8",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "9",
+          "betAmount": "9万+",
+          "levelGiftMoney": "9",
+          "weekMoney": "9",
+          "monthAmount": "9",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "10",
+          "betAmount": "10万+",
+          "levelGiftMoney": "10",
+          "weekMoney": "100",
+          "monthAmount": "101",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "11",
+          "betAmount": "33万+",
+          "levelGiftMoney": "11",
+          "weekMoney": "11",
+          "monthAmount": "11",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "12",
+          "betAmount": "100万+",
+          "levelGiftMoney": "12",
+          "weekMoney": "12",
+          "monthAmount": "12",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "13",
+          "betAmount": "300万+",
+          "levelGiftMoney": "13",
+          "weekMoney": "13",
+          "monthAmount": "13",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "14",
+          "betAmount": "800万+",
+          "levelGiftMoney": "14",
+          "weekMoney": "14",
+          "monthAmount": "14",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "15",
+          "betAmount": "1000万+",
+          "levelGiftMoney": "15",
+          "weekMoney": "15",
+          "monthAmount": "15",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": 299,
+      "class_name": "捕鱼",
+      "weekInfoIsShow": false,
+      "list": [
+        {
+          "level": "1",
+          "betAmount": "1万+",
+          "levelGiftMoney": "1",
+          "weekMoney": "1",
+          "monthAmount": "1",
+          "weekAmountInfo": {
+            "payTotal": 7,
+            "betTotal": 7,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 10,
+            "betTotal": 15,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "2",
+          "betAmount": "2万+",
+          "levelGiftMoney": "2",
+          "weekMoney": "2",
+          "monthAmount": "2",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "3",
+          "betAmount": "3万+",
+          "levelGiftMoney": "300",
+          "weekMoney": "3",
+          "monthAmount": "3",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "4",
+          "betAmount": "4万+",
+          "levelGiftMoney": "400",
+          "weekMoney": "4",
+          "monthAmount": "4",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "5",
+          "betAmount": "5万+",
+          "levelGiftMoney": "500",
+          "weekMoney": "5",
+          "monthAmount": "5",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "6",
+          "betAmount": "6万+",
+          "levelGiftMoney": "6",
+          "weekMoney": "6",
+          "monthAmount": "6",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "7",
+          "betAmount": "7万+",
+          "levelGiftMoney": "7",
+          "weekMoney": "7",
+          "monthAmount": "7",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "8",
+          "betAmount": "8万+",
+          "levelGiftMoney": "8",
+          "weekMoney": "8",
+          "monthAmount": "8",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "9",
+          "betAmount": "9万+",
+          "levelGiftMoney": "9",
+          "weekMoney": "9",
+          "monthAmount": "9",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "10",
+          "betAmount": "10万+",
+          "levelGiftMoney": "10",
+          "weekMoney": "10",
+          "monthAmount": "10",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 9,
+            "betTotal": 9,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "11",
+          "betAmount": "33万+",
+          "levelGiftMoney": "11",
+          "weekMoney": "11",
+          "monthAmount": "11",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "12",
+          "betAmount": "100万+",
+          "levelGiftMoney": "12",
+          "weekMoney": "12",
+          "monthAmount": "12",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "13",
+          "betAmount": "300万+",
+          "levelGiftMoney": "13",
+          "weekMoney": "13",
+          "monthAmount": "13",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "14",
+          "betAmount": "800万+",
+          "levelGiftMoney": "14",
+          "weekMoney": "14",
+          "monthAmount": "14",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        },
+        {
+          "level": "15",
+          "betAmount": "1000万+",
+          "levelGiftMoney": "15",
+          "weekMoney": "15",
+          "monthAmount": "15",
+          "weekAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          },
+          "monthAmountInfo": {
+            "payTotal": 5,
+            "betTotal": 5,
+            "payCount": 0
+          }
+        }
+      ]
+    }
+  ]
+}

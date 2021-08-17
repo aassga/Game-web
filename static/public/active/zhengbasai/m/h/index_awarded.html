@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>争霸赛-打码获奖名单</title>
+  <link rel="stylesheet" href="./css/public.css">
+  <script src="./../../../lib/js/qs.min.js"></script>
+  <script src="../../../lib/js/crypto-js.min.js"></script>
+  <script src="../../../lib/js/jsencrypt.min.js"></script>
+  <script src="./../../../lib/js/axios.min.js"></script>
+  <script src="./../../../lib/js/cryptoConfig.js"></script>
+  <script src="../js/config.js"></script>
+</head>
+
+<body>
+  <div class="awarded" id="awarded" v-cloak>
+    <header class="header">
+      <a href="index.html" class="btn-back">
+        <img src="images/back-btn.png" alt="">
+      </a>
+      <img class="page-title" src="images/page-details.png" alt="">
+    </header>
+    <div class="container-col2">
+      <div class="menu">
+        <a :href="`index_particular.html?stage=${levelRange}#target-rule`" @click="currentPathHash='#target-rule'">比赛规则</a>
+        <a :href="`index_particular.html?stage=${levelRange}#target-rank`" @click="currentPathHash='#target-rank'">打码排名奖金</a>
+        <a :href="`index_particular.html?stage=${levelRange}#target-detail`" @click="currentPathHash='#target-detail'">活动详情</a>
+        <!-- <a class="active" v-show="this.status === 'end'" :href="`index_awarded.html?stage=${levelRange}`">获奖名单</a> -->
+        <a class="active" href="#">获奖名单</a>
+      </div>
+      <div class="gap"></div>
+      <div class="page">
+        <!-- <div v-if="pageNone"> -->
+          <div class="award-table">
+            <!-- <div class="award-table-img"></div> -->
+            <div class="award-list">
+              <table style="width:100%">
+                <thead class="header-title">
+                  <tr>
+                    <td>排名</td>
+                    <td>用戶名</td>
+                    <td>奖金</td>
+                  </tr>
+                </thead>
+                <tbody class="body-content">
+                  <tr v-for="item in (rewardTable || '').slice(0,10)" :key="item.id">
+                    <td>
+                      <img v-if="item.rank === 1" class="rank-img" src="./images/one.png" alt="">
+                      <img v-if="item.rank === 2" class="rank-img" src="./images/two.png" alt="">
+                      <img v-if="item.rank === 3" class="rank-img" src="./images/three.png" alt="">
+                      <span v-if="item.rank > 3">{{item.rank}}</span>
+                    </td>
+                    <td>{{item.userName}}</td>
+                    <!-- <td>{{`${item.userName.slice(1,-4)}**${item.userName.slice(-2)}`}}</td> -->
+                    <td>{{item.reward_amount}}元</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</body>
+
+<script src="./../../../lib/js/vue.min.js"></script>
+<script src="./../../../lib/js/element-ui.js"></script>
+<script src="./../../../lib/js/vue-router.js"></script>
+<script src="./../../../lib/js/moment.min.js"></script>
+<script src="./../../../lib/js/moment-with-locales.min.js"></script>
+
+
+<script type="text/javascript">
+  axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
+  new Vue({
+    el: '#awarded',
+    data: {
+      currentPathHash: "",
+      rankImg: '',
+      zhengRank: '',
+      rewardTable: [],
+      rewardRank:[],
+      levelRange:"",
+    },
+    mounted() {
+      this.getZhengList()
+    },
+    methods: {
+      getZhengList() {
+        let getUrlString = location.href;
+        let url = new URL(getUrlString);
+        let stage = url.searchParams.get('stage');
+        this.levelRange = stage
+        axios.get(getRewardList, {
+            params: {
+              stage: stage
+            }
+          })
+          .then((res) => {
+            // test :
+            // this.rewardTable = [
+            //     {
+            //         "rank": 1,
+            //         "userName": "cheng99**9",
+            //         "reward_amount": "666.00"
+            //     },
+            //     {
+            //         "rank": 2,
+            //         "userName": "cheng99**9",
+            //         "reward_amount": "666.00"
+            //     },
+            //     {
+            //         "rank": 3,
+            //         "userName": "cheng99**9",
+            //         "reward_amount": "666.00"
+            //     },
+            //     {
+            //         "rank": 4,
+            //         "userName": "cheng99**9",
+            //         "reward_amount": "666.00"
+            //     },
+            //     {
+            //         "rank": 5,
+            //         "userName": "cheng99**9",
+            //         "reward_amount": "666.00"
+            //     },
+            //     {
+            //         "rank": 6,
+            //         "userName": "cheng99**9",
+            //         "reward_amount": "666.00"
+            //     },
+            //     {
+            //         "rank": 7,
+            //         "userName": "cheng99**9",
+            //         "reward_amount": "666.00"
+            //     },
+            //     {
+            //         "rank": 9,
+            //         "userName": "cheng99**9",
+            //         "reward_amount": "666.00"
+            //     },
+            //     {
+            //         "rank": 8,
+            //         "userName": "cheng99**9",
+            //         "reward_amount": "666.00"
+            //     },
+            //     {
+            //         "rank": 8,
+            //         "userName": "cheng99**9",
+            //         "reward_amount": "666.00"
+            //     }
+            // ]
+            if (!res.data.data) return
+            this.rewardTable = res.data.data;
+            this.rewardTable.sort(function (a,b) {
+              return a.rank - b.rank
+            })
+
+          })
+          .catch((err) => {
+            this.$message({
+              message: err,
+              type: "error",
+            });
+          });
+      },
+    },
+  })
+
+</script>
+
+</html>

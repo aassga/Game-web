@@ -1,0 +1,106 @@
+$headerHieght: 3.5em;
+$menuWidth: 30vw;
+$gapWidth: 2vw;
+$btnBackGap: -5px;
+$rootFontSize: 16px;
+
+html {
+  overflow: hidden;
+  height: 100vh;
+  font-size: $rootFontSize;
+}
+body {
+  background: url("../images/bg.png") #231A19 top center / contain  fixed;
+  min-height: 100vh;
+
+  header.header {
+    background: url("../images/header-bg.png") top center / 100% 100%;
+    // height: $headerHieght;
+    width: 100vw;
+    color: #fff;
+    position: relative;
+    text-align: left;
+    display: flex;
+    align-items: center;
+
+    .btn-back {
+      display: inline-block;
+      img{
+        height: $headerHieght;
+        margin-bottom: $btnBackGap;
+      }
+    }
+    .btn-myrank {
+      display: inline-block;
+      margin-left: auto;
+      margin-right: 1em;
+      img{
+        height: $headerHieght / 2.5;
+      }
+    }
+    .page-title {
+      height: $headerHieght / 1.8;
+    }
+  }
+  .container-col2 {
+    display: flex;
+    padding: 10px 2vw 10px;
+    margin-bottom: 1em;
+    height: calc(100vh - 5em);
+
+    .menu {
+      width: $menuWidth;
+      max-width: 10em;
+      display: block;
+      // height: 100%;
+      padding: 10px 0;
+      overflow: hidden;
+      text-align: center;
+      
+      a {
+        &:first-child{
+          margin-top: -10px;
+        }
+        &:last-child{
+          margin-bottom: -10px;
+        }
+        cursor: pointer;
+        display: block;
+        padding: 1.2em 0;
+        font-size: 1em;
+        text-decoration: none;
+        background: linear-gradient(to bottom, #ffdda8, #e1a250);
+        background: -webkit-linear-gradient(to bottom, #ffdda8, #e1a250);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+
+        &.active {
+          color: #221a18;
+          text-shadow: 0em 0.1em 0.01em #FFF;
+          background: url("../images/menu-active.png") center center / cover;
+          
+        }
+      }
+      
+    }
+    .menu, .page{
+      border: 1px solid rgba($color: #fff, $alpha: 0.3);
+      border-radius: 5px;
+      background-color: rgba($color: #fff, $alpha: 0.05);
+    }
+    .gap {
+      display: inline-block;
+      width: $gapWidth;
+    }
+    .page {
+      flex: 1;
+      padding: 1em 1em 1.2em;
+      position: relative;
+      overflow-y: scroll;
+    }
+  }
+}
+.el-message{
+  max-width: 90%;
+}

@@ -1,0 +1,192 @@
+.myrank {
+  min-height: 100vh;
+  background-color: #0e0d2b;
+  text-align: center;
+}
+
+.myrank .layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+}
+
+.myrank .header-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em;
+  border-bottom: 1px solid #ececec;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+}
+
+.myrank .header-btn .header-arrow-left {
+  z-index: 9;
+}
+
+.myrank .header-btn .header-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.myrank .header-btn .header-title div {
+  color: #494949;
+}
+
+.myrank .header-btn .header-title .title-name {
+  width: 52.5vw;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.myrank .banner-bg {
+  margin: 0 auto -110px;
+  overflow: hidden;
+  z-index: 0;
+  position: relative;
+}
+
+.myrank .banner-bg img {
+  width: 100%;
+  margin: -48px auto 0;
+}
+
+.myrank .show-msg {
+  z-index: 1;
+  position: relative;
+  width: auto;
+  margin-top: 2.5em;
+  background-color: #212737;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.myrank .show-msg .hr-border {
+  height: 2em;
+  border: 0.5px solid #D3A851;
+  border-radius: 10px;
+  margin: 1.5em 0;
+}
+
+.myrank .show-msg .details-rule-msg .title-img {
+  background: url("../images/title_list.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 9em;
+  height: 3.2em;
+  line-height: 3.3em;
+}
+
+.myrank .show-msg .details-rule-msg .title-img span {
+  font-size: 13px;
+  color: #fff;
+}
+
+.myrank .show-msg .hight-bouns {
+  color: #f1af2b;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+.myrank .show-msg .hight-rank {
+  color: #f1af2b;
+}
+
+.myrank .show-msg .hight-rank .rank-img {
+  height: 1.65em;
+  margin-top: -5px;
+}
+
+.myrank .hr-border {
+  height: 0.5em;
+  margin-top: 2em;
+}
+
+.myrank .myrank-list {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 15em;
+  overflow-y: scroll;
+  z-index: 1;
+  margin: 1.5em auto 1.5em;
+  width: calc(100% - 3em);
+}
+
+.myrank .myrank-list .header-title {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #462C14;
+  border-bottom: 1px solid #462C14;
+  color: #FFF;
+  font-size: 12px;
+}
+
+.myrank .myrank-list .header-title td {
+  padding: 1.2em 0;
+}
+
+.myrank .myrank-list .body-content tr {
+  background-color: #675c56;
+  color: #FFF;
+  border-bottom: 1px solid #462C14;
+  font-size: 12px;
+}
+
+.myrank .myrank-list .body-content tr td {
+  padding: 0.7em 0.5em;
+  vertical-align: middle;
+}
+
+.myrank .myrank-list .rank-img {
+  height: 2em;
+}
+
+.myrank .myrank-list .no-data {
+  padding-top: 2em;
+}
+
+.myrank .myrank-list .no-data img {
+  height: 6em;
+}
+
+.myrank .myrank-list .no-data div {
+  padding-top: 1em;
+}
+
+.myrank .myrank-list .no-data div span {
+  color: #FFF;
+  font-size: 15px;
+}
+
+.myrank .no-data-border {
+  width: 1em;
+  border: 1px solid #f1af2b;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  margin: 0.7em auto;
+  border-radius: 110px;
+}
+/*# sourceMappingURL=myrank.css.map */

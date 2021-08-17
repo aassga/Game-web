@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" id="html">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="renderer" content="webkit">
+  <link rel="stylesheet" href="../lib/js/swiper/swiper.min.css">
+  <link rel="stylesheet" href="../lib/css/common.css">
+  <link rel="stylesheet" href="../lib/css/animate.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="../lib/js/jquery-1.11.3.min.js"></script>
+  <script src="../lib/js/layer/layer.js"></script>
+  <script src="../lib/js/clipboard.min.js"></script>
+  <script type="text/javascript">
+    document.write("<script type='text/javascript' src='https://acstatic-dun.126.net/tool.min.js?t="+Date.now()+"'></s"+"cript>");
+  </script>
+  <script>
+    if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) ||
+      /Android/i.test(navigator.userAgent) ||
+      /BlackBerry/i.test(navigator.userAgent) ||
+      /IEMobile/i.test(navigator.userAgent) ||
+      (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/
+        .test(navigator.userAgent))) {
+      window.location.href = 'm/'
+    }
+  </script>
+  <title>兑换码活动</title>
+</head>
+
+<body>
+<div class="bgImg container" id="container">
+  <div>
+    <div class="btns">
+      <a id="login"></a>
+      <a id="apply"></a>
+      <a id="record"></a>
+    </div>
+    <ul class="icons buttons">
+      <li class="bgImg icon icon1"></li>
+      <li class="bgImg icon icon2"></li>
+      <li class="bgImg icon icon3"></li>
+      <li class="bgImg icon icon4"></li>
+    </ul>
+    <div class="content">
+      <div class="con content1">
+        <p>秉承信誉第一☆客户第一☆服务第一☆福利第一运营宗旨，竭诚为广大会员提供更专业、更优质、更高效的服务！温馨呵护每一位玩家！</p>
+      </div>
+      <div class="con content2">
+        <p>打破传统运营理念增加游戏乐趣，我司斥资百亿与各大观影平台携手合作。提供各大平台观影VIP，百万部高清资源任性看，女神在线直播深情互动。</p>
+      </div>
+      <div class="con content3">
+        <p>领取条件以及活动结束时间以观影平台宣传内容展示为准。<br>声明：有部分观影平台不支持自助领取，请联系客服小姐姐申请。</p>
+      </div>
+      <div class="con content4">
+        <p><span class="num">1.&nbsp;</span>系统会按照达到的最高标准返回对应兑换码。</p>
+        <p><span class="num">2.&nbsp;</span>如遇到兑换码过期请联系客服小姐姐领取。</p>
+        <p><span class="num">3.&nbsp;</span>领取观影VIP仅限通过观影平台宣传链接进入注册用户。</p>
+        <p><span class="num">4.&nbsp;</span>领取VIP条件以及VIP到期时间以观影平台内容宣传为准。</p>
+        <p><span class="num">5.&nbsp;</span>我司保留对活动的最终解释权；以及在无通知的情况下修改、终止活动的权利，适用于所有优惠。</p>
+      </div>
+
+    </div>
+    <div class="back" id="back"></div>
+
+  </div>
+</div>
+<!--弹窗-->
+<div class="tc_login" id="tc_login">
+  <div class="loginBox">
+    <input type="text" name="hidden1" style="width:0; height:0;display: none">
+    <input type="password" name="hidden2" style="width:0; height:0;display: none">
+    <div class="text-account">
+      <div class="input-cont">
+        <i class="bgImg iconfont1"></i><input id="account" autocomplete="off" placeholder="请输入登录账号" type="text" maxlength="20" onblur="getCode()">
+      </div>
+    </div>
+    <div class="text-account">
+      <div class="input-cont">
+        <i class="bgImg iconfont2"></i><input id="password" autocomplete="off" placeholder="请输入登录密码" type="password" maxlength="20">
+      </div>
+    </div>
+    <div class="text-account">
+      <div class="input-cont" style="display:inline-block; width: 250px;">
+        <i class="bgImg iconfont3"></i><input id="code" autocomplete="off" placeholder="验证码" type="text" maxlength="4">
+      </div>
+      <div class="code_img"><img id="code-img" src="./images/code.png" alt=""></div>
+    </div>
+    <div class="loginIn" id="loginIn"></div>
+
+  </div>
+
+
+  <div class="closeBtn" id="close" onclick="layer.closeAll()"></div>
+</div>
+<div id="tc_apply" class="tc_apply">
+  <p class="txt1">
+    <span>观影平台：</span><span id="plat"></span>
+  </p>
+  <p class="txt2">
+    <span>VIP兑换码：</span><span id="plat_code"></span>
+  </p>
+  <div class="bgImg copyCode" data-clipboard-target="#plat_code"></div>
+  <span class="closeBtn" onclick="layer.closeAll()"></span>
+</div>
+<div id="tc_record" class="tc_record">
+  <table class="datas">
+    <tbody id="list">
+    </tbody>
+  </table>
+  <span class="closeBtn" onclick="layer.closeAll()"></span>
+</div>
+<div id="tc_tip" class="tc_tip">
+  <p class="txt1"></p>
+  <span class="closeBtn" onclick="layer.close(layer.index)"></span>
+</div>
+
+
+<script src="../lib/js/siteName.js"></script>
+<script src="./js/main.js"></script>
+<script>
+  var clipboard1 = new ClipboardJS('.copyCode');
+  clipboard1.on('success', function(e) {
+    layer.msg('复制成功！')
+    e.clearSelection();
+  });
+
+  /*tab切换*/
+  // var index = 0;
+  $('.con').eq(0).show()
+  var ul = document.getElementsByClassName('buttons')[0]
+  var lis = ul.getElementsByTagName('li')
+  var contents = document.getElementsByClassName('con')
+  for (var i = 0; i < lis.length; i++) {
+    lis[i].index = i
+    lis[i].onclick = function () {
+      for (var j = 0; j < contents.length; j++) {
+        contents[j].style.display = 'none'
+      }
+      contents[this.index].style.display = 'block'
+    }
+  }
+
+  window.addEventListener('resize', resetrem)
+
+  function resetrem () {
+    var html = document.querySelector('html') //获取到html元素
+    var width = html.getBoundingClientRect().width //获取屏幕的宽度
+    var s = width / 1920
+    document.getElementsByClassName('container')[0].style.zoom = s
+  }
+
+  resetrem()
+
+
+</script>
+</body>
+
+</html>

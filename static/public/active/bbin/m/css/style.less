@@ -1,0 +1,296 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: "Microsoft YaHei", Arial, Verdana, SimSun, SimHei, STHeiti, Helvetica, sans-serif !important;
+}
+img {
+    vertical-align: middle;
+}
+ul, li, ol { margin: 0; padding: 0; list-style: none; }
+/* 清除浮动 */
+    /* 单伪元素标签法 */
+.clearfix1:after {
+    content: '';
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+.clearfix1 {
+    zoom: 1;
+}
+    /* 双伪元素标签法 */
+.clearfix2:before, .clearfix2:after {
+    content: '';
+    display: table;
+}
+.clearfix2:after {
+    clear: both;
+}
+.clearfix2 {
+    zoom: 1;
+}
+
+html {
+
+  overflow-x: hidden;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+
+html,
+body,
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-color: #000;
+}
+
+.clearfix {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.container {
+  width: 100%;
+  height: 40.81rem;
+//   min-height: 230vh;
+  color: white;
+  font-size: 12px;
+  overflow: hidden;
+//   position: relative;
+  background-image: url("../images/bg1.png");
+//   background-repeat: no-repeat;
+  background-size: cover;
+
+  .introduceBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4.05rem;
+    height: 4.8rem;
+    font-weight: 500;
+    font-size: 0.46rem;
+
+  .introduceBoxTop{
+    display: flex;
+    height: 2.14rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p:nth-child(1) {
+        height: 0.43rem;
+        line-height: 0.52rem;
+        color: #fff;
+        padding-bottom: 0.36rem;
+        span {
+          color: #FEE4A7;
+          text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.55);
+        }
+      }
+  
+      p:nth-child(2) {
+        height: 0.43rem;
+        line-height: 0.52rem;
+        color: #fff;
+        padding-bottom: 0.36rem;
+  
+        span {
+          color: #FEE4A7;
+  
+          text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.55);
+        }
+      }
+  }
+ 
+  .middleBox{
+      height: 2rem;
+      margin-top: 0.7rem;
+    .betbox {
+        display: flex;
+        width: 6.5rem;
+        justify-content: space-between;
+        height: 1rem;
+        line-height: 1rem;
+        span {
+          margin-top: 0.15rem;
+          flex: 1;
+          text-align: center;
+          color: #D72F37;
+          font-weight: bold;
+          font-size: 0.45rem;
+          background: linear-gradient(0deg, #8C060B 0%, #E42828 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+  
+      .momeybox {
+        line-height: 1rem;
+        height: 1rem;
+        display: flex;
+        font-size: 0.5rem;
+        color: #D72F37;
+        span{
+            font-size: 0.5rem;
+          color: #D72F37;
+          font-weight: bold;
+          background: linear-gradient(0deg, #8C060B 0%, #E42828 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+  
+      }
+  }
+
+  }
+
+  //活动奖金
+  .bonus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4.2rem;
+    height:9.73rem;
+    font-size: 0.46rem;
+
+    span {
+      color: #FFE4A8;
+      font-weight: 500;
+    }
+
+    .bonusTable {
+      margin-left: 0.68rem;
+      width: 5.88rem;
+      height: 3.09rem;
+      background-repeat: no-repeat;
+      background: url("../images/bonus.png");
+      background-size: 100% 100%;
+
+      table {
+
+        margin-top: 0.3rem;
+        width: 5.2rem;
+        height: 2.8rem;
+
+        thead {
+          color: #820000;
+          height: 0.28rem;
+        }
+
+        tbody {
+          tr {
+            height: 0.26rem;
+            text-align: center;
+            font-size: 0.33rem;
+          }
+        }
+      }
+    }
+
+    .bonusTableTow {
+      width: 8.51rem;
+      height: 2.75rem;
+      margin-top: 0.45rem;
+      background-repeat: no-repeat;
+      background: url("../images/bonus2.png");
+      background-size: 100% 100%;
+
+      table {
+        width: 8.51rem;
+        height: 2.8rem;
+
+        thead {
+          color: #820000;
+          height: 0.28rem;
+        }
+
+        tbody {
+          tr {
+            height: 0.26rem;
+            text-align: center;
+            font-size: 0.33rem;
+          }
+        }
+      }
+
+      
+    }
+    .one {
+        margin-top: 0.5rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        span {
+
+
+          color: #FFFFFF;
+          line-height: 0.52rem;
+
+          height: 0.48rem;
+          font-size: 0.36rem;
+        }
+      }
+  }
+ .empty{
+     width: 100%;
+     height: 11rem;
+ }
+  // 注意事项
+  .tip {
+    width: 80%;
+    margin: auto;
+    height: 6.21rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .tipTop {
+   
+    font-size: 0.54rem;
+  }
+
+  .tipContent {
+
+    margin-top: 0.1rem;
+
+    font-weight: 400;
+font-size: 0.26rem;
+    p {
+      position: relative;
+      padding-left: 0.3rem;
+      font-size: 0.26rem;
+      counter-increment: items;
+
+      span {
+        color: #FDF001;
+      }
+    }
+
+    p:before {
+      position: absolute;
+      left: 0;
+      content: counter(items) '. ';
+    }
+  }
+}

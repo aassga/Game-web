@@ -1,0 +1,310 @@
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 3px;
+}
+[v-cloak] {
+  display: none;
+}
+html {
+  overflow-x: hidden;
+  min-width: 1200px;
+  position: relative;
+}
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "PingFang SC", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  background-size: 100% 100%;
+  position: relative;
+  background-color: #ffeaf1;
+  color: #E3E3E3;
+  font-size: 22px;
+  overflow-x: hidden;
+}
+.bgImg {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.container {
+  position: relative;
+  width: 1920px;
+  height: 1735px;
+  /* max-width: 1920px; */
+  /* height: 3192px; */
+  background-image: url(../images/bg.jpg);
+  /* margin: 0 auto; */
+  overflow: hidden;
+}
+.btns > a {
+  position: absolute;
+  width: 386px;
+  height: 127px;
+  cursor: pointer;
+}
+.btns #login {
+  top: 769px;
+  left: 585px;
+  background-image: url(../images/login.png);
+}
+.btns #apply {
+  display: none;
+  top: 769px;
+  left: 380px;
+  background-image: url(../images/apply.png);
+}
+.btns #record {
+  display: none;
+  top: 769px;
+  left: 820px;
+  background-image: url(../images/record.png);
+}
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 950px auto 5px;
+  width: 1140px;
+  height: 306px;
+}
+.icons .icon {
+  width: 198px;
+  height: 306px;
+  cursor: pointer;
+}
+.icons .icon1 {
+  background-image: url(../images/pic-content.png);
+}
+.icons .icon2 {
+  background-image: url(../images/pic-enter.png);
+}
+.icons .icon3 {
+  background-image: url(../images/pic-time.png);
+}
+.icons .icon4 {
+  background-image: url(../images/pic-rule.png);
+}
+.icons .icon1:hover {
+  background-image: url(../images/pic-content-hover.png);
+}
+.icons .icon2:hover {
+  background-image: url(../images/pic-enter-hover.png);
+}
+.icons .icon3:hover {
+  background-image: url(../images/pic-time-hover.png);
+}
+.icons .icon4:hover {
+  background-image: url(../images/pic-rule-hover.png);
+}
+.content {
+  margin: 0 auto;
+  padding: 40px;
+  width: 1061px;
+  height: 335px;
+  background-image: url(../images/content_bg.png);
+}
+.content .con {
+  display: none;
+}
+.con p {
+  font-size: 30px;
+  line-height: 1.8;
+  display: flex;
+}
+.tc {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.tc.layui-layer-page .layui-layer-content {
+  overflow: hidden;
+}
+#tc_login {
+  display: none;
+  overflow: hidden;
+  width: 712px;
+  height: 532px;
+  color: #000;
+  background-image: url(../images/tc_login.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.loginBox {
+  margin: 125px 75px 0;
+}
+.text-account {
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+.input-cont {
+  position: relative;
+  background: transparent;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e4e4e4;
+}
+.input-cont input {
+  position: relative;
+  box-sizing: border-box;
+  width: 80%;
+  background: transparent;
+  border: none;
+  outline: 0;
+  border-radius: 8px;
+  color: #171717;
+  margin-left: 50px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 20px;
+}
+input::-webkit-input-placeholder {
+  color: #bdbdbd;
+}
+input::-moz-input-placeholder {
+  color: #bdbdbd;
+}
+input::-ms-input-placeholder {
+  color: #bdbdbd;
+}
+.input-cont input:-internal-autofill-selected {
+  -webkit-text-fill-color: #bdbdbd;
+  transition: background-color 5000s ease-out .5s!important;
+}
+input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset;}
+.iconfont1 {
+  width: 32px;
+  height: 34px;
+  background-image: url(../images/icon1.png);
+  position: absolute;
+  left: -10px;
+  top: 0;
+}
+.code_img {
+  display: inline-block;
+  cursor: pointer;
+}
+.code_img img {
+  width: 110px;
+  height: 56px;
+}
+.iconfont2 {
+  width: 29px;
+  height: 37px;
+  background-image: url(../images/icon2.png);
+  position: absolute;
+  left: -10px;
+  top: 0;
+}
+.iconfont3 {
+  width: 26px;
+  height: 30px;
+  background-image: url(../images/icon3.png);
+  position: absolute;
+  left: -10px;
+  top: 0;
+}
+.loginIn {
+  margin: 50px auto 0;
+  width: 302px;
+  height: 64px;
+  background-image: url(../images/loginIn.png);
+  cursor: pointer;
+}
+#tc_tip {
+  display: none;
+  overflow: hidden;
+  width: 712px;
+  height: 371px;
+  background-image: url(../images/tc_tip.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#tc_tip .txt1 {
+  margin: 180px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #494a4c;
+  font-size: 40px;
+}
+#tc_apply {
+  display: none;
+  overflow: hidden;
+  width: 712px;
+  height: 351px;
+  color: #494a4c;
+  font-size: 28px;
+  background-image: url(../images/tc_apply.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#tc_apply .txt1 {
+  margin: 130px auto 30px 70px;
+}
+#tc_apply .txt2 {
+  margin-left: 70px;
+  margin-bottom: 25px;
+}
+#tc_apply .copyCode {
+  margin: 0 auto;
+  width: 175px;
+  height: 45px;
+  background-image: url(../images/copy1.png);
+  cursor: pointer;
+}
+#tc_record {
+  display: none;
+  overflow: hidden;
+  width: 712px;
+  height: 473px;
+  color: #494a4c;
+  font-size: 20px;
+  background-image: url(../images/tc_record.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#tc_record .datas {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 148px auto 0;
+  color: #fd5a8a;
+}
+.datas td {
+  height: 74px;
+  text-align: center;
+}
+.datas tr td:nth-child(1) {
+  width: 27%;
+}
+.datas tr td:nth-child(2) {
+  width: 26%;
+}
+.datas tr td:nth-child(3) {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.datas tr td:nth-child(3) span:first-child {
+  width: 60%;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.datas tr td .copyBtn {
+  cursor: pointer;
+  width: 63px;
+  height: 34px;
+  background-image: url(../images/copy2.png);
+}
+#tc_login .closeBtn, #tc_tip .closeBtn, #tc_apply .closeBtn, #tc_record .closeBtn {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 60px;
+  right: 14px;
+  top: 17px;
+}

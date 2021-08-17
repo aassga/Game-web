@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Welcome</title>
+  <script src="./js/jquery-1.11.3.min.js"></script>
+  <script src="./js/jroll-lite.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Microsoft YaHei", Arial, Verdana, SimSun, SimHei, STHeiti, Helvetica, sans-serif;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #000000;
+    }
+    @keyframes heart_beat {
+      0% {
+        transform: scale(.95)
+      }
+      50% {
+        transform: scale(1.05)
+      }
+      100% {
+        transform: scale(.95)
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+ li {
+   list-style: none;
+ }
+    #scroll {
+      width: 100%;
+      height: 100%;
+    }
+    .container {
+      position: relative;
+      width: 100vw;
+      background-color: #000000;
+      /*padding-bottom: 19vw;*/
+    }
+
+    .header {
+      width: 100vw;
+      height: 97.6vw;
+      background-image: url(./images/head.png);
+      background-size: 100% 100%;
+    }
+
+    .logo {
+      width: 100%;
+      height: 33.46vw;
+      margin-bottom: 4vw;
+      background-image: url(./images/logo.png);
+      background-size: 100% 100%;
+    }
+
+    .btnBox {
+      position: absolute;
+      top: 205.53vw;
+      width: 100%;
+      margin-bottom: 1.5vw;
+      display: flex;
+      justify-content: space-around;
+
+    }
+
+    .btnBox .left, .btnBox .right {
+      width: 45.26%;
+      animation: heart_beat .8s infinite linear;
+    }
+
+    .left {
+      float: left;
+    }
+
+    .right {
+      float: right;
+    }
+
+    .bottom {
+      position: fixed;
+      bottom: 0;
+      display: none;
+    }
+
+    .trustBtn {
+      margin-bottom: 6.26vw;
+    }
+
+    .main {
+      padding: 0 1.8vw;
+    }
+
+    .banner {
+      margin-bottom: 5.8vw;
+    }
+
+
+
+    .title {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: #FDE32A;
+      font-weight: 400;
+      font-size: 4vw;
+      padding-bottom: 1vw;
+      border-bottom: 4px solid #F9B200;
+      margin-bottom: 2.4vw;
+    }
+
+    .title .icon {
+      width: 3.73vw;
+      height: 6.13vw;
+      margin-right: 1vw;
+      display: inline-block;
+      background-image: url(./images/icon.png);
+      background-size: 100% 100%;
+    }
+    .desc {
+      font-size: 3vw;
+      color: #ffffff;
+      line-height: 1.8;
+      text-align: justify;
+    }
+    .desc span {
+      color: #FFFC00;
+    }
+    .service {
+      position: relative;
+      top: -10px;
+      width: 100%;
+      height: 34.8vw;
+      background-image: url(./images/service.png);
+      background-size: 100% 100%;
+      margin-bottom: 4.4vw;
+    }
+    .service .title {
+      position: absolute;
+      bottom: -3.3vw;
+      left: 0;
+      width: 100%;
+    }
+    .games {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 4.8vw;
+
+    }
+    .games li {
+      width: 18.26vw;
+      height: 6.66vw;
+      line-height: 6.66vw;
+      text-align: center;
+      border-radius: 3.33vw;
+      margin-bottom: 2vw;
+      background-color: #ffffff;
+      color: #1C1C1C;
+      font-size: 3vw;
+      font-weight:400;
+    }
+    .games .game1 {
+      color: #ffffff;
+      background-color: #FE6112;
+    }
+    .games .game3 {
+      color: #ffffff;
+      background-color: #FF1218;
+    }
+    .games .game4 {
+      color: #1C1C1C;
+      background-color: #FFFC00;
+    }
+    .games .game5 {
+      color: #1C1C1C;
+      background-color: #BE6FCF;
+    }
+    .games .game6 {
+      color: #ffffff;
+      background-color: #1F69FF;
+    }
+    .discuss {
+      margin-top: 13.33vw;
+    }
+    .discuss .item {
+    margin: 3.7vw auto;
+      font-size: 3.2vw;
+  }
+    .discuss .item .top {
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family:PingFang SC;
+      font-weight:500;
+      margin-bottom: 2vw;
+    }
+    .discuss .item .top .top_left .star {
+      display: inline-block;
+      width: 3.2vw;
+      height: 3.06vw;
+      background-image: url(./images/star.png);
+      background-size: 100% 100%;
+    }
+
+    .discuss .item .top .top_left .name {
+      color: #EB6B26;
+    }
+    .discuss .item .txt {
+      font-weight:400;
+      font-size: 3.4vw;
+      line-height: 1.5;
+      color: #ffffff;
+      text-align: justify;
+    }
+    .app {
+      position: absolute;
+      top: 5.26vw;
+      width: 26vw;
+      height: 9.46vw;
+      background-size: 100% 100%;
+    }
+    .app.android {
+      right: 26.8vw;
+      background-image: url(./images/android2.png);
+    }
+
+    .app.ios {
+      right: 0.4vw;
+      background-image: url(./images/ios2.png);
+    }
+
+    .trustBox {
+      position: fixed;
+      overflow-y: auto;
+      width: 100%;
+      max-width: 750px;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: none;
+      touch-action: pan-y;
+      transition: none;
+      overflow-y: auto;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+    }
+
+    .sites {
+      width: 94vw;
+      margin: 0 auto 4.4vw;
+      height: 3.73vw;
+      color: #ffffff;
+      padding-bottom: 3vw;
+      border-bottom: 2px solid #486797;
+    }
+    .sites .tip {
+      display: inline-block;
+      width: 1.33vw;
+      height: 3.73vw;
+      margin-right: 2vw;
+      background-color: #FFF100;
+    }
+    .sites .right {
+      color: #FFF100;
+    }
+    .webs {
+      position: absolute;
+      top: 265vw;
+      left: 7.87vw;
+      width: 84.26vw;
+    }
+    .webs li {
+      width: 84.26vw;
+      height: 11.8vw;
+      background-image: url(./images/bg_web.png);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      line-height: 8.8vw;
+      margin-bottom: 2.9vw;
+      text-align: center;
+      font-size: 4.2vw;
+    }
+    .webs li .times {
+      float: left;
+      /* display: inline-block; */
+      
+      width: 12vw;
+      height:11.8vw;
+      line-height: 11.8vw;
+      font-weight: 700;
+      /*background-color: #FDF823;*/
+      /*border-radius:1.33vw 0 0 1.33vw;*/
+      color: #ffffff;
+      font-size: 12px;
+    }
+    .webs li .web {
+      float: left;
+      display: inline-block;
+      width: 57vw;
+      height: 11.8vw;
+      line-height: 11.8vw;
+      font-weight: 700;
+      color: #fff100;
+      /*background-color: #ffffff;*/
+      border-radius:0 1.33vw 1.33vw 0;
+    }
+    .webs li a {
+      text-decoration: none;
+      float: right;
+      display: inline-block;
+      width: 15.2vw;
+      height: 11.8vw;
+      line-height: 11.8vw;
+      /* background-image: url(./images/btn.png);
+      background-size: 100% 100%;
+      background-repeat: no-repeat; */
+      color: #7f2c00;
+      font-weight: 700;
+    }
+
+
+  </style>
+</head>
+<body>
+<div id="scroll">
+  <div class="container" id="container">
+    <img src="./images/background.png" alt="">
+    <div class="btnBox">
+      <div class="left">
+        <a href="javascript:downApp();">
+          <img src="images/ios1.png">
+        </a>
+      </div>
+      <div class="right">
+        <a href="javascript:downApp();">
+          <img src="images/android1.png">
+        </a>
+      </div>
+    </div>
+    <ul class="webs">
+      <li><span class="times"></span><span class="web"></span><a href="" target="_blank"></a></li>
+      <li><span class="times"></span><span class="web"></span><a href="" target="_blank"></a></li>
+      <li><span class="times"></span><span class="web"></span><a href="" target="_blank"></a></li>
+      <li><span class="times"></span><span class="web"></span><a href="" target="_blank"></a></li>
+      <li><span class="times"></span><span class="web"></span><a href="" target="_blank"></a></li>
+    </ul>
+  </div>
+  <!--<div class="bottom" id="bottom">
+    <img src="./images/bg_down.png" alt="">
+    <a href="javascript:downApp();" class="app android"></a>
+    <a href="javascript:downApp();" class="app ios"></a>
+  </div>-->
+  
+</div>
+
+<div class="trustBox" style="background:#331200">
+  <a href="javascript:hideXR();" class="trustColse"><img class="trustImg" src="./images/close.png"/></a>
+  <img src="./images/jc.png">
+</div>
+<script>
+  var jroll = new JRoll('#scroll')
+  setTimeout(function () {
+    jroll.refresh()
+  },1000)
+  document.documentElement.addEventListener('touchstart', function (event) {
+    if (event.touches.length > 1) {
+      event.preventDefault()
+    }
+  }, false)
+
+  var lastTouchEnd = 0
+  document.documentElement.addEventListener('touchend', function (event) {
+    var now = Date.now()
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault()
+    }
+    lastTouchEnd = now
+  }, false)
+  document.addEventListener('gesturestart', function (event) {
+    event.preventDefault()
+  })
+
+
+
+  setTimeout(function () {
+    $('.times').eq(0).html(2 + Math.ceil(Math.random()) + 'ms')
+  }, 500)
+  setTimeout(function () {
+    $('.times').eq(1).html(3 + Math.ceil(Math.random() * 2) + 'ms')
+  }, 800)
+  setTimeout(function () {
+    $('.times').eq(2).html(5 + Math.ceil(Math.random() * 2) + 'ms')
+  }, 1000)
+  setTimeout(function () {
+    $('.times').eq(3).html(7 + Math.ceil(Math.random() * 2) + 'ms')
+  }, 1300)
+  setTimeout(function () {
+    $('.times').eq(4).html(9 + Math.ceil(Math.random()) + 'ms')
+  }, 1500)
+
+
+/*  document.body.addEventListener('touchmove', function (e) {
+    e.preventDefault()
+  }, { passive: false })*/
+
+  function showXR () {
+    $('.trustBox').fadeIn()
+  }
+
+  function hideXR () {
+    $('.trustBox').hide()
+  }
+/*var container = document.getElementById('container');
+  document.body.addEventListener('touchmove', function (e) {
+    if ($('#container').offset().top <= -window.screen.height ) {
+      document.querySelector('#bottom').style.display = 'block'
+    } else {
+      document.querySelector('#bottom').style.display = 'none'
+    }
+  }, { passive: false })*/
+ /* document.onscroll = function () {
+    if (container.scrollTop >= window.screen.height ) {
+      document.querySelector('#bottom').style.display = 'block'
+    } else {
+      document.querySelector('#bottom').style.display = 'none'
+    }
+  }*/
+  /*document.onscroll = function () {
+    if (document.documentElement.scrollTop >= window.screen.height || document.body.scrollTop >= window.screen.height) {
+      document.querySelector('#bottom').style.display = 'block'
+    } else {
+      document.querySelector('#bottom').style.display = 'none'
+    }
+  }*/
+</script>
+<script src="https://res.sharetrace.com/sharetrace.min.js"></script>
+<script type="text/javascript">
+  function GetQueryString (name) {
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
+    var r = window.location.search.substr(1).match(reg)
+    if (r != null) return unescape(r[2])
+    return null
+  }
+
+  b = GetQueryString('agent') || GetQueryString('channelCode');
+  let str=window.location.href;
+  let par = "channelCode="+ b ;
+  ShareTrace.init({
+    appkey: "3bc5a33d6b2092cd", // 此值必填
+    param: par,
+  });
+
+  function downApp (type) {
+    ShareTrace.download();
+  }
+</script>
+<script type="text/javascript" src="./js/script.js"></script>
+  <script>
+    var autourl = new Array()
+    autourl[0] = '632vip1.com'
+    autourl[1] = '632vip2.com'
+    autourl[2] = '632vip3.com'
+    autourl[3] = '632vip4.com'
+    autourl[4] = '632vip5.com'
+
+    document.querySelectorAll('.webs li').forEach(function (item, index) {
+      item.children[2].href ='https://' + autourl[index] + '/m/#/home?channelCode=' + b
+      item.children[1].innerText = autourl[index]
+    })
+  </script>
+</body>
+</html>

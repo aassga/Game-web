@@ -1,0 +1,140 @@
+(function () {
+    var mask = null;
+    var cryptStr = function (val) {
+        var temp = $("<div style='display:none;'><input class='cryptStr' type='password' name='password' /><button class='btnCrypt'>submit</button></div>");
+        var cryptStrInput = temp.find(".cryptStr").val(val);
+        temp.appendTo(document.body);
+        temp.find(".btnCrypt").click();
+        var cryptStr = cryptStrInput.val();
+        temp.remove();
+        return cryptStr;
+    };
+    var oldInputCheck = null;
+    var requesting = false;
+    var queryStr = "form[action='/cn']:visible,form[action='cn']:visible,form[action='/cn/']:visible,form[action='/cn/index']:visible,form[action='/cn/index/']:visible,form[action='cn/index/']:visible,form[action='cn/index']:visible,form[action='/cn/login']:visible,form[action='/cn/login/']:visible,form[action='cn/login/']:visible,form[action='cn/login']:visible";
+    var check = function () {
+        var loginForm = $(this);
+        if (!loginForm.is("form")) {
+            loginForm = $(queryStr);
+        }
+        if (loginForm.length < 1) {
+            return oldInputCheck();
+        }
+        var usernameInput = loginForm.find("input[name='username']");
+        var passwordInput = loginForm.find("input[name='password']");
+        var username = usernameInput.val();
+        var password = passwordInput.val();
+        if (!username) {
+            alert("请输入用户名");
+            usernameInput.focus();
+            return false;
+        }
+        if (username === "帐号") {
+            alert("请输入正确的用户名");
+            usernameInput.focus();
+            return false;
+        }
+        if (!password) {
+            alert("请输入密码");
+            passwordInput.focus();
+            return false;
+        }
+        if (requesting) {
+            return false;
+        }
+        var imgData = "data:image/gif;base64,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";
+        if (!mask) {
+            mask = $("<div style='position:fixed;left:0;right:0;top:0;bottom:0;z-index:20000;display:table;width:100%;height:100%;'><div style='display:table-cell;vertical-align:middle;text-align:center;'><img src='" + imgData + "' style='border:none;'/></div></div>");
+            mask.appendTo(document.body);
+        }
+        var iframeId = "";
+        requesting = true;
+        var isCrypt = $.cookie("web") && $.cookie("randomYes") ? true : false;
+        $.ajax({
+            url: "/cn/login",
+            type: "POST",
+            dataType: "json",
+            data: {
+                username: username,
+                password: isCrypt ? cryptStr(password) : password,
+                crypt: isCrypt ? "1" : "0"
+            },
+            success: function (result) {
+                if (result.returnCode < 0) {
+                    var returnData = result.returnData;
+                    if (returnData && (returnData.dragAuth <= 0 || returnData.questions)) {
+                        var iframe = null;
+                        if (!iframeId || $("#" + iframeId).length < 1) {
+                            iframeId = "auth_iframe_" + (new Date()).getTime();
+                            iframe = $("<iframe id='" + iframeId + "' style='position:fixed;left:0;right:0;top:0;bottom:0;z-index:30000;width:100%;height:100%;border:none;background:url(" + imgData + ") no-repeat center;' allowtransparency='true'></iframe>");
+                            iframe.appendTo(document.body);
+                            iframe.load(function () {
+                                iframe.css("background", "none");
+                            });
+                        } else {
+                            iframe = $("#" + iframeId);
+                        }
+                        if (returnData.questions) {
+                            var question1 = returnData.questions.question1 || "";
+                            var question2 = returnData.questions.question2 || "";
+                            if (question1 || question2) {
+                                iframe[0].src = "/member-center/tools#module/member/action/questionAuth/username/" + encodeURIComponent(username) + "/password/" + encodeURIComponent(password) + "/question1/" + encodeURIComponent(question1) + "/question2/" + encodeURIComponent(question2);
+                            }
+                        } else {
+                            iframe[0].src = "/member-center/tools#module/member/action/dragAuth/username/" + encodeURIComponent(username) + "/password/" + encodeURIComponent(password);
+
+                        }
+                        iframe.show();
+                    }
+                } else {
+                    var backurl = loginForm.find("input[name='backurl']").val();
+                    if (backurl) {
+                        window.location = backurl;
+                    } else {
+                        window.location.reload();
+                    }
+                }
+                if (result.returnMessage) {
+                    var doLocation = function () {
+                        if (!result.returnMessage.location) {
+                            return;
+                        }
+                        window.location = result.returnMessage.location;
+                    };
+                    var notices = result.returnMessage.notices || ((result.returnCode != "0" && typeof result.returnMessage === "string") ? [result.returnMessage] : null);
+                    if (notices && notices.length > 0) {
+                        alert(notices.join("\n"));
+                    } else {
+                        doLocation();
+                    }
+                }
+            },
+            error: function () {
+                alert("网络不稳定或服务器忙，请稍后再试。");
+            },
+            complete: function () {
+                mask.hide();
+                requesting = false;
+            }
+        });
+        return false;
+    };
+    setTimeout(function () {
+        if (window.inputCheck !== check) {
+            oldInputCheck = window.inputCheck;
+            window.inputCheck = check;
+        }
+    }, 300);
+    $(document).on("touchstart mousemove", function () {
+        if (window.inputCheck !== check) {
+            oldInputCheck = window.inputCheck;
+            window.inputCheck = check;
+        }
+    });
+    $(function () {
+        var form = $(queryStr);
+        form.each(function () {
+            this.onsubmit = check;
+        });
+    });
+})();

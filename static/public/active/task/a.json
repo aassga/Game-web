@@ -1,0 +1,44 @@
+{
+  "sign": 1576995993,
+  "code": 200,
+  "status": "success",
+  "message": "成功",
+  "data": {
+    "1": {
+      "bet_money": "500000",
+      "order_obtain": [0,2]
+    },
+    "2": {
+      "bet_money": "30000",
+      "order_obtain": [1]
+    },
+    "3": {
+      "bet_money": "5000",
+      "order_obtain": []
+    },
+    "4": {
+      "bet_money": "500",
+      "order_obtain": []
+    },
+    "5": {
+      "bet_money": "500000",
+      "order_obtain": []
+    },
+    "6": {
+      "bet_money": "500000",
+      "order_obtain": []
+    },
+    "7": {
+      "bet_money": "500000",
+      "order_obtain": []
+    },
+    "8": {
+      "bet_money": "500000",
+      "order_obtain": []
+    },
+    "9": {
+      "bet_money": "500000",
+      "order_obtain": []
+    }
+  }
+}

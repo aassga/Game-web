@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%; overflow-y:scroll; background-color: #49392b;">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>争霸赛-我的排名</title>
+  <link rel="stylesheet" href="./css/public.css">
+  <script src="./../../../lib/js/qs.min.js"></script>
+  <script src="../../../lib/js/crypto-js.min.js"></script>
+  <script src="../../../lib/js/jsencrypt.min.js"></script>
+  <script src="./../../../lib/js/axios.min.js"></script>
+  <script src="./../../../lib/js/cryptoConfig.js"></script>
+  <script src="../js/config.js"></script>
+</head>
+
+<body>
+  <div class="myrank" id="myrank" v-cloak>
+    <div class="show-msg">
+      <div>
+        <p class="title-img"><span>我的累计奖金</span></p>
+        <p class="hight-bouns">
+          <div v-if="rewardList.sum === null || rewardList.sum === undefined" class="no-data-border"></div>
+          <span v-else>{{rewardList.sum}} 元</span>
+        </p>
+      </div>
+      <div class="hr-border"></div>
+      <div>
+        <p class="title-img"><span>累计最高排名</span></p>
+        <div class="hight-rank">
+          <div v-if="rewardList.best_rank === null || rewardList.sum === undefined " class="no-data-border"></div>
+          <img v-if="rewardList.best_rank <= 3" class="rank-img" :src="hightRank[rewardList.best_rank]" alt="">
+          <span v-if="rewardList.best_rank > 3">{{rewardList.best_rank}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="myrank-list">
+      <table style="width:100%">
+        <thead class="header-title">
+          <tr>
+            <td>获奖时间</td>
+            <td>排名</td>
+            <td>奖金</td>
+          </tr>
+        </thead>
+        <tbody v-if="rewardList.list" class="body-content">
+          <tr v-for="item in rewardListData" :key="item.i">
+            <td>{{item.reward_date}}</td>
+            <td>
+              <img v-if="rewardList.best_rank <= 3" class="rank-img" :src="hightRank[item.rank]" alt="">
+              <span v-if="item.rank > 3">{{item.rank}}</span>
+            </td>
+            <td>{{item.reward_amount}} 元</td>
+          </tr>
+        </tbody>
+      </table>
+      <div v-if="!rewardList.list" class="no-data">
+        <img src="./images/no_data.png" alt="">
+        <p>暂无数据</p>
+      </div>
+    </div>
+</div>
+</body>
+
+<script src="./../../../lib/js/vue.min.js"></script>
+<script src="./../../../lib/js/element-ui.js"></script>
+<script src="./../../../lib/js/vue-router.js"></script>
+<script src="./../../../lib/js/moment.min.js"></script>
+<script src="./../../../lib/js/moment-with-locales.min.js"></script>
+
+
+<script type="text/javascript">
+  axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
+
+  new Vue({
+    el: '#myrank',
+    data: {
+      params: {
+        stage: '',
+      },
+      rewardList: [],
+      rewardListData:[],
+      hightRank: {
+        1: "./images/one.png",
+        2: "./images/two.png",
+        3: "./images/three.png",
+      }
+    },
+    mounted() {
+      this.updateToken()
+    },
+    methods: {
+      updateToken(){
+        requireToken()
+        this.getRewardHistory()
+      },
+      getRewardHistory() {
+        axios.get(getRewardHistory, {
+            headers: {
+              Authorization: localStorage.getItem('token')
+            }
+          })
+          .then((res) => {
+            //tset
+              // this.rewardList = {
+              //     "list": [// 获奖记录
+              //         {
+              //             "rank": 1,
+              //             "userName": "cheng99999",
+              //             "reward_amount": "0.00",
+              //             "reward_date": 0
+              //         },
+              //         {
+              //             "rank": 2,
+              //             "userName": "cheng99999",
+              //             "reward_amount": "0.00",
+              //             "reward_date": 0
+              //         },
+              //         {
+              //             "rank": 3,
+              //             "userName": "cheng99999",
+              //             "reward_amount": "0.00",
+              //             "reward_date": 0
+              //         },
+              //         {
+              //             "rank": 4,
+              //             "userName": "cheng99999",
+              //             "reward_amount": "0.00",
+              //             "reward_date": 0
+              //         },
+              //         {
+              //             "rank":8,
+              //             "userName": "cheng99999",
+              //             "reward_amount": "0.00",
+              //             "reward_date": 0
+              //         }
+              //     ],
+              //     "sum": 27864, // 奖金加总
+              //     "best_rank":3 // 最高得奖
+              // }
+              // this.rewardListData = this.rewardList.list
+
+              // this.rewardListData.forEach((res) => {
+              //   res.reward_date = moment(res.reward_date * 1000).format(
+              //     "YYYY-MM-DD HH:mm:ss"
+              //   );
+              // })
+              // return
+            //test
+            if (res.data !== undefined && res.data.code === 200) {
+              this.rewardList = res.data.data
+              this.rewardListData = res.data.data.list
+              this.rewardListData.forEach((res) => {
+                res.reward_date = moment(res.reward_date * 1000).format(
+                  "YYYY-MM-DD HH:mm:ss"
+                );
+              })
+            } else {
+              // return //test
+              this.$message({
+                message: res.data.message,
+                type: "error",
+              });
+            }
+          })
+          .catch((err) => {
+            console.log(err)
+          });
+        }
+    },
+  })
+
+</script>
+
+</html>

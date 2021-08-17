@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en" id="html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="renderer" content="webkit">
+  <style>
+    :root {
+      --font-1: 1.25vw;
+      --letter-spacing: .63px;
+      --background-color: #81050f;
+      --color: #fdddbc;
+      --width: 65%;
+      --top: 50vw;
+    }
+
+    body {
+      overflow-x: hidden;
+      font-family: 'Microsoft YaHei';
+      line-height: 1.75;
+      font-size: var(--font-1);
+      letter-spacing: var(--letter-spacing);
+      background-color: var(--background-color);
+      color: var(--color);
+      padding: 0;
+      margin: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    article {
+      position: relative;
+      text-align: left;
+    }
+
+    section {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    footer {
+      color: #333;
+      overflow: hidden;
+      position: absolute;
+      left: 59%;
+      bottom: 2%;
+    }
+
+    ul, li, p {
+      list-style-type: decimal;
+      padding: 0;
+      margin: 0;
+    }
+
+    .no-style-type ul, .no-style-type li {
+      list-style-type: none;
+    }
+
+    .info {
+      width: var(--width);
+      height: 100%;
+      margin: auto;
+      padding-top: var(--top);
+      z-index: 1;
+      box-sizing: border-box;
+    }
+
+    .bg {
+      width: 100vw;
+    }
+
+    .title {
+      /* line-height: 1.37; */
+      letter-spacing: 2.63px;
+      color: #fef45a;
+      margin-top: 2vw;
+      font-weight: normal;
+    }
+
+    .decimal {
+      position: relative;
+      margin: auto 1vw 3vw 1vw;
+    }
+
+    .decimal ul {
+      padding-left: 1.25rem;
+    }
+
+    .decimal li {
+      margin-bottom: 1rem;
+    }
+
+    .decimal-box {
+      width: 100%;
+      /* position: absolute;
+      top: 3.5vw; */
+      margin: auto;
+      /* padding-top: 2.385vw; */
+      line-height: normal;
+    }
+
+    .decimal-bg-pc {
+      width: 110%;
+      max-width: inherit;
+      position: relative;
+      right: -5%;
+      left: -5%;
+    }
+
+    .decimal-title {
+      width: 100%;
+      position: absolute;
+      top: 5.35vw;
+      margin: auto;
+      /* font-family: SourceHanSansCN; */
+      font-size: 2.35vw;
+      /* line-height: 0.42; */
+      letter-spacing: -0.92px;
+      text-align: center;
+      color: #f9cc38;
+      font-weight: normal;
+    }
+
+    .decimal-info {
+      width: 100%;
+      height: 49%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 1.575vw;
+      letter-spacing: 0.75px;
+      text-align: left;
+      color: #010101;
+      box-sizing: border-box;
+      position: absolute;
+      bottom: 3.5vw;
+    }
+
+    .decimal-text span, .decimal-text label {
+      display: table-cell;
+    }
+
+    .decimal-text .keep-all {
+      /* word-break: keep-all; */
+      white-space: nowrap;
+    }
+
+    .decimal-info p {
+      padding: .45vw 0;
+    }
+
+    .decimal-info span {
+      color: #a20000;
+    }
+
+    .pc {
+      display: block;
+    }
+
+    .h5, .en {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+
+    .btn {
+      width: 10vw;
+      max-width: 124px;
+      position: fixed;
+      top: 6vw;
+      right: 0;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .en {
+      font-family: Helvetica;
+    }
+
+    .en .decimal-title {
+      font-size: 1.55vw;
+      top: 5.95vw;
+    }
+
+    .en .decimal-info {
+      width: 97%;
+      height: 55%;
+      left: 1.5%;
+      font-size: 1.445vw;
+    }
+
+    .en .decimal-info p {
+      text-indent: -2.35vw;
+      padding-left: 2vw;
+    }
+
+    @media screen and (min-width: 1920px) {
+      /* body{
+          font-size: 25px;
+      }
+      .decimal-title{
+          font-size: 46px;
+      }
+      .decimal-info{
+          font-size: 30px;
+      } */
+    }
+
+    @media screen and (max-width: 968px) {
+      .pc {
+        display: none;
+      }
+
+      .h5 {
+        display: block;
+      }
+
+      :root {
+        --font-1: 3.635vw;
+        --letter-spacing: .63px;
+        --background-color: red;
+        --color: #fdddbc;
+        --width: 90%;
+        --top: 88vw;
+      }
+
+      .decimal {
+        margin: auto 0 20px 0;
+      }
+
+      .decimal-title {
+        font-size: 5.725vw;
+        top: 17vw;
+        /* font-size: 24px; */
+      }
+
+      .decimal-box {
+        top: 12.25vw;
+        margin: auto;
+      }
+
+      .decimal-info {
+        width: 82%;
+        margin: auto;
+        left: 9%;
+        bottom: 12vw;
+        font-size: 3.875vw;
+        /* font-size: 16px; */
+      }
+
+      .decimal-info p {
+        padding: 3.5vw 0;
+      }
+
+      .title {
+        margin-top: 14vw;
+      }
+
+      .btn {
+        width: 44px;
+        top: 15px;
+        right: 10px;
+      }
+
+      footer {
+        width: 100%;
+        left: 0;
+        bottom: 4vw;
+        text-align: center;
+      }
+
+      .en {
+        line-height: 1.65;
+      }
+
+      .en .title {
+        margin-top: 8vw;
+      }
+
+      .en .decimal-title {
+        font-size: 4.83092vw;
+        top: 19.95vw;
+      }
+
+      .en .decimal-info {
+        width: 75%;
+        height: 52%;
+        left: 12.5%;
+        font-size: 3.6232vw;
+      }
+
+      .en .line-up label {
+        display: block;
+        font-weight: bold;
+        padding-top: 4px;
+      }
+
+      .en .decimal-info p {
+        text-indent: -6.35vw;
+        padding-left: 6vw;
+      }
+    }
+  </style>
+</head>
+<body>
+<article class="layout" data-id="en">
+  <img class="pc bg center img" src="./image/210129/bg_img.jpg"/>
+  <!--  <img class="pc btn img" src="./image/210129/float_cn.png" />-->
+  <img class="h5 bg center img" src="./image/210129/landingpage_bg_cn.jpg"/>
+  <!--  <img class="h5 btn img" src="./image/210129/btn_lang_selector_cn.png" />-->
+  <section>
+    <!-- 簡中 -->
+    <div class="info zh warp">
+      <div class="decimal">
+        <p data-id="txt-1">活动日期：2021/02/07～2021/02/16（北京时间）</p>
+        <p data-id="txt-2">活动时间：每日00:00:00～23:59:59</p>
+        <p class="decimal-text"><span class="keep-all" data-id="txt-3">活动内容：</span><span data-id="txt-4">BG百万红包 ‧ 贺新春 ‧ 牛转乾坤 ‧ 赢红包，新春一路发发发发！</span>
+        </p>
+        <p data-id="txt-5">活动指定游戏：BG视讯厅全部游戏</p>
+        <p data-id="txt-6">活动资格：所有真钱賬户</p>
+        <p data-id="txt-7">开放币别： CNY、THB、VND、MYR、USD。</p>
+      </div>
+      <div class="decimal">
+        <h2 class="title" data-id="txt-8">奖金获取方式</h2>
+        <div class="decimal-box">
+          <img class="pc decimal-bg decimal-bg-pc img-path" src="./image/210129/bg_prize_pool.png"/>
+          <img class="h5 decimal-bg img-path" src="./image/210129/content_box_cn.png"/>
+          <h1 class="decimal-title" data-id="txt-9">金牛报喜：牛转钱坤 赢红包!</h1>
+          <div class="decimal-info">
+            <p data-id="txt-10">（一）<span data-id="txt-11">每局有效投注，无论输赢，</span>皆有机会获得我们送出的现金红包。</p>
+            <p data-id="txt-13">（二）<span data-id="txt-14">每局有效投注，并累积六局，</span>皆有机会获得额外的惊喜红包。</p>
+          </div>
+        </div>
+      </div>
+      <div class="decimal">
+        <h2 class="title" data-id="txt-16">活动规则</h2>
+        <ul>
+          <li data-id="txt-17">红包奖金无需申请，我们会在活动结束后自动派送至会员賬户。</li>
+          <li data-id="txt-18">活动规则如有调整，恕不另行通知，BG大遊保留本次活动最终解释权。如有任何疑问，请联络在线客服。</li>
+        </ul>
+      </div>
+      <div class="decimal no-style-type">
+        <h2 class="title" data-id="txt-19">须知事项</h2>
+        <ul>
+          <li data-id="txt-20">活动奖金成本，由BG大遊全额承担。</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+  <footer>
+    <p>版权声明:Copyright © BG大遊版权所有 Reserved</p>
+  </footer>
+</article>
+</body>
+</html>
